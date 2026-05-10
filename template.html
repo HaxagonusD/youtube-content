@@ -3,10 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Video Script Template</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { overscroll-behavior: none; -webkit-overflow-scrolling: auto; }
   :root {
     --bg: #0d0d0d; --surface: #141414; --border: #1f1f1f;
     --accent: #e8d5a3; --accent-dim: #b8a576;
@@ -22,7 +26,7 @@
   .hero h1 em { font-style: italic; color: var(--accent); }
 
   .container { max-width: 780px; margin: 0 auto; padding: 0 40px 120px; }
-  .section { padding: 56px 0 0; border-top: 1px solid var(--border); margin-top: 56px; }
+  .section { padding: 56px 36px 0; border-top: 1px solid var(--border); margin-top: 56px; }
   .section-label { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px; }
   .section-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bg); background: var(--accent); padding: 3px 10px; border-radius: 2px; }
   .section-tag.beat { background: #6b8cae; }
@@ -33,11 +37,64 @@
   .section-subtitle { font-family: 'Playfair Display', serif; font-size: 13px; font-style: italic; color: var(--muted); }
   .section p { font-size: 17px; font-weight: 300; color: var(--text); margin-bottom: 18px; line-height: 1.35; }
   .section p:last-child { margin-bottom: 0; }
+  .section p:has(.shot-marker) { display: flex; align-items: start; gap: 8px; }
+  .section p .shot-marker { flex-shrink: 0; width: 36px; margin-top: 2px; }
+  .shot-text { flex: 1; min-width: 0; }
+  .pull:has(.shot-marker),
+  .crystallize:has(.shot-marker) { display: flex; align-items: start; gap: 8px; }
+  .pull .shot-marker,
+  .crystallize .shot-marker { flex-shrink: 0; width: 36px; margin-top: 4px; }
+  .pull .shot-text,
+  .crystallize .shot-text { flex: 1; min-width: 0; }
+  .pull:has(.shot-marker) { padding-left: 0; border-left: none; }
+  .pull:has(.shot-marker) .shot-text { border-left: 3px solid var(--accent); padding-left: 24px; }
   .pull { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.5vw, 24px); font-style: italic; color: var(--accent); border-left: 3px solid var(--accent); padding: 12px 0 12px 24px; margin: 32px 0; line-height: 1.5; }
   .crystallize { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); padding: 28px 32px; margin: 32px 0; border-radius: 0 4px 4px 0; }
   .crystallize p { font-family: 'Playfair Display', serif !important; font-size: clamp(18px, 2.5vw, 22px) !important; font-weight: 700 !important; font-style: italic; color: #fff !important; line-height: 1.4 !important; margin: 0 !important; }
   .stat { display: inline-block; background: var(--label-bg); border: 1px dashed #333; color: var(--accent); font-family: 'Playfair Display', serif; font-style: italic; padding: 1px 8px; border-radius: 3px; font-size: 0.95em; }
   footer { text-align: center; padding: 40px; color: #333; font-size: 12px; letter-spacing: 0.1em; border-top: 1px solid var(--border); }
+
+  /* VIEW TOGGLE */
+  #view-toggle {
+    position: relative;
+    display: flex;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 3px;
+    gap: 0;
+  }
+  .vtab {
+    position: relative; z-index: 1;
+    background: none; border: none;
+    color: var(--muted);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 4px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+  }
+  .vtab.active { color: #0d0d0d; }
+  .vtab:not(.active):hover { color: var(--text); }
+  #vtab-indicator {
+    position: absolute;
+    top: 3px; bottom: 3px;
+    border-radius: 4px;
+    background: var(--accent);
+    transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+  }
+
+  /* SECTION TRANSITIONS */
+  .section {
+    transition: grid-template-columns 0.3s ease;
+  }
+  .container, .hero {
+    transition: max-width 0.3s ease, opacity 0.15s ease;
+  }
 
   #vbar {
     position: sticky; bottom: 0; left: 0; right: 0; z-index: 300;
@@ -59,6 +116,7 @@
     transition: border-color 0.15s, color 0.15s;
   }
   .vbtn:hover { border-color: var(--accent); color: var(--accent); }
+  #btn-fullscreen { padding: 6px 10px; font-size: 14px; line-height: 1; }
 
   #vpanel {
     position: sticky; bottom: 52px; z-index: 290;
@@ -115,7 +173,23 @@
   #toast.show { opacity: 1; }
 
   /* ── PRODUCTION VIEW (music + shots) ── */
-  .music-cue { display: none; }
+  .music-cue {
+    display: none;
+    width: 240px; flex-shrink: 0;
+    opacity: 0; transform: translateX(100%);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+  }
+  body.show-music .music-cue {
+    display: block;
+    width: 240px; flex-shrink: 0;
+    visibility: hidden;
+  }
+  body.show-music-visible .music-cue {
+    visibility: visible;
+    opacity: 1; transform: translateX(0);
+    pointer-events: auto;
+  }
   body.show-music .container,
   body.show-music .hero,
   body.show-shots .container,
@@ -126,9 +200,6 @@
     display: flex; gap: 56px; align-items: flex-start;
   }
   body.show-music .section-body { flex: 1; min-width: 0; }
-  body.show-music .music-cue {
-    display: block; width: 240px; flex-shrink: 0;
-  }
   body.show-shots .section {
     display: grid;
     grid-template-columns: 1fr 340px;
@@ -136,9 +207,9 @@
     align-items: start;
     border-radius: 6px;
     transition: background 0.15s ease;
-    padding: 56px 16px 0;
-    margin-left: -16px;
-    margin-right: -16px;
+    padding: 56px 36px 0;
+    margin-left: -36px;
+    margin-right: -36px;
     border-top: 1px solid var(--border);
     margin-top: 0;
   }
@@ -196,10 +267,24 @@
   }
 
   /* ── SHOT LIST ── */
-  .shot-list { display: none; }
+  .shot-list {
+    display: none;
+    opacity: 0; transform: translateX(100%);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+  }
   body.show-shots .shot-list {
-    display: block; margin-top: 36px; padding-top: 22px;
-    border-top: 1px dashed #2a2a2a;
+    display: block;
+    visibility: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px 22px;
+  }
+  body.show-shots-visible .shot-list {
+    visibility: visible;
+    opacity: 1; transform: translateX(0);
+    pointer-events: auto;
   }
   .shot-list-label {
     font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
@@ -208,7 +293,8 @@
   }
   .shot {
     display: grid; grid-template-columns: 28px 78px 1fr;
-    gap: 14px; margin-bottom: 14px; align-items: start;
+    gap: 14px; margin-bottom: 6px; align-items: start;
+    padding: 10px 12px; border-radius: 4px;
   }
   .shot-num {
     font-family: 'Open Sans', sans-serif;
@@ -235,6 +321,61 @@
   }
   .shot-desc em {
     color: var(--accent-dim); font-style: italic;
+  }
+
+  /* ── INLINE SHOT MARKERS ── */
+  .shot-marker {
+    display: none;
+  }
+  body.show-shots .shot-marker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--accent-dim);
+    background: var(--label-bg);
+    border: 1px solid #2a2418;
+    border-radius: 3px;
+    padding: 1px 6px;
+    margin-right: 0;
+    vertical-align: middle;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+    justify-self: center;
+    margin-top: 2px;
+  }
+  body.show-shots .shot-marker::after {
+    content: '';
+    position: absolute;
+    right: -24px;
+    top: 50%;
+    width: 16px;
+    height: 1px;
+    border-top: 1px dashed #2a2418;
+  }
+
+  /* ── SHOT HOVER LINKING ── */
+  .shot-marker.shot-hover,
+  body.show-shots .shot-marker.shot-hover {
+    background: rgba(232, 213, 163, 0.15);
+    border-color: var(--accent-dim);
+    color: var(--accent);
+  }
+  .shot.shot-hover {
+    background: rgba(232, 213, 163, 0.08);
+    border-radius: 4px;
+    outline: 1px solid rgba(232, 213, 163, 0.22);
+  }
+  .script-el-hover {
+    background: rgba(232, 213, 163, 0.06);
+    outline: 1px solid rgba(232, 213, 163, 0.15);
+    border-radius: 4px;
+    transition: background 0.15s ease;
+  }
+  p.script-el-hover {
+    outline-offset: 8px;
   }
 
   /* ── PLATFORM TABS ── */
@@ -266,63 +407,6 @@
   }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
-
-  /* VIEW TOGGLE */
-  #view-toggle {
-    position: relative;
-    display: flex;
-    background: #111;
-    border: 1px solid #2a2a2a;
-    border-radius: 6px;
-    padding: 3px;
-    gap: 0;
-  }
-  .vtab {
-    position: relative; z-index: 1;
-    background: none; border: none;
-    color: var(--muted);
-    font-family: 'Open Sans', sans-serif;
-    font-size: 11px; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 5px 14px; border-radius: 4px;
-    cursor: pointer;
-    transition: color 0.2s ease;
-    white-space: nowrap;
-  }
-  .vtab.active { color: #0d0d0d; }
-  .vtab:not(.active):hover { color: var(--text); }
-  #vtab-indicator {
-    position: absolute;
-    top: 3px; bottom: 3px;
-    border-radius: 4px;
-    background: var(--accent);
-    transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-                width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
-  }
-
-  /* SECTION TRANSITIONS */
-  .section {
-    transition: grid-template-columns 0.3s ease;
-  }
-  .music-cue, .shot-list {
-    transition: opacity 0.25s ease, transform 0.25s ease;
-  }
-  body:not(.show-music) .music-cue {
-    opacity: 0; transform: translateX(12px); pointer-events: none;
-  }
-  body.show-music .music-cue {
-    opacity: 1; transform: translateX(0);
-  }
-  body:not(.show-shots) .shot-list {
-    opacity: 0; transform: translateX(12px); pointer-events: none;
-  }
-  body.show-shots .shot-list {
-    opacity: 1; transform: translateX(0);
-  }
-  .container, .hero {
-    transition: max-width 0.3s ease;
-  }
 
   /* hide view toggle unless on YouTube tab */
   body:not([data-tab="youtube"]) #view-toggle { display: none; }
@@ -389,6 +473,8 @@
 </div>
 
 <div class="container" id="content-block">
+
+  <!-- Add sections here -->
 
   <div class="section">
     <div class="section-label"><span class="section-tag hook">Hook</span></div>
@@ -557,12 +643,13 @@
   </div>
   <div style="display:flex;gap:8px;align-items:center;">
     <div id="view-toggle">
+      <button class="vtab" data-view="music">Music</button>
       <button class="vtab" data-view="script">Script</button>
       <button class="vtab" data-view="shots">Shots</button>
-      <button class="vtab" data-view="music">Music</button>
       <div id="vtab-indicator"></div>
     </div>
     <button class="vbtn" id="btn-history">History</button>
+    <button class="vbtn" id="btn-fullscreen" title="Toggle fullscreen">⛶</button>
   </div>
 </div>
 
@@ -733,13 +820,54 @@ function injectMusicCues() {
         `).join('')}
       `;
       section.appendChild(list);
+
+      // inject inline markers and wire up bidirectional hover
+      const scriptEls = Array.from(body.querySelectorAll(':scope > p, :scope > .pull, :scope > .crystallize'));
+      const shotRows = Array.from(list.querySelectorAll('.shot'));
+      shots.forEach((s, j) => {
+        const el = scriptEls[j];
+        const shotRow = shotRows[j];
+        if (!el) return;
+
+        const marker = document.createElement('span');
+        marker.className = 'shot-marker';
+        marker.textContent = String(j + 1).padStart(2, '0');
+        el.insertBefore(marker, el.firstChild);
+
+        // Wrap remaining content in .shot-text so flex can target it
+        const shotText = document.createElement('span');
+        shotText.className = 'shot-text';
+        while (marker.nextSibling) {
+          shotText.appendChild(marker.nextSibling);
+        }
+        el.appendChild(shotText);
+
+        const highlight = () => {
+          marker.classList.add('shot-hover');
+          el.classList.add('script-el-hover');
+          if (shotRow) shotRow.classList.add('shot-hover');
+        };
+        const unhighlight = () => {
+          marker.classList.remove('shot-hover');
+          el.classList.remove('script-el-hover');
+          if (shotRow) shotRow.classList.remove('shot-hover');
+        };
+
+        marker.addEventListener('mouseenter', highlight);
+        marker.addEventListener('mouseleave', unhighlight);
+        el.addEventListener('mouseenter', highlight);
+        el.addEventListener('mouseleave', unhighlight);
+        if (shotRow) {
+          shotRow.addEventListener('mouseenter', highlight);
+          shotRow.addEventListener('mouseleave', unhighlight);
+        }
+      });
     }
   });
 }
 
 async function loadMode() {
   let view = 'script';
-  try {
   try {
     const r = await window.storage.get('tmpl_active_view');
     if (r && r.value) view = r.value;
@@ -748,9 +876,147 @@ async function loadMode() {
 }
 
 function setView(view, save = true) {
-  document.body.classList.remove('show-music', 'show-shots');
-  if (view === 'music') document.body.classList.add('show-music');
-  if (view === 'shots') document.body.classList.add('show-shots');
+  const wasMusic = document.body.classList.contains('show-music');
+  const wasShots = document.body.classList.contains('show-shots');
+  const isChanging = wasMusic || wasShots || view !== 'script';
+
+  // ── Panel-to-panel transition (shots ↔ music) ───────────────────────────
+  if ((wasShots && view === 'music') || (wasMusic && view === 'shots')) {
+    const direction  = wasShots ? 'right' : 'left';
+    const exitX      = direction === 'right' ? '100%' : '-100%';
+    const enterX     = direction === 'right' ? '-100%' : '100%';
+    const inView     = view;
+    const inVisible  = `show-${inView}-visible`;
+    const outView    = wasShots ? 'shots' : 'music';
+    const outVisible = `show-${outView}-visible`;
+
+    // Lock all section heights before swapping layout classes
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(s => {
+      s.style.height   = s.offsetHeight + 'px';
+      s.style.overflow = 'hidden';
+    });
+    setTimeout(() => sections.forEach(s => { s.style.height = ''; s.style.overflow = ''; }), 350);
+
+    document.body.classList.remove(outVisible, inVisible);
+    document.body.classList.add(`show-${inView}`);
+
+    const outEls = Array.from(document.querySelectorAll(wasShots ? '.shot-list' : '.music-cue'));
+    const inEls  = Array.from(document.querySelectorAll(wasShots ? '.music-cue' : '.shot-list'));
+
+    outEls.forEach(el => {
+      el.style.transition    = 'opacity 0.25s ease, transform 0.25s ease';
+      el.style.transform     = `translateX(${exitX})`;
+      el.style.opacity       = '0';
+      el.style.pointerEvents = 'none';
+    });
+
+    inEls.forEach(el => {
+      el.style.transition    = 'none';
+      el.style.transform     = `translateX(${enterX})`;
+      el.style.opacity       = '0';
+      el.style.pointerEvents = 'none';
+    });
+
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      inEls.forEach(el => {
+        el.style.transition    = 'opacity 0.25s ease, transform 0.25s ease';
+        el.style.transform     = 'translateX(0)';
+        el.style.opacity       = '1';
+        el.style.pointerEvents = 'auto';
+      });
+    }));
+
+    setTimeout(() => {
+      outEls.forEach(el => {
+        el.style.transition = el.style.transform = el.style.opacity = el.style.pointerEvents = '';
+      });
+      document.body.classList.remove(`show-${outView}`);
+      inEls.forEach(el => {
+        el.style.transition = el.style.transform = el.style.opacity = el.style.pointerEvents = '';
+      });
+      document.body.classList.add(inVisible);
+    }, 270);
+
+    document.querySelectorAll('.vtab').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.view === view);
+    });
+    const indicator = document.getElementById('vtab-indicator');
+    const activeBtn = document.querySelector(`.vtab[data-view="${view}"]`);
+    if (activeBtn && indicator) {
+      const parent    = document.getElementById('view-toggle');
+      const parentRect = parent.getBoundingClientRect();
+      const btnRect   = activeBtn.getBoundingClientRect();
+      indicator.style.left  = (btnRect.left - parentRect.left - 3) + 'px';
+      indicator.style.width = btnRect.width + 'px';
+    }
+
+    if (save) {
+      try { window.storage.set('tmpl_active_view', view); } catch(e) {}
+    }
+    return;
+  }
+
+  // ── All other transitions (script ↔ shots, script ↔ music) ──────────────
+  const container = document.querySelector('.container');
+  if (container && isChanging) {
+    container.style.opacity = '0';
+  }
+
+  const swapClasses = () => {
+    // Lock section heights before class swap so reflow doesn't cause page jump
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(s => {
+      s.style.height = s.offsetHeight + 'px';
+      s.style.overflow = 'hidden';
+    });
+
+    document.body.classList.remove('show-music-visible', 'show-shots-visible');
+
+    if (view === 'music') {
+      document.body.classList.remove('show-shots');
+      document.body.classList.add('show-music');
+      requestAnimationFrame(() => {
+        document.body.classList.add('show-music-visible');
+      });
+    } else if (view === 'shots') {
+      document.body.classList.remove('show-music');
+      document.body.classList.add('show-shots');
+      requestAnimationFrame(() => {
+        document.body.classList.add('show-shots-visible');
+      });
+    } else {
+      if (wasMusic) {
+        setTimeout(() => document.body.classList.remove('show-music'), 250);
+      } else {
+        document.body.classList.remove('show-music');
+      }
+      if (wasShots) {
+        setTimeout(() => document.body.classList.remove('show-shots'), 250);
+      } else {
+        document.body.classList.remove('show-shots');
+      }
+    }
+
+    // Release height locks after panel animation completes
+    setTimeout(() => {
+      sections.forEach(s => {
+        s.style.height = '';
+        s.style.overflow = '';
+      });
+    }, 350);
+
+    // Fade container back in
+    if (container) {
+      requestAnimationFrame(() => { container.style.opacity = '1'; });
+    }
+  };
+
+  if (container && isChanging) {
+    setTimeout(swapClasses, 150);
+  } else {
+    swapClasses();
+  }
 
   document.querySelectorAll('.vtab').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.view === view);
@@ -775,6 +1041,19 @@ document.querySelectorAll('.vtab').forEach(btn => {
   btn.addEventListener('click', () => setView(btn.dataset.view));
 });
 
+document.getElementById('btn-fullscreen').addEventListener('click', () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+});
+document.addEventListener('fullscreenchange', () => {
+  const btn = document.getElementById('btn-fullscreen');
+  btn.textContent = document.fullscreenElement ? '✕' : '⛶';
+  btn.title = document.fullscreenElement ? 'Exit fullscreen' : 'Toggle fullscreen';
+});
+
 async function loadTab() {
   let tab = 'youtube';
   try {
@@ -792,6 +1071,20 @@ function setActiveTab(tab, save = true) {
     c.classList.toggle('active', c.dataset.tab === tab);
   });
   document.body.dataset.tab = tab;
+  // Re-position the vtab indicator when the YouTube tab becomes visible,
+  // since #view-toggle is display:none on other tabs so getBoundingClientRect()
+  // returns 0 when setView() runs during initial load.
+  if (tab === 'youtube') {
+    const activeBtn = document.querySelector('.vtab.active');
+    const indicator = document.getElementById('vtab-indicator');
+    const parent = document.getElementById('view-toggle');
+    if (activeBtn && indicator && parent) {
+      const parentRect = parent.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      indicator.style.left = (btnRect.left - parentRect.left - 3) + 'px';
+      indicator.style.width = btnRect.width + 'px';
+    }
+  }
   if (save) {
     try { window.storage.set('tmpl_active_tab', tab); } catch(e) {}
   }
@@ -926,7 +1219,9 @@ window.addEventListener('scroll', () => {
 
 (async () => {
   injectMusicCues();
-  await loadMode();
+  loadMode(); // rough pass so indicator appears immediately
+  await document.fonts.ready;
+  await loadMode(); // corrected pass after fonts shift button widths
   await loadTab();
   await loadVersions();
 
@@ -951,6 +1246,13 @@ window.addEventListener('scroll', () => {
   updateBadge();
   renderList();
 })();
+
+document.addEventListener('touchmove', (e) => {
+  if (!document.fullscreenElement) return;
+  if (window.scrollY === 0 && e.touches[0].clientY > 0) {
+    e.preventDefault();
+  }
+}, { passive: false });
 </script>
 </body>
 </html>
