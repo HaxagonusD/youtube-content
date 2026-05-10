@@ -92,7 +92,7 @@
     transition: grid-template-columns 0.3s ease;
   }
   .container, .hero {
-    transition: max-width 0.3s ease;
+    transition: max-width 0.3s ease, opacity 0.15s ease;
   }
 
   #vbar {
@@ -363,9 +363,13 @@
     outline: 1px solid rgba(232, 213, 163, 0.22);
   }
   .script-el-hover {
+    background: rgba(232, 213, 163, 0.06);
     outline: 1px solid rgba(232, 213, 163, 0.15);
-    border-radius: 3px;
-    background: rgba(232, 213, 163, 0.04);
+    border-radius: 4px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: -8px;
+    margin-bottom: -8px;
     transition: background 0.15s ease;
   }
 
