@@ -180,11 +180,12 @@
     pointer-events: none;
   }
   body.show-music .music-cue {
-    /* Use visibility (not display:none) so the element stays in the flex
-       layout and holds its column position — eliminates the bottom-flash
-       caused by the element briefly rendering at its DOM position before
-       the flex row recalculates. */
+    /* position:absolute removes the panel from flex flow so it never
+       stretches the section height while sliding in/out */
     display: block;
+    position: absolute;
+    top: 56px; right: 36px;
+    width: 240px;
     visibility: hidden;
   }
   body.show-music-visible .music-cue {
@@ -199,12 +200,14 @@
   body.show-music .section,
   body.show-shots .section { position: relative; }
   body.show-music .section {
-    display: flex; gap: 56px; align-items: flex-start;
+    display: block;
+    /* right padding reserves space for the absolute-positioned music panel */
+    padding-right: calc(36px + 240px + 56px);
   }
-  body.show-music .section-body { flex: 1; min-width: 0; }
+  body.show-music .section-body { min-width: 0; }
   body.show-shots .section {
     display: grid;
-    grid-template-columns: 1fr 340px;
+    grid-template-columns: 1fr;
     gap: 0 40px;
     align-items: start;
     border-radius: 6px;
@@ -214,13 +217,18 @@
     margin-right: -36px;
     border-top: 1px solid var(--border);
     margin-top: 0;
+    /* right padding reserves space for the absolute-positioned shot list */
+    padding-right: calc(36px + 340px + 40px);
   }
   body.show-shots .section:hover {
     background: rgba(232, 213, 163, 0.025);
   }
   body.show-shots .shot-list {
-    grid-column: 2;
-    grid-row: 1 / 99;
+    /* position:absolute removes the panel from grid flow so it never
+       stretches the section height while sliding in/out */
+    position: absolute;
+    top: 56px; right: 36px;
+    width: 340px;
     align-self: start;
     margin-top: 0;
   }
@@ -276,8 +284,6 @@
     pointer-events: none;
   }
   body.show-shots .shot-list {
-    /* Use visibility (not display:none) so the element stays in the grid
-       layout and holds its column position — eliminates the bottom-flash. */
     display: block;
     visibility: hidden;
     background: var(--surface);
@@ -289,12 +295,6 @@
     visibility: visible;
     opacity: 1; transform: translateX(0);
     pointer-events: auto;
-  }
-
-  /* Clipping container for panel slide transitions */
-  body.show-shots .section,
-  body.show-music .section {
-    overflow: hidden;
   }
   .shot-list-label {
     font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
