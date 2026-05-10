@@ -2136,16 +2136,8 @@ function setView(view, save = true) {
         document.body.classList.add('show-shots-visible');
       });
     } else {
-      if (wasMusic) {
-        setTimeout(() => document.body.classList.remove('show-music'), 250);
-      } else {
-        document.body.classList.remove('show-music');
-      }
-      if (wasShots) {
-        setTimeout(() => document.body.classList.remove('show-shots'), 250);
-      } else {
-        document.body.classList.remove('show-shots');
-      }
+      // Remove instantly while container is invisible — fade covers the layout snap
+      document.body.classList.remove('show-music', 'show-shots');
     }
 
     // Fade container back in
