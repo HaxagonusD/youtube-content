@@ -2113,48 +2113,68 @@ async function loadMode() {
 function setView(view, save = true) {
   const wasMusic = document.body.classList.contains('show-music');
   const wasShots = document.body.classList.contains('show-shots');
+  const isChanging = wasMusic || wasShots || view !== 'script';
 
-  // Remove visible classes immediately (starts fade-out)
-  document.body.classList.remove('show-music-visible', 'show-shots-visible');
+  // Fade the main content area out, swap view classes, then fade back in
+  const container = document.querySelector('.container');
+  if (container && isChanging) {
+    container.style.opacity = '0';
+  }
 
-  if (view === 'music') {
-    // If leaving shots, delay removing show-shots until transition completes
-    if (wasShots) {
-      setTimeout(() => document.body.classList.remove('show-shots'), 250);
-    } else {
-      document.body.classList.remove('show-shots');
-    }
-    document.body.classList.add('show-music');
-    requestAnimationFrame(() => {
+  const swapClasses = () => {
+    // Remove visible classes immediately (starts panel fade-out)
+    document.body.classList.remove('show-music-visible', 'show-shots-visible');
+
+    if (view === 'music') {
+      // If leaving shots, delay removing show-shots until panel transition completes
+      if (wasShots) {
+        setTimeout(() => document.body.classList.remove('show-shots'), 250);
+      } else {
+        document.body.classList.remove('show-shots');
+      }
+      document.body.classList.add('show-music');
       requestAnimationFrame(() => {
-        document.body.classList.add('show-music-visible');
+        requestAnimationFrame(() => {
+          document.body.classList.add('show-music-visible');
+        });
       });
-    });
-  } else if (view === 'shots') {
-    // If leaving music, delay removing show-music until transition completes
-    if (wasMusic) {
-      setTimeout(() => document.body.classList.remove('show-music'), 250);
-    } else {
-      document.body.classList.remove('show-music');
-    }
-    document.body.classList.add('show-shots');
-    requestAnimationFrame(() => {
+    } else if (view === 'shots') {
+      // If leaving music, delay removing show-music until panel transition completes
+      if (wasMusic) {
+        setTimeout(() => document.body.classList.remove('show-music'), 250);
+      } else {
+        document.body.classList.remove('show-music');
+      }
+      document.body.classList.add('show-shots');
       requestAnimationFrame(() => {
-        document.body.classList.add('show-shots-visible');
+        requestAnimationFrame(() => {
+          document.body.classList.add('show-shots-visible');
+        });
       });
-    });
+    } else {
+      // Default/script view — delay removing both if they were active
+      if (wasMusic) {
+        setTimeout(() => document.body.classList.remove('show-music'), 250);
+      } else {
+        document.body.classList.remove('show-music');
+      }
+      if (wasShots) {
+        setTimeout(() => document.body.classList.remove('show-shots'), 250);
+      } else {
+        document.body.classList.remove('show-shots');
+      }
+    }
+
+    // Fade container back in
+    if (container) {
+      requestAnimationFrame(() => { container.style.opacity = '1'; });
+    }
+  };
+
+  if (container && isChanging) {
+    setTimeout(swapClasses, 150);
   } else {
-    // Default/script view — delay removing both if they were active
-    if (wasMusic) {
-      setTimeout(() => document.body.classList.remove('show-music'), 250);
-    } else {
-      document.body.classList.remove('show-music');
-    }
-    if (wasShots) {
-      setTimeout(() => document.body.classList.remove('show-shots'), 250);
-    } else {
-      document.body.classList.remove('show-shots');
-    }
+    swapClasses();
   }
 
   document.querySelectorAll('.vtab').forEach(btn => {
