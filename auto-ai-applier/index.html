@@ -2113,16 +2113,7 @@ function setView(view, save = true) {
   const wasShots = document.body.classList.contains('show-shots');
   const isChanging = wasMusic || wasShots || view !== 'script';
 
-  // ── Panel-to-panel transition (shots ↔ music) ───────────────────────────
-  // Route through Script as an intermediary so each leg uses the normal fade.
-  // This also naturally resolves height differences between the two panel views.
-  if ((wasShots && view === 'music') || (wasMusic && view === 'shots')) {
-    setView('script', false);
-    setTimeout(() => setView(view, save), 380);
-    return;
-  }
-
-  // ── All other transitions (script ↔ shots, script ↔ music) ──────────────
+  // ── Transitions (script ↔ shots, script ↔ music, shots ↔ music) ──────────
   // Use the original fade + class approach (panels slide in from right by default).
   const container = document.querySelector('.container');
   if (container && isChanging) {
