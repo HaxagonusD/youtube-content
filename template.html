@@ -93,7 +93,7 @@
     transition: grid-template-columns 0.3s ease;
   }
   .container, .hero {
-    transition: max-width 0.3s ease, opacity 0.15s ease;
+    transition: max-width 0.3s ease, opacity 0.25s ease;
   }
 
   #vbar {
@@ -896,13 +896,6 @@ function setView(view, save = true) {
   }
 
   const swapClasses = () => {
-    // Lock section heights before class swap so reflow doesn't cause page jump
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(s => {
-      s.style.height = s.offsetHeight + 'px';
-      s.style.overflow = 'hidden';
-    });
-
     document.body.classList.remove('show-music-visible', 'show-shots-visible');
 
     if (view === 'music') {
@@ -930,14 +923,6 @@ function setView(view, save = true) {
       }
     }
 
-    // Release height locks after panel animation completes
-    setTimeout(() => {
-      sections.forEach(s => {
-        s.style.height = '';
-        s.style.overflow = '';
-      });
-    }, 350);
-
     // Fade container back in
     if (container) {
       requestAnimationFrame(() => { container.style.opacity = '1'; });
@@ -945,7 +930,7 @@ function setView(view, save = true) {
   };
 
   if (container && isChanging) {
-    setTimeout(swapClasses, 150);
+    setTimeout(swapClasses, 250);
   } else {
     swapClasses();
   }
