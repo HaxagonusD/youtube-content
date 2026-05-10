@@ -2126,6 +2126,14 @@ function setView(view, save = true) {
     const outView    = wasShots ? 'shots' : 'music';
     const outVisible = `show-${outView}-visible`;
 
+    // Lock all section heights before swapping layout classes
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(s => {
+      s.style.height   = s.offsetHeight + 'px';
+      s.style.overflow = 'hidden';
+    });
+    setTimeout(() => sections.forEach(s => { s.style.height = ''; s.style.overflow = ''; }), 350);
+
     // Remove visible class on outgoing (triggers CSS fade-out but we'll override inline)
     document.body.classList.remove(outVisible, inVisible);
 
