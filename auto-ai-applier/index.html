@@ -2204,7 +2204,13 @@ function setView(view, save = true) {
   }
 
   const swapClasses = () => {
-    // Remove visible classes immediately (starts panel fade-out)
+    // Lock section heights before class swap so reflow doesn't cause page jump
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(s => {
+      s.style.height = s.offsetHeight + 'px';
+      s.style.overflow = 'hidden';
+    });
+
     document.body.classList.remove('show-music-visible', 'show-shots-visible');
 
     if (view === 'music') {
@@ -2220,7 +2226,6 @@ function setView(view, save = true) {
         document.body.classList.add('show-shots-visible');
       });
     } else {
-      // Returning to script — panels slide out to the right
       if (wasMusic) {
         setTimeout(() => document.body.classList.remove('show-music'), 250);
       } else {
@@ -2232,6 +2237,14 @@ function setView(view, save = true) {
         document.body.classList.remove('show-shots');
       }
     }
+
+    // Release height locks after panel animation completes
+    setTimeout(() => {
+      sections.forEach(s => {
+        s.style.height = '';
+        s.style.overflow = '';
+      });
+    }, 350);
 
     // Fade container back in
     if (container) {
