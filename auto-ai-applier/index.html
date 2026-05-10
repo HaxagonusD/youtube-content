@@ -88,21 +88,6 @@
   .section {
     transition: grid-template-columns 0.3s ease;
   }
-  .music-cue, .shot-list {
-    transition: opacity 0.25s ease, transform 0.25s ease;
-  }
-  body:not(.show-music) .music-cue {
-    opacity: 0; transform: translateX(12px); pointer-events: none;
-  }
-  body.show-music .music-cue {
-    opacity: 1; transform: translateX(0);
-  }
-  body:not(.show-shots) .shot-list {
-    opacity: 0; transform: translateX(12px); pointer-events: none;
-  }
-  body.show-shots .shot-list {
-    opacity: 1; transform: translateX(0);
-  }
   .container, .hero {
     transition: max-width 0.3s ease;
   }
@@ -184,7 +169,20 @@
   #toast.show { opacity: 1; }
 
   /* PRODUCTION VIEW (music + shots) */
-  .music-cue { display: none; }
+  .music-cue {
+    display: none;
+    width: 240px; flex-shrink: 0;
+    opacity: 0; transform: translateX(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+  }
+  body.show-music .music-cue {
+    display: block;
+  }
+  body.show-music-visible .music-cue {
+    opacity: 1; transform: translateX(0);
+    pointer-events: auto;
+  }
   body.show-music .container,
   body.show-music .hero,
   body.show-shots .container,
@@ -195,9 +193,6 @@
     display: flex; gap: 56px; align-items: flex-start;
   }
   body.show-music .section-body { flex: 1; min-width: 0; }
-  body.show-music .music-cue {
-    display: block; width: 240px; flex-shrink: 0;
-  }
   body.show-shots .section {
     display: grid;
     grid-template-columns: 1fr 340px;
@@ -265,13 +260,22 @@
   }
 
   /* SHOT LIST */
-  .shot-list { display: none; }
+  .shot-list {
+    display: none;
+    opacity: 0; transform: translateX(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+  }
   body.show-shots .shot-list {
     display: block;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: 20px 22px;
+  }
+  body.show-shots-visible .shot-list {
+    opacity: 1; transform: translateX(0);
+    pointer-events: auto;
   }
   .shot-list-label {
     font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
@@ -2100,9 +2104,51 @@ async function loadMode() {
 }
 
 function setView(view, save = true) {
-  document.body.classList.remove('show-music', 'show-shots');
-  if (view === 'music') document.body.classList.add('show-music');
-  if (view === 'shots') document.body.classList.add('show-shots');
+  const wasMusic = document.body.classList.contains('show-music');
+  const wasShots = document.body.classList.contains('show-shots');
+
+  // Remove visible classes immediately (starts fade-out)
+  document.body.classList.remove('show-music-visible', 'show-shots-visible');
+
+  if (view === 'music') {
+    // If leaving shots, delay removing show-shots until transition completes
+    if (wasShots) {
+      setTimeout(() => document.body.classList.remove('show-shots'), 250);
+    } else {
+      document.body.classList.remove('show-shots');
+    }
+    document.body.classList.add('show-music');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.body.classList.add('show-music-visible');
+      });
+    });
+  } else if (view === 'shots') {
+    // If leaving music, delay removing show-music until transition completes
+    if (wasMusic) {
+      setTimeout(() => document.body.classList.remove('show-music'), 250);
+    } else {
+      document.body.classList.remove('show-music');
+    }
+    document.body.classList.add('show-shots');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.body.classList.add('show-shots-visible');
+      });
+    });
+  } else {
+    // Default/script view — delay removing both if they were active
+    if (wasMusic) {
+      setTimeout(() => document.body.classList.remove('show-music'), 250);
+    } else {
+      document.body.classList.remove('show-music');
+    }
+    if (wasShots) {
+      setTimeout(() => document.body.classList.remove('show-shots'), 250);
+    } else {
+      document.body.classList.remove('show-shots');
+    }
+  }
 
   document.querySelectorAll('.vtab').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.view === view);
