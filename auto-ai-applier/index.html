@@ -2254,7 +2254,9 @@ window.addEventListener('scroll', () => {
 
 (async () => {
   injectMusicCues();
-  await loadMode();
+  loadMode(); // rough pass so indicator appears immediately
+  await document.fonts.ready;
+  await loadMode(); // corrected pass after fonts shift button widths
   await loadTab();
   await loadVersions();
 
