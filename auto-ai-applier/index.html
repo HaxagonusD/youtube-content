@@ -175,7 +175,7 @@
   .music-cue {
     display: none;
     width: 240px; flex-shrink: 0;
-    opacity: 0; transform: translateX(12px);
+    opacity: 0; transform: translateX(100%);
     transition: opacity 0.25s ease, transform 0.25s ease;
     pointer-events: none;
   }
@@ -265,7 +265,7 @@
   /* SHOT LIST */
   .shot-list {
     display: none;
-    opacity: 0; transform: translateX(12px);
+    opacity: 0; transform: translateX(100%);
     transition: opacity 0.25s ease, transform 0.25s ease;
     pointer-events: none;
   }
@@ -279,6 +279,12 @@
   body.show-shots-visible .shot-list {
     opacity: 1; transform: translateX(0);
     pointer-events: auto;
+  }
+
+  /* Clipping container for panel slide transitions */
+  body.show-shots .section,
+  body.show-music .section {
+    overflow: hidden;
   }
   .shot-list-label {
     font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
@@ -2115,7 +2121,91 @@ function setView(view, save = true) {
   const wasShots = document.body.classList.contains('show-shots');
   const isChanging = wasMusic || wasShots || view !== 'script';
 
-  // Fade the main content area out, swap view classes, then fade back in
+  // ── Panel-to-panel transition (shots ↔ music) ───────────────────────────
+  // Handle imperatively so the two panels slide in opposite directions simultaneously.
+  if ((wasShots && view === 'music') || (wasMusic && view === 'shots')) {
+    // shots → music: shots exit RIGHT (+100%), music enters from LEFT (-100%)  direction='right'
+    // music → shots: music exits LEFT (-100%), shots enter from RIGHT (+100%) direction='left'
+    const direction  = wasShots ? 'right' : 'left';
+    const exitX      = direction === 'right' ? '100%' : '-100%';
+    const enterX     = direction === 'right' ? '-100%' : '100%';
+    const inView     = view;           // 'music' or 'shots'
+    const inVisible  = `show-${inView}-visible`;
+    const outView    = wasShots ? 'shots' : 'music';
+    const outVisible = `show-${outView}-visible`;
+
+    // Remove visible class on outgoing (triggers CSS fade-out but we'll override inline)
+    document.body.classList.remove(outVisible, inVisible);
+
+    // Add the incoming body class so its panels get display:block via CSS
+    document.body.classList.add(`show-${inView}`);
+
+    const outEls = Array.from(document.querySelectorAll(wasShots ? '.shot-list' : '.music-cue'));
+    const inEls  = Array.from(document.querySelectorAll(wasShots ? '.music-cue' : '.shot-list'));
+
+    // Animate outgoing elements: slide out
+    outEls.forEach(el => {
+      el.style.transition    = 'opacity 0.25s ease, transform 0.25s ease';
+      el.style.transform     = `translateX(${exitX})`;
+      el.style.opacity       = '0';
+      el.style.pointerEvents = 'none';
+    });
+
+    // Set incoming elements to off-screen start position (no transition)
+    inEls.forEach(el => {
+      el.style.transition    = 'none';
+      el.style.transform     = `translateX(${enterX})`;
+      el.style.opacity       = '0';
+      el.style.pointerEvents = 'none';
+    });
+
+    // Next frame: animate incoming elements to centre
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      inEls.forEach(el => {
+        el.style.transition    = 'opacity 0.25s ease, transform 0.25s ease';
+        el.style.transform     = 'translateX(0)';
+        el.style.opacity       = '1';
+        el.style.pointerEvents = 'auto';
+      });
+    }));
+
+    // After animation: clean up inline styles, remove outgoing body class, add visible class
+    setTimeout(() => {
+      // Clean up outgoing
+      outEls.forEach(el => {
+        el.style.transition = el.style.transform = el.style.opacity = el.style.pointerEvents = '';
+      });
+      document.body.classList.remove(`show-${outView}`);
+
+      // Clean up incoming — hand off to CSS via visible class
+      inEls.forEach(el => {
+        el.style.transition = el.style.transform = el.style.opacity = el.style.pointerEvents = '';
+      });
+      document.body.classList.add(inVisible);
+    }, 270);
+
+    // Update tab indicator immediately
+    document.querySelectorAll('.vtab').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.view === view);
+    });
+    const indicator = document.getElementById('vtab-indicator');
+    const activeBtn = document.querySelector(`.vtab[data-view="${view}"]`);
+    if (activeBtn && indicator) {
+      const parent    = document.getElementById('view-toggle');
+      const parentRect = parent.getBoundingClientRect();
+      const btnRect   = activeBtn.getBoundingClientRect();
+      indicator.style.left  = (btnRect.left - parentRect.left - 3) + 'px';
+      indicator.style.width = btnRect.width + 'px';
+    }
+
+    if (save) {
+      try { window.storage.set('active_view', view); } catch(e) {}
+    }
+    return;
+  }
+
+  // ── All other transitions (script ↔ shots, script ↔ music) ──────────────
+  // Use the original fade + class approach (panels slide in from right by default).
   const container = document.querySelector('.container');
   if (container && isChanging) {
     container.style.opacity = '0';
@@ -2126,12 +2216,7 @@ function setView(view, save = true) {
     document.body.classList.remove('show-music-visible', 'show-shots-visible');
 
     if (view === 'music') {
-      // If leaving shots, delay removing show-shots until panel transition completes
-      if (wasShots) {
-        setTimeout(() => document.body.classList.remove('show-shots'), 250);
-      } else {
-        document.body.classList.remove('show-shots');
-      }
+      document.body.classList.remove('show-shots');
       document.body.classList.add('show-music');
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -2139,12 +2224,7 @@ function setView(view, save = true) {
         });
       });
     } else if (view === 'shots') {
-      // If leaving music, delay removing show-music until panel transition completes
-      if (wasMusic) {
-        setTimeout(() => document.body.classList.remove('show-music'), 250);
-      } else {
-        document.body.classList.remove('show-music');
-      }
+      document.body.classList.remove('show-music');
       document.body.classList.add('show-shots');
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -2152,7 +2232,7 @@ function setView(view, save = true) {
         });
       });
     } else {
-      // Default/script view — delay removing both if they were active
+      // Returning to script — panels slide out to the right
       if (wasMusic) {
         setTimeout(() => document.body.classList.remove('show-music'), 250);
       } else {
