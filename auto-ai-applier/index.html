@@ -2141,7 +2141,7 @@ document.addEventListener('fullscreenchange', () => {
 });
 
 async function loadTab() {
-  let tab = 'shorts';  // default to shorts on this version since that's what just changed
+  let tab = 'youtube';
   try {
     const r = await window.storage.get('active_tab');
     if (r) tab = r.value;
