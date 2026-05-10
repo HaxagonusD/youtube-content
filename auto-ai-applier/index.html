@@ -1,0 +1,2284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Unemployed. So I Hired an AI to Get Me Hired.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0d0d0d; --surface: #141414; --border: #1f1f1f;
+    --accent: #e8d5a3; --accent-dim: #b8a576;
+    --text: #e2e2e2; --muted: #888; --label-bg: #1a1a1a;
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Open Sans', sans-serif; font-weight: 300; line-height: 1.75; min-height: 100vh; padding-bottom: 80px; }
+
+  #progress { position: sticky; top: 0; left: 0; height: 2px; background: var(--accent); width: 0%; z-index: 200; transition: width 0.1s linear; }
+
+  .hero { border-bottom: 1px solid var(--border); padding: 80px 40px 64px; max-width: 780px; margin: 0 auto; }
+  .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-dim); margin-bottom: 24px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 56px); font-weight: 900; line-height: 1.1; color: #fff; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 0 40px 120px; }
+  .section { padding: 56px 0 0; border-top: 1px solid var(--border); margin-top: 56px; }
+  .section-label { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+  .section-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bg); background: var(--accent); padding: 3px 10px; border-radius: 2px; }
+  .section-tag.beat { background: #6b8cae; }
+  .section-tag.payoff { background: #7a9e7e; }
+  .section-tag.hook { background: #c47c5a; }
+  .section-tag.frame { background: #9b7ec8; }
+  .section-tag.tension { background: #c4875a; }
+  .section-subtitle { font-family: 'Playfair Display', serif; font-size: 13px; font-style: italic; color: var(--muted); }
+  .section p { font-size: 17px; font-weight: 300; color: var(--text); margin-bottom: 18px; line-height: 1.35; }
+  .section p:last-child { margin-bottom: 0; }
+  .pull { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.5vw, 24px); font-style: italic; color: var(--accent); border-left: 3px solid var(--accent); padding: 12px 0 12px 24px; margin: 32px 0; line-height: 1.5; }
+  .crystallize { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); padding: 28px 32px; margin: 32px 0; border-radius: 0 4px 4px 0; }
+  .crystallize p { font-family: 'Playfair Display', serif !important; font-size: clamp(18px, 2.5vw, 22px) !important; font-weight: 700 !important; font-style: italic; color: #fff !important; line-height: 1.4 !important; margin: 0 !important; }
+  .stat { display: inline-block; background: var(--label-bg); border: 1px dashed #333; color: var(--accent); font-family: 'Playfair Display', serif; font-style: italic; padding: 1px 8px; border-radius: 3px; font-size: 0.95em; }
+  footer { text-align: center; padding: 40px; color: #333; font-size: 12px; letter-spacing: 0.1em; border-top: 1px solid var(--border); }
+
+  /* VIEW TOGGLE */
+  #view-toggle {
+    position: relative;
+    display: flex;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 3px;
+    gap: 0;
+  }
+  .vtab {
+    position: relative; z-index: 1;
+    background: none; border: none;
+    color: var(--muted);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 4px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+  }
+  .vtab.active { color: #0d0d0d; }
+  .vtab:not(.active):hover { color: var(--text); }
+  #vtab-indicator {
+    position: absolute;
+    top: 3px; bottom: 3px;
+    border-radius: 4px;
+    background: var(--accent);
+    transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+  }
+
+  /* SECTION TRANSITIONS */
+  .section {
+    transition: grid-template-columns 0.3s ease;
+  }
+  .music-cue, .shot-list {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  body:not(.show-music) .music-cue {
+    opacity: 0; transform: translateX(12px); pointer-events: none;
+  }
+  body.show-music .music-cue {
+    opacity: 1; transform: translateX(0);
+  }
+  body:not(.show-shots) .shot-list {
+    opacity: 0; transform: translateX(12px); pointer-events: none;
+  }
+  body.show-shots .shot-list {
+    opacity: 1; transform: translateX(0);
+  }
+  .container, .hero {
+    transition: max-width 0.3s ease;
+  }
+
+  #vbar {
+    position: sticky; bottom: 0; left: 0; right: 0; z-index: 300;
+    background: #0a0a0a; border-top: 1px solid #252525;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 52px; gap: 12px; margin-top: -80px;
+  }
+  #vbar-left { display: flex; align-items: center; gap: 12px; }
+  #vbar-label { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; white-space: nowrap; }
+  #ver-badge {
+    font-size: 11px; font-weight: 600; color: var(--accent);
+    background: #1a1600; border: 1px solid #3a2e00;
+    padding: 2px 10px; border-radius: 20px; letter-spacing: 0.05em;
+  }
+  .vbtn {
+    background: none; border: 1px solid #2a2a2a; color: var(--text);
+    font-family: 'Open Sans', sans-serif; font-size: 12px; font-weight: 600;
+    padding: 6px 16px; border-radius: 4px; cursor: pointer; white-space: nowrap;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .vbtn:hover { border-color: var(--accent); color: var(--accent); }
+
+  #vpanel {
+    position: sticky; bottom: 52px; z-index: 290;
+    margin-left: auto; margin-right: 0;
+    width: 340px; max-height: 420px;
+    background: #111; border: 1px solid #222; border-bottom: none;
+    border-radius: 8px 0 0 0;
+    display: none; flex-direction: column;
+    overflow: hidden;
+  }
+  #vpanel.open { display: flex; }
+  #vpanel-head {
+    padding: 14px 18px 12px; border-bottom: 1px solid #1e1e1e;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-shrink: 0;
+  }
+  #vpanel-head span { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: #999; text-transform: uppercase; }
+  #vpanel-close { background: none; border: none; color: #555; cursor: pointer; font-size: 18px; line-height: 1; padding: 0 2px; }
+  #vpanel-close:hover { color: #ccc; }
+  #vlist { overflow-y: auto; flex: 1; padding: 8px 0; }
+  #vlist::-webkit-scrollbar { width: 4px; }
+  #vlist::-webkit-scrollbar-track { background: transparent; }
+  #vlist::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+
+  .vitem {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 18px; gap: 12px; cursor: default;
+    border-left: 3px solid transparent;
+    transition: background 0.1s;
+  }
+  .vitem:hover { background: #181818; }
+  .vitem.current { border-left-color: var(--accent); }
+  .vitem-meta { flex: 1; min-width: 0; }
+  .vitem-name { font-size: 13px; font-weight: 600; color: #ddd; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vitem-time { font-size: 11px; color: #555; margin-top: 2px; }
+  .vitem-restore {
+    background: none; border: 1px solid #2a2a2a; color: #777;
+    font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 3px;
+    cursor: pointer; white-space: nowrap; flex-shrink: 0;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .vitem-restore:hover { border-color: var(--accent); color: var(--accent); }
+  .vitem-restore.disabled { opacity: 0.3; cursor: default; pointer-events: none; }
+  #vempty { padding: 32px 18px; text-align: center; color: #444; font-size: 13px; }
+
+  #toast {
+    position: sticky; top: 24px; left: 50%;
+    background: #1a1a1a; border: 1px solid var(--accent);
+    color: var(--accent); font-size: 13px; font-weight: 600;
+    padding: 10px 20px; border-radius: 6px; z-index: 500;
+    opacity: 0; transition: opacity 0.3s; pointer-events: none;
+    white-space: nowrap; width: fit-content; margin: 0 auto;
+  }
+  #toast.show { opacity: 1; }
+
+  /* PRODUCTION VIEW (music + shots) */
+  .music-cue { display: none; }
+  body.show-music .container,
+  body.show-music .hero,
+  body.show-shots .container,
+  body.show-shots .hero { max-width: 1280px; }
+  body.show-music .section,
+  body.show-shots .section { position: relative; }
+  body.show-music .section {
+    display: flex; gap: 56px; align-items: flex-start;
+  }
+  body.show-music .section-body { flex: 1; min-width: 0; }
+  body.show-music .music-cue {
+    display: block; width: 240px; flex-shrink: 0;
+  }
+  body.show-shots .section {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 0 40px;
+    align-items: start;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+    padding: 56px 16px 0;
+    margin-left: -16px;
+    margin-right: -16px;
+    border-top: 1px solid var(--border);
+    margin-top: 0;
+  }
+  body.show-shots .section:hover {
+    background: rgba(232, 213, 163, 0.025);
+  }
+  body.show-shots .shot-list {
+    grid-column: 2;
+    grid-row: 1 / 99;
+    align-self: start;
+    margin-top: 0;
+  }
+  body.show-shots .section-label,
+  body.show-shots .section > p,
+  body.show-shots .section > .pull,
+  body.show-shots .section > .crystallize,
+  body.show-shots .section-body {
+    grid-column: 1;
+  }
+  body.show-music .section[data-end-time]::after,
+  body.show-shots .section[data-end-time]::after {
+    content: "ends " attr(data-end-time);
+    position: absolute; top: -32px; right: 0;
+    background: var(--bg); padding: 4px 10px;
+    font-family: 'Open Sans', sans-serif; font-size: 10px;
+    font-weight: 600; letter-spacing: 0.18em;
+    color: var(--accent-dim); border: 1px solid var(--border);
+    border-radius: 2px; text-transform: uppercase;
+  }
+  .cue-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .cue-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700; font-style: italic;
+    color: var(--accent); margin-bottom: 8px; line-height: 1.2;
+  }
+  .cue-meta {
+    font-size: 10px; font-weight: 600; color: var(--muted);
+    letter-spacing: 0.15em; margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+  .cue-desc {
+    font-size: 13px; font-weight: 300; color: var(--text);
+    line-height: 1.55; margin-bottom: 14px;
+  }
+  .cue-note {
+    font-size: 11px; font-style: italic; color: var(--muted);
+    border-left: 2px solid var(--accent-dim);
+    padding: 4px 0 4px 12px; margin-bottom: 0;
+    line-height: 1.5;
+  }
+
+  /* SHOT LIST */
+  .shot-list { display: none; }
+  body.show-shots .shot-list {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px 22px;
+  }
+  .shot-list-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .shot {
+    display: grid; grid-template-columns: 28px 78px 1fr;
+    gap: 14px; margin-bottom: 14px; align-items: start;
+  }
+  .shot-num {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px; font-weight: 600;
+    color: var(--accent-dim); letter-spacing: 0.05em;
+    padding-top: 4px; font-variant-numeric: tabular-nums;
+  }
+  .shot-type {
+    font-size: 9px; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; text-align: center;
+    padding: 4px 6px; border-radius: 2px;
+    border: 1px solid var(--border);
+    background: var(--label-bg); color: var(--accent);
+  }
+  .shot-type.t-talk    { color: #c47c5a; border-color: #3a261d; }
+  .shot-type.t-screen  { color: #6b8cae; border-color: #1d2a3a; }
+  .shot-type.t-broll   { color: #b8a576; border-color: #2e2a1d; }
+  .shot-type.t-graphic { color: #7a9e7e; border-color: #1d2e22; }
+  .shot-type.t-title   { color: #e2e2e2; border-color: #333; }
+  .shot-type.t-cut     { color: #c4875a; border-color: #3a2e1d; }
+  .shot-desc {
+    font-size: 13px; font-weight: 300; color: var(--text);
+    line-height: 1.5;
+  }
+  .shot-desc em {
+    color: var(--accent-dim); font-style: italic;
+  }
+
+  /* INLINE SHOT MARKERS */
+  .shot-marker {
+    display: none;
+  }
+  body.show-shots .shot-marker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--accent-dim);
+    background: var(--label-bg);
+    border: 1px solid #2a2418;
+    border-radius: 3px;
+    padding: 1px 6px;
+    margin-right: 8px;
+    vertical-align: middle;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+    position: relative;
+    top: -1px;
+  }
+  body.show-shots .shot-marker::after {
+    content: '';
+    position: absolute;
+    right: -24px;
+    top: 50%;
+    width: 16px;
+    height: 1px;
+    border-top: 1px dashed #2a2418;
+  }
+
+  /* SHOT HOVER LINKING */
+  .shot-marker.shot-hover,
+  body.show-shots .shot-marker.shot-hover {
+    background: rgba(232, 213, 163, 0.15);
+    border-color: var(--accent-dim);
+    color: var(--accent);
+  }
+  .shot.shot-hover {
+    background: rgba(232, 213, 163, 0.06);
+    border-radius: 4px;
+    outline: 1px solid rgba(232, 213, 163, 0.2);
+  }
+  .script-el-hover {
+    background: rgba(232, 213, 163, 0.04);
+    border-radius: 3px;
+    transition: background 0.15s ease;
+  }
+
+  /* PLATFORM TABS */
+  .tabs {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    display: flex; overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0 40px;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    background: none; border: none;
+    color: var(--muted);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 20px 22px; cursor: pointer;
+    position: relative; white-space: nowrap;
+    transition: color 0.15s;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--accent); }
+  .tab.active::after {
+    content: ''; position: absolute;
+    bottom: -1px; left: 22px; right: 22px;
+    height: 2px; background: var(--accent);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  body:not([data-tab="youtube"]) #view-toggle { display: none; }
+
+  /* PLACEHOLDER CARD */
+  .placeholder-card {
+    background: var(--surface);
+    border: 1px dashed #2a2a2a;
+    border-radius: 6px;
+    padding: 40px 36px;
+    margin-top: 56px;
+  }
+  .placeholder-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent-dim);
+    margin-bottom: 18px;
+  }
+  .placeholder-prompt {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-style: italic; color: var(--text);
+    line-height: 1.4; margin-bottom: 28px;
+  }
+  .placeholder-hint {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+  }
+  .placeholder-hint p {
+    font-size: 13px; color: var(--muted);
+    line-height: 1.6; margin-bottom: 6px;
+  }
+  .placeholder-hint p strong {
+    color: var(--accent); font-weight: 600;
+  }
+
+  /* ────────────────────────────────────
+     TWITTER POSTS (added v11) — also reused for Shorts
+     ──────────────────────────────────── */
+  .tw-summary {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    padding: 28px 32px;
+    margin-top: 56px;
+    margin-bottom: 0;
+  }
+  .tw-summary-label {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  .tw-summary-count {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-weight: 600;
+    color: #fff; line-height: 1; margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+  .tw-summary-inv {
+    font-size: 13px; color: var(--muted);
+    line-height: 1.7; font-weight: 300;
+  }
+  .tw-summary-inv strong {
+    color: var(--accent-dim); font-weight: 600;
+  }
+
+  .post-block {
+    border-top: 1px solid var(--border);
+    padding-top: 56px;
+    margin-top: 56px;
+  }
+  .post-meta-row {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 18px; flex-wrap: wrap;
+  }
+  .post-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent-dim);
+  }
+  .format-pill {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 2px;
+    background: var(--label-bg); color: var(--accent);
+    border: 1px solid #2a2418;
+  }
+  .format-pill.thread { color: #9b7ec8; border-color: #2a1d3a; background: rgba(155, 126, 200, 0.06); }
+  .format-pill.video { color: #c47c5a; border-color: #3a261d; background: rgba(196, 124, 90, 0.06); }
+  .format-pill.image-q { color: #7a9e7e; border-color: #1d2e22; background: rgba(122, 158, 126, 0.06); }
+  .format-pill.single { color: #6b8cae; border-color: #1d2a3a; background: rgba(107, 140, 174, 0.06); }
+  .strength {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 2px;
+    margin-left: auto;
+  }
+  .strength.strong {
+    color: #7a9e7e;
+    background: rgba(122, 158, 126, 0.08);
+    border: 1px solid rgba(122, 158, 126, 0.3);
+  }
+  .strength.medium {
+    color: var(--accent-dim);
+    background: rgba(184, 165, 118, 0.05);
+    border: 1px solid rgba(184, 165, 118, 0.25);
+  }
+  .post-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 2.8vw, 26px);
+    font-weight: 700; font-style: italic;
+    color: #fff; line-height: 1.25;
+    margin-bottom: 28px;
+    letter-spacing: -0.005em;
+  }
+  .post-headline em { color: var(--accent); }
+
+  .video-spec {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 24px 28px;
+    margin-top: 14px;
+  }
+  .video-spec-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 16px; padding: 14px 0;
+    align-items: start;
+    border-top: 1px solid #1a1a1a;
+  }
+  .video-spec-row:first-child {
+    border-top: none; padding-top: 0;
+  }
+  .video-spec-row:last-child { padding-bottom: 0; }
+  .video-spec-label {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent-dim); padding-top: 3px;
+  }
+  .video-spec-value {
+    font-size: 13px; color: var(--text); line-height: 1.6;
+    font-weight: 300;
+  }
+  .video-spec-value em {
+    font-style: italic; color: var(--accent-dim);
+  }
+  .video-cuts {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .video-cuts li {
+    padding: 8px 0;
+    border-bottom: 1px solid #1a1a1a;
+    font-size: 13px; line-height: 1.5;
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    gap: 12px; align-items: start;
+  }
+  .video-cuts li:last-child { border-bottom: none; }
+  .cut-type {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding-top: 3px; font-variant-numeric: tabular-nums;
+  }
+  .cut-type.talk { color: #c47c5a; }
+  .cut-type.screen { color: #6b8cae; }
+  .cut-type.bridge { color: #9b7ec8; }
+  .cut-type.cut { color: #b8a576; }
+
+  .why-format {
+    margin-top: 22px; padding-top: 18px;
+    border-top: 1px dashed #1f1f1f;
+    font-size: 12px; font-style: italic;
+    color: var(--muted); line-height: 1.6;
+    font-weight: 300;
+  }
+  .why-format strong {
+    font-style: normal; font-weight: 600;
+    color: var(--accent-dim);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    font-size: 9px;
+    display: block; margin-bottom: 6px;
+  }
+
+  .rollout {
+    margin-top: 88px; padding: 40px 36px 36px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: 0 0 4px 4px;
+  }
+  .rollout-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  .rollout-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 900;
+    color: #fff; margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .rollout-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px; color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .rollout-day {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 24px; padding: 18px 0;
+    border-top: 1px solid #1f1f1f;
+    align-items: start;
+  }
+  .rollout-day:first-of-type { border-top: none; }
+  .rollout-when {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-weight: 700; font-style: italic;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+    padding-top: 2px;
+  }
+  .rollout-what {
+    font-size: 14px; color: var(--text);
+    line-height: 1.6; font-weight: 300;
+  }
+  .rollout-what strong {
+    color: #fff; font-weight: 600;
+  }
+  .rollout-what em {
+    color: var(--accent-dim); font-style: italic;
+  }
+
+  /* ────────────────────────────────────
+     SHORTS-SPECIFIC (added v12)
+     ──────────────────────────────────── */
+  .short-hook {
+    background: linear-gradient(180deg, rgba(196, 124, 90, 0.06), rgba(196, 124, 90, 0.02));
+    border: 1px solid #2a1d15;
+    border-left: 3px solid #c47c5a;
+    border-radius: 0 4px 4px 0;
+    padding: 22px 28px;
+    margin-bottom: 22px;
+  }
+  .short-hook-label {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: #c47c5a; margin-bottom: 10px;
+  }
+  .short-hook-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(17px, 2.3vw, 21px);
+    font-style: italic; font-weight: 700;
+    color: #fff; line-height: 1.4;
+    margin: 0;
+  }
+
+  .short-pair {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    margin-bottom: 14px;
+    align-items: start;
+  }
+  .onscreen-mock {
+    width: 200px;
+  }
+  .onscreen-label {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent-dim); margin-bottom: 10px;
+  }
+  .onscreen-frame {
+    width: 100%;
+    aspect-ratio: 9/16;
+    background:
+      radial-gradient(ellipse at 30% 20%, #1d2330 0%, #0a0d12 70%);
+    border: 1px solid #2a2a2a;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .onscreen-frame::before {
+    content: "9:16 · MOCK";
+    position: absolute; top: 10px; left: 14px;
+    font-size: 8px; font-weight: 600;
+    letter-spacing: 0.18em; color: #444;
+  }
+  .onscreen-frame::after {
+    content: "";
+    position: absolute; bottom: 14px; left: 50%;
+    transform: translateX(-50%);
+    width: 36px; height: 3px;
+    background: #2a2a2a; border-radius: 2px;
+  }
+  .onscreen-text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    color: #fff;
+    text-align: center;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7), 0 0 1px rgba(0,0,0,0.9);
+    text-transform: uppercase;
+  }
+  .short-pair-meta {
+    flex: 1;
+    padding-top: 4px;
+  }
+  .short-meta-row {
+    padding: 10px 0;
+    border-top: 1px solid #1a1a1a;
+  }
+  .short-meta-row:first-child { border-top: none; padding-top: 0; }
+  .short-meta-row:last-child { padding-bottom: 0; }
+  .short-meta-label {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent-dim); margin-bottom: 6px;
+  }
+  .short-meta-value {
+    font-size: 13px; color: var(--text); line-height: 1.55;
+    font-weight: 300;
+  }
+  .short-meta-value em {
+    font-style: italic; color: var(--accent-dim);
+  }
+
+  .caveat {
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: rgba(184, 165, 118, 0.04);
+    border-left: 2px solid var(--accent-dim);
+    border-radius: 0 4px 4px 0;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .caveat strong {
+    font-weight: 600;
+    color: var(--accent-dim);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    font-size: 9px;
+    display: block; margin-bottom: 6px;
+  }
+
+  @media (max-width: 640px) {
+    .short-pair {
+      grid-template-columns: 1fr;
+    }
+    .onscreen-mock { width: 160px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="toast"></div>
+
+<nav class="tabs">
+  <button class="tab" data-tab="youtube">YouTube</button>
+  <button class="tab" data-tab="shorts">YouTube Shorts</button>
+  <button class="tab" data-tab="twitter">Twitter</button>
+  <button class="tab" data-tab="tiktok">TikTok</button>
+  <button class="tab" data-tab="instagram">Instagram</button>
+  <button class="tab" data-tab="linkedin">LinkedIn</button>
+</nav>
+
+<div class="tab-content" data-tab="youtube">
+
+<div class="hero" id="hero-block">
+  <p class="hero-eyebrow">Video Script — Full Draft</p>
+  <h1>I'm Unemployed.<br>So I Hired an <em>AI</em><br>to Get Me Hired.</h1>
+</div>
+
+<div class="container" id="content-block">
+
+  <div class="section">
+    <div class="section-label"><span class="section-tag hook">Hook</span></div>
+    <p><span class="stat">[X]</span> job applications. Zero hours of my time.</p>
+    <p>I built a system that finds jobs, rewrites my resume for each one, and applies — while I sleep.</p>
+    <p>I haven't opened LinkedIn in a week.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="section-tag frame">Frame</span></div>
+    <p>I built this in a weekend with Claude Code — and I mean Claude actually designed the architecture, not just wrote the code.</p>
+    <p>By the end of this video you'll see exactly how it finds jobs, tailors my resume to each one, applies, and fixes itself when it breaks.</p>
+    <p>And after watching, you'll probably want to build one too.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="section-tag tension">Tension</span></div>
+    <p>Here's the thing though.</p>
+    <p>When you see a build like this, you probably assume the impressive part is the AI — the so-called "intelligence" picking jobs and rewriting the resume.</p>
+    <div class="pull">That's wrong.</div>
+    <p>The LLM is the easy part. OpenRouter plus a prompt does the resume tailoring in twenty lines of code. Anyone watching this could ship that on a Saturday.</p>
+    <p>The hard part — the part that makes this an actual system instead of a demo — is what happens at 3 AM when LinkedIn changes a button and your script silently breaks for a week before you notice.</p>
+    <p>That's the part nobody builds. That's why every "AI agent" you've seen on Twitter looks magical for 90 seconds and then dies the second it touches a real website.</p>
+    <div class="pull">The intelligence isn't the moat. The loop is.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="section-tag beat">Beat 1</span><span class="section-subtitle">It finds the jobs</span></div>
+    <p>First problem — finding jobs is the worst part of being unemployed.</p>
+    <p>While I was making coffee this morning, it had already pulled the day's listings from LinkedIn — exactly the kind of role I'd search for myself. Then it did the same thing on Indeed.</p>
+    <p>Greenhouse is next. Each platform I add is one more module hitting the same queue. It compounds.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="section-tag beat">Beat 2</span><span class="section-subtitle">It tailors the resume</span></div>
+    <p>A tailored resume makes you 6 times more likely to land an interview. That's not a tip — that's from 3.2 million applications.</p>
+    <p>Here's where most people stop. They paste the job description into ChatGPT, get a tailored resume back, copy it over. Fine for one job. But you can't do that 50 times a day.</p>
+    <p>So I had Claude wire up the rewrite. Take this listing — they wanted distributed systems experience. The model found the bullet on my resume that matched, pulled it to the top, and rewrote it in the exact language they used.</p>
+    <p>Same resume going in, hundreds of versions coming out, one for each job.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="section-tag beat">Beat 3</span><span class="section-subtitle">It applies</span></div>
+    <p>Now the part that actually saves time.</p>
+    <p>Watch this. It opens the application page, walks through the form, hits submit — about twelve seconds, start to finish. The confirmation page screenshots to a log with a timestamp, so I can prove it actually went through.</p>
+    <p>That log matters in a second.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="section-tag beat">Beat 4</span><span class="section-subtitle">It fixes itself — climax</span></div>
+    <p>Here's the part that broke my brain.</p>
+    <p>And this is the part nobody builds.</p>
+    <p>So I gave Claude Code access to the logs.</p>
+    <p>This happened on day three. LinkedIn changed a button selector. The applier crashed.</p>
+    <p>The log caught it. Claude Code read it, figured out what broke, and fixed the function. The next application went through.</p>
+    <div class="pull">No human in the loop. I was asleep.</div>
+    <p>I went to sleep with broken code. Woke up with working code. Nobody touched it.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="section-tag beat">Beat 5</span><span class="section-subtitle">The dashboard</span></div>
+    <p>Last piece. I needed to actually see what this thing was doing.</p>
+    <p>Every job it applies to gets a card. Title, company, link to the listing, the resume version it sent, screenshots of every step. All timestamped.</p>
+    <p>And then the part I actually look at every morning.</p>
+    <p>A heatmap. Same idea as the GitHub contribution graph, but for applications. Dark green squares are heavy days. Light squares are light days. Empty squares mean something broke — and I check the logs to see why.</p>
+    <p>I don't read the dashboard to <em>manage</em> the system. I read it to <em>trust</em> the system.</p>
+    <p>Because if you're going to let an AI run your job search, you need to be able to see exactly what it did when you weren't looking.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="section-tag payoff">Payoff</span><span class="section-subtitle">Close the loop</span></div>
+    <p>So — did it work?</p>
+    <p><span class="stat">[X]</span> applications submitted. <span class="stat">[Y]</span> hours of my time. The system has been running for <span class="stat">[Z]</span> days and I haven't touched it.</p>
+    <p>But honestly — that's not the part of this that matters.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="section-tag payoff">Payoff</span><span class="section-subtitle">Crystallize</span></div>
+    <p>Most AI agents fail because nobody builds the loop around them. The model isn't the bottleneck.</p>
+    <div class="crystallize"><p>AI stopped being a tool the day it started fixing its own bugs.</p></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="section-tag payoff">Payoff</span><span class="section-subtitle">Next move</span></div>
+    <p>If you can write code, open Claude Code tonight.</p>
+    <p>Build the dumbest version of this you can — one job board, no resume tailoring, nothing fancy.</p>
+    <p>But build the loop. Make it log everything. Make it catch its own errors. Make it heal itself when something breaks. That's the part you have to feel work to understand.</p>
+    <p>The people who build these systems are going to be fine. Be one of them.</p>
+  </div>
+
+</div>
+
+<footer>Script Draft · Fill in [X], [Y], [Z] before filming</footer>
+
+</div><!-- /youtube tab -->
+
+<!-- ════════════════════════════════════════
+     YOUTUBE SHORTS TAB — POPULATED v12
+     ════════════════════════════════════════ -->
+<div class="tab-content" data-tab="shorts">
+  <div class="hero">
+    <p class="hero-eyebrow">YouTube Shorts · Repurposing Plan</p>
+    <h1>4 shorts <em>found</em>.<br>2 strong. 2 medium.</h1>
+  </div>
+
+  <div class="container">
+
+    <div class="tw-summary">
+      <div class="tw-summary-label">Inventory</div>
+      <p class="tw-summary-count">SHORTS FOUND: 4</p>
+      <p class="tw-summary-inv">
+        <strong>2 strong</strong> (the self-healing climax, the 6× resume stat) ·
+        <strong>2 medium</strong> (the contrarian thesis, the trust-the-system line).<br>
+        Did <em>not</em> pull from the cold open — that's the long-form's hook and posting it as a Short would cannibalize the main video. All four pass the 4/4 standalone test: own beginning, own payoff, no required setup, hook lands in &lt;2s.
+      </p>
+    </div>
+
+    <!-- ── SHORT 01 — SELF-HEALING ── -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Short 01</span>
+        <span class="format-pill video">~50s · 9:16 vertical</span>
+        <span class="strength strong">Strong</span>
+      </div>
+      <h2 class="post-headline">"I went to sleep with broken code. <em>Woke up with working code.</em>"</h2>
+
+      <div class="short-hook">
+        <div class="short-hook-label">Hook · first 1.5 seconds</div>
+        <p class="short-hook-text">"I went to sleep with broken code. Woke up with working code. Nobody touched it."</p>
+      </div>
+
+      <div class="short-pair">
+        <div class="onscreen-mock">
+          <div class="onscreen-label">On-screen text</div>
+          <div class="onscreen-frame">
+            <p class="onscreen-text">SLEPT.<br>WOKE UP.<br>CODE FIXED.</p>
+          </div>
+        </div>
+        <div class="short-pair-meta">
+          <div class="short-meta-row">
+            <div class="short-meta-label">Pulled from</div>
+            <div class="short-meta-value">Beat 4 — the climax. Day-three crash and self-heal.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Why it stands alone</div>
+            <div class="short-meta-value">A cold viewer learns there's an AI agent <em>and</em> sees it fix itself in 50 seconds — full before/after with no required setup.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Ending</div>
+            <div class="short-meta-value">Repeat the opening line. Loops back to the start — viewer stays for the rewatch.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-spec">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Script · verbatim</div>
+          <div class="video-spec-value">
+            <ul class="video-cuts">
+              <li><span class="cut-type talk">VO · 0–6s</span><span>"I went to sleep with broken code. Woke up with working code. Nobody touched it."</span></li>
+              <li><span class="cut-type bridge">BRIDGE</span><span><em>"Here's what actually happened."</em></span></li>
+              <li><span class="cut-type talk">VO · 8–18s</span><span>"This happened on day three. LinkedIn changed a button selector. The applier crashed."</span></li>
+              <li><span class="cut-type talk">VO · 18–32s</span><span>"So I gave Claude Code access to the logs. The log caught it. Claude Code read it, figured out what broke, and fixed the function. The next application went through."</span></li>
+              <li><span class="cut-type talk">VO · 32–38s</span><span>"No human in the loop. I was asleep."</span></li>
+              <li><span class="cut-type cut">LOOP</span><span>"I went to sleep with broken code. Woke up with working code." <em>(Repeat of opener — closes the loop.)</em></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Visual</div>
+          <div class="video-spec-value">Open on face delivering the hook. Cut to log file with red error highlighted → Claude Code patching the function (sped up ~3×) → green confirmation page → back to face for the closing repeat. Captions burned in throughout, top-third placement, never bottom.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SHORT 02 — 6X STAT ── -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Short 02</span>
+        <span class="format-pill video">~45s · 9:16 vertical</span>
+        <span class="strength strong">Strong</span>
+      </div>
+      <h2 class="post-headline">"<em>6× more interviews.</em> From 3.2 million applications."</h2>
+
+      <div class="short-hook">
+        <div class="short-hook-label">Hook · first 1.5 seconds</div>
+        <p class="short-hook-text">"A tailored resume makes you 6 times more likely to land an interview."</p>
+      </div>
+
+      <div class="short-pair">
+        <div class="onscreen-mock">
+          <div class="onscreen-label">On-screen text</div>
+          <div class="onscreen-frame">
+            <p class="onscreen-text">6×<br>MORE<br>INTERVIEWS</p>
+          </div>
+        </div>
+        <div class="short-pair-meta">
+          <div class="short-meta-row">
+            <div class="short-meta-label">Pulled from</div>
+            <div class="short-meta-value">Beat 2 — resume tailoring.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Why it stands alone</div>
+            <div class="short-meta-value">A self-contained insight (stat → why people fail → solution). Teaches something useful even if the viewer never sees the rest of the system.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Ending</div>
+            <div class="short-meta-value">"Hundreds of versions, one for each job." Cut to fanned-out resume stack — loops back visually to the opening 6× number.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-spec">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Script · verbatim</div>
+          <div class="video-spec-value">
+            <ul class="video-cuts">
+              <li><span class="cut-type talk">VO · 0–7s</span><span>"A tailored resume makes you 6 times more likely to land an interview. That's not a tip — that's from 3.2 million applications."</span></li>
+              <li><span class="cut-type talk">VO · 7–22s</span><span>"Here's where most people stop. They paste the job description into ChatGPT, get a tailored resume back, copy it over. Fine for one job. But you can't do that 50 times a day."</span></li>
+              <li><span class="cut-type talk">VO · 22–38s</span><span>"So I had Claude wire up the rewrite. Take this listing — they wanted distributed systems experience. The model found the bullet on my resume that matched, pulled it to the top, and rewrote it in the exact language they used."</span></li>
+              <li><span class="cut-type talk">VO · 38–45s</span><span>"Same resume going in, hundreds of versions coming out, one for each job."</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Visual</div>
+          <div class="video-spec-value">Big stat slam (6× / 3.2M) for the first 2s — fills the frame. Cut to split-screen: left side shows someone slowly copy-pasting into ChatGPT. Right side shows the bot tailoring 50 resumes in seconds. Close on a side-by-side resume diff with the distributed-systems bullet animating from middle to top.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SHORT 03 — LOOP IS THE MOAT ── -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Short 03</span>
+        <span class="format-pill video">~40s · 9:16 vertical</span>
+        <span class="strength medium">Medium</span>
+      </div>
+      <h2 class="post-headline">"Every AI agent on Twitter dies <em>in 90 seconds.</em>"</h2>
+
+      <div class="short-hook">
+        <div class="short-hook-label">Hook · first 1.5 seconds</div>
+        <p class="short-hook-text">"Every 'AI agent' you've seen on Twitter looks magical for 90 seconds and then dies the second it touches a real website."</p>
+      </div>
+
+      <div class="short-pair">
+        <div class="onscreen-mock">
+          <div class="onscreen-label">On-screen text</div>
+          <div class="onscreen-frame">
+            <p class="onscreen-text">THE LOOP<br>IS THE<br>MOAT</p>
+          </div>
+        </div>
+        <div class="short-pair-meta">
+          <div class="short-meta-row">
+            <div class="short-meta-label">Pulled from</div>
+            <div class="short-meta-value">Tension section — the contrarian thesis.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Why it stands alone</div>
+            <div class="short-meta-value">Contrarian thesis that resolves to a quotable line in under 40s. Viewer doesn't need to see the build to feel the argument.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Ending</div>
+            <div class="short-meta-value">Hold on the crystallize: <em>"The intelligence isn't the moat. The loop is."</em> Text overlay sits a half-beat after VO ends.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-spec">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Script · verbatim</div>
+          <div class="video-spec-value">
+            <ul class="video-cuts">
+              <li><span class="cut-type talk">VO · 0–8s</span><span>"Every 'AI agent' you've seen on Twitter looks magical for 90 seconds and then dies the second it touches a real website."</span></li>
+              <li><span class="cut-type talk">VO · 8–20s</span><span>"The LLM is the easy part. OpenRouter plus a prompt does the resume tailoring in twenty lines of code. Anyone watching this could ship that on a Saturday."</span></li>
+              <li><span class="cut-type talk">VO · 20–34s</span><span>"The hard part is what happens at 3 AM when LinkedIn changes a button and your script silently breaks for a week before you notice. That's the part nobody builds."</span></li>
+              <li><span class="cut-type talk">VO · 34–40s</span><span>"The intelligence isn't the moat. The loop is."</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Visual</div>
+          <div class="video-spec-value">Open on a fast B-roll montage of "viral AI agent" tweets crashing — broken websites, 404s, error stacktraces, ~1s each. Cut to your face for the contrarian setup. Hold on a single still frame for the final crystallize line.</div>
+        </div>
+      </div>
+
+      <div class="caveat">
+        <strong>Why medium</strong>
+        Without seeing an actual agent fix itself, this is a take, not a demo. It can land as smart, or it can land as preachy, depending on delivery. Watch first 24-hour metrics — if it underperforms, it's probably the latter.
+      </div>
+    </div>
+
+    <!-- ── SHORT 04 — TRUST THE SYSTEM ── -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Short 04</span>
+        <span class="format-pill video">~40s · 9:16 vertical</span>
+        <span class="strength medium">Medium</span>
+      </div>
+      <h2 class="post-headline">"I don't read it to manage. <em>I read it to trust.</em>"</h2>
+
+      <div class="short-hook">
+        <div class="short-hook-label">Hook · first 1.5 seconds</div>
+        <p class="short-hook-text">"A heatmap. Same idea as the GitHub contribution graph, but for applications."</p>
+      </div>
+
+      <div class="short-pair">
+        <div class="onscreen-mock">
+          <div class="onscreen-label">On-screen text</div>
+          <div class="onscreen-frame">
+            <p class="onscreen-text">JOB APPS<br>·<br>DAILY</p>
+          </div>
+        </div>
+        <div class="short-pair-meta">
+          <div class="short-meta-row">
+            <div class="short-meta-label">Pulled from</div>
+            <div class="short-meta-value">Beat 5 — the dashboard moment.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Why it stands alone</div>
+            <div class="short-meta-value">The trust-vs-manage framing is a self-contained idea about working with autonomous tools — applies beyond job applications.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Ending</div>
+            <div class="short-meta-value">Final line lands on "when you weren't looking." Cut back to the heatmap, fully filled. The visual answers the question.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-spec">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Script · verbatim</div>
+          <div class="video-spec-value">
+            <ul class="video-cuts">
+              <li><span class="cut-type bridge">BRIDGE</span><span><em>"I built a bot that applies to jobs for me while I sleep."</em></span></li>
+              <li><span class="cut-type talk">VO · 3–18s</span><span>"A heatmap. Same idea as the GitHub contribution graph, but for applications. Dark green squares are heavy days. Light squares are light days. Empty squares mean something broke — and I check the logs to see why."</span></li>
+              <li><span class="cut-type talk">VO · 18–28s</span><span>"I don't read the dashboard to manage the system. I read it to trust the system."</span></li>
+              <li><span class="cut-type talk">VO · 28–40s</span><span>"Because if you're going to let an AI run your job search, you need to be able to see exactly what it did when you weren't looking."</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Visual</div>
+          <div class="video-spec-value">Lead with the heatmap filling in over 30 days, time-lapsed. Each green square = one application landing. Cut to your face for the "trust" line. Hold on the heatmap for the close.</div>
+        </div>
+      </div>
+
+      <div class="caveat">
+        <strong>Why medium</strong>
+        Needs a one-line bridge to set up that there's an autonomous system at all. The trust insight is genuine — but lives or dies on whether the heatmap visual is satisfying. If the dashboard mock looks sparse on camera, this drops to weak fast.
+      </div>
+    </div>
+
+    <!-- ── ROLLOUT ── -->
+    <div class="rollout">
+      <div class="rollout-label">Posting Cadence</div>
+      <h2 class="rollout-title">Stagger across ~3 weeks. Don't dump.</h2>
+      <p class="rollout-sub">Strongest first. Different hook angles spaced apart. Bank the medium ones for slow weeks.</p>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Day 0</div>
+        <div class="rollout-what">
+          <strong>Long-form video launches.</strong> Same day, post <strong>Short 01 · self-healing</strong>. Most visceral payoff. Doubles as a teaser — viewers who want context click through to the full build.
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Day +4</div>
+        <div class="rollout-what">
+          <strong>Short 02 · the 6× stat.</strong> Different audience hook (career-anxious vs. AI-curious), so the algorithm reads it as fresh terrain instead of a sequel.
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Bank</div>
+        <div class="rollout-what">
+          <strong>Short 03</strong> for the next "AI agent went viral" moment on the timeline — ride the topic. <strong>Short 04</strong> for whenever the dashboard heatmap gets re-photographed cleanly. <em>No fixed dates — these are slow-week ammo.</em>
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Don't</div>
+        <div class="rollout-what">
+          <em>If Short 01 underperforms in 48 hours, do not follow with Short 03.</em> Both lean on the same thesis — back-to-back failures will train the algorithm against the topic. Pivot to Short 02 instead and let the channel cool.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ════════════ /SHORTS ════════════ -->
+
+<!-- ════════════════════════════════════════
+     TWITTER TAB — POPULATED v11
+     ════════════════════════════════════════ -->
+<div class="tab-content" data-tab="twitter">
+  <div class="hero">
+    <p class="hero-eyebrow">Twitter / X · Repurposing Plan</p>
+    <h1>4 posts <em>found</em>.<br>1 thread. 1 video.<br>2 singles.</h1>
+  </div>
+
+  <div class="container">
+
+    <div class="tw-summary">
+      <div class="tw-summary-label">Inventory</div>
+      <p class="tw-summary-count">TWITTER POSTS FOUND: 4</p>
+      <p class="tw-summary-inv">
+        <strong>1 thread</strong> (6 tweets — the contrarian thesis) ·
+        <strong>1 native video clip</strong> (the self-healing reveal, ~75s) ·
+        <strong>1 single tweet</strong> with dashboard image (the receipts) ·
+        <strong>1 image quote</strong> (the crystallize line).<br>
+        Zero text-only tweets. Every post pairs with a visual — that's the rule on X in 2026.
+      </p>
+    </div>
+
+    <!-- ── POST 01 — THREAD ── -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Post 01</span>
+        <span class="format-pill thread">Thread · 6 tweets</span>
+        <span class="strength strong">Strong</span>
+      </div>
+      <h2 class="post-headline">"The intelligence isn't the moat. <em>The loop is.</em>"</h2>
+
+      <div class="video-spec">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Tweets</div>
+          <div class="video-spec-value">
+            <ul class="video-cuts">
+              <li><span class="cut-type talk">01 / 06</span><span>"every 'AI agent' you see on this app is a demo. they look magical for 90 seconds and die the second a real website changes a button. mine has been running for [Z] days without me touching it. the trick isn't the model."</span></li>
+              <li><span class="cut-type talk">02 / 06</span><span>"the LLM is the easy part. OpenRouter + a prompt rewrites my resume in ~20 lines of code. anyone watching could ship that on a saturday."</span></li>
+              <li><span class="cut-type talk">03 / 06</span><span>"the hard part is 3 AM. LinkedIn changes a button selector. your script silently breaks. you don't notice for a week. every agent on your timeline is one DOM change away from dead."</span></li>
+              <li><span class="cut-type talk">04 / 06</span><span>"so i gave Claude Code access to the logs. day three: LinkedIn moved a button. applier crashed. Claude read the error, found the bug, patched the function. next application went through. i was asleep."</span></li>
+              <li><span class="cut-type talk">05 / 06</span><span>"the intelligence isn't the moat. the loop is."</span></li>
+              <li><span class="cut-type screen">06 / 06</span><span>full breakdown — how it finds jobs, tailors resumes, submits, and heals itself when something breaks: [YouTube link]</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-format">
+        <strong>Why a thread, not a single</strong>
+        Setup → tension → payoff → crystallize takes 5 tweets to land. Compressing this kills the "every agent dies" beat — and that beat is what earns the contrarian thesis. A single tweet of "the loop is the moat" without the setup just reads as cope.
+      </div>
+    </div>
+
+    <!-- ── POST 02 — NATIVE VIDEO ── -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Post 02</span>
+        <span class="format-pill video">Native video · ~75s</span>
+        <span class="strength strong">Strong</span>
+      </div>
+      <h2 class="post-headline">"I went to sleep with broken code. <em>Woke up with working code.</em>"</h2>
+
+      <div class="video-spec">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Tweet text</div>
+          <div class="video-spec-value">"i went to sleep with broken code. woke up with working code. nobody touched it." <em>(~80 chars · above attached video)</em></div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Pulled from</div>
+          <div class="video-spec-value">Beat 4 — the climax. Day-three crash and self-heal moment.</div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Hook line</div>
+          <div class="video-spec-value">"Day three of running my AI job application agent. LinkedIn changed a button. The bot crashed."</div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Duration</div>
+          <div class="video-spec-value">~75 seconds (don't push past 90)</div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Cuts</div>
+          <div class="video-spec-value">
+            <ul class="video-cuts">
+              <li><span class="cut-type talk">TALK</span><span>"Day three. LinkedIn changed a button selector. The applier crashed."</span></li>
+              <li><span class="cut-type screen">SCREEN</span><span><em>Log file. Red error highlighted. Timestamp visible. ~6s.</em></span></li>
+              <li><span class="cut-type talk">TALK</span><span>"I'd given Claude Code access to the logs."</span></li>
+              <li><span class="cut-type screen">SCREEN</span><span><em>Claude Code reading the log, diagnosing, patching the function. Sped up to ~10s.</em></span></li>
+              <li><span class="cut-type screen">SCREEN</span><span><em>Next application going through. Confirmation page. ~5s.</em></span></li>
+              <li><span class="cut-type talk">TALK</span><span>"I went to sleep with broken code. Woke up with working code. Nobody touched it."</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Ending</div>
+          <div class="video-spec-value">Hard cut to: <em>"The intelligence isn't the moat. The loop is."</em> Hold on face for a half-beat. End card.</div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">First reply</div>
+          <div class="video-spec-value">full build — job scraper, resume tailoring, dashboard, and the dumb mistakes i made along the way: [YouTube link]</div>
+        </div>
+      </div>
+
+      <div class="why-format">
+        <strong>Why native video, not single tweet</strong>
+        The reveal lives or dies on showing the actual log file and actual code change. Text descriptions of "AI fixed itself" read as hype — video reads as proof. Native video also gets ~5–10× the reach of YouTube link embeds on X.
+      </div>
+    </div>
+
+    <!-- ── POST 03 — SINGLE TWEET ── -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Post 03</span>
+        <span class="format-pill single">Single tweet · with image</span>
+        <span class="strength strong">Strong</span>
+      </div>
+      <h2 class="post-headline">"<em>[X] applications. [Y] hours.</em> I haven't opened LinkedIn in a week."</h2>
+
+      <div class="video-spec">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Tweet text</div>
+          <div class="video-spec-value">"[X] applications. [Y] hours of my time. [Z] days running. i haven't opened LinkedIn in a week." <em>(~95 chars with stats filled)</em></div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Attached image</div>
+          <div class="video-spec-value">Dashboard heatmap screenshot — GitHub-contribution-style grid showing daily application volume. Dark green squares = heavy days. Visual proof the system is running unattended. The same heatmap from Beat 5.</div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">First reply</div>
+          <div class="video-spec-value">built it in a weekend with Claude Code. full walkthrough: [YouTube link]</div>
+        </div>
+      </div>
+
+      <div class="why-format">
+        <strong>Why single, not thread</strong>
+        It's a one-liner with hard numbers and visual proof. Quoting it shorter makes it sharper. A thread would dilute the punch — the heatmap image does the storytelling that 5 follow-up tweets would do worse.
+      </div>
+    </div>
+
+    <!-- ── POST 04 — IMAGE QUOTE ── -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Post 04</span>
+        <span class="format-pill image-q">Image quote</span>
+        <span class="strength medium">Medium</span>
+      </div>
+      <h2 class="post-headline">The crystallize line, on a card.</h2>
+
+      <div class="video-spec">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Tweet text</div>
+          <div class="video-spec-value">"spent a weekend building an AI agent. this is the line i wrote down after." <em>(~74 chars · above attached image)</em></div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Image content</div>
+          <div class="video-spec-value">Quote graphic, 1200×1200. Type-set treatment of: <em>"AI stopped being a tool the day it started fixing its own bugs."</em></div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">First reply</div>
+          <div class="video-spec-value">the full build that got me there: [YouTube link]</div>
+        </div>
+      </div>
+
+      <div class="why-format">
+        <strong>Why image quote, not text-only</strong>
+        Line is quotable but punches harder with type treatment than as raw text in a feed. Honest read on strength: <em>medium</em> as a cold standalone post — works best at the end of the rollout, after the audience has already seen the build and can attach the line to actual receipts. Posted cold on day 1, it'd just sound like an aphorism. Posted day 7, it lands as a takeaway.
+      </div>
+    </div>
+
+    <!-- ── ROLLOUT ── -->
+    <div class="rollout">
+      <div class="rollout-label">Rollout Plan</div>
+      <h2 class="rollout-title">Spread across ~7 days. Don't dump.</h2>
+      <p class="rollout-sub">Native video first for reach. Thread later for depth. Receipts and quote pace the cycle.</p>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Day 1</div>
+        <div class="rollout-what">
+          <strong>YouTube video goes live.</strong> Same day, post the <strong>native video clip</strong> (Post 02). Highest-reach format on X — let the algorithm warm to the topic before you start telling people what it means.
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Day 2</div>
+        <div class="rollout-what">
+          <strong>Receipts tweet</strong> (Post 03). Dashboard heatmap. The audience that saw yesterday's clip now sees the proof — curiosity gap → click. <em>Different hook, same audience, second touch.</em>
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Day 4</div>
+        <div class="rollout-what">
+          <strong>The thread</strong> (Post 01). By now the receipts and clip are circulating. The thread expands the contrarian thesis for the people asking "okay but how though?" Quote-RT the original video clip in the thread for context.
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Day 7</div>
+        <div class="rollout-what">
+          <strong>Image quote</strong> (Post 04). Caps the cycle. Surfaces the crystallize line for everyone who missed the earlier posts. Low-effort, high-quotability — and by now the audience has earned the line.
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Note</div>
+        <div class="rollout-what">
+          <em>If video clip + thread underperform in the first 48 hours, skip Post 04 entirely.</em> Don't run the medium-strength post into a cold audience.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ════════════ /TWITTER ════════════ -->
+
+<div class="tab-content" data-tab="tiktok">
+  <div class="hero">
+    <p class="hero-eyebrow">TikTok · Repurposing Plan</p>
+    <h1>2 cuts. <em>1 TikTok.</em><br>1 Both.</h1>
+  </div>
+
+  <div class="container">
+
+    <div class="tw-summary">
+      <div class="tw-summary-label">Inventory</div>
+      <p class="tw-summary-count">TIKTOK CUTS: 2 usable · 1 rejected</p>
+      <p class="tw-summary-inv">
+        <strong>1 Both</strong> (the 6× stat — TikTok variant; career-anxiety hook, conversational, fast cuts) ·
+        <strong>1 TikTok only</strong> (the self-healing reveal — rough proof-of-demo that TikTok rewards over Reels) ·
+        <strong>1 Neither</strong> (the contrarian thesis — without live demo footage it lectures; doesn't land cold on TikTok).<br>
+        TikTok gets native auto-captions and direct address. "Both" uses a distinct TikTok-specific opener — never the same hook as the Reels variant.
+      </p>
+    </div>
+
+    <!-- ══ CUT 01 — BOTH: 6X STAT ══ -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Cut 01</span>
+        <span class="format-pill video">Both platforms · TikTok variant</span>
+        <span class="strength strong">Strong</span>
+      </div>
+      <h2 class="post-headline">"<em>6× more interviews.</em> From 3.2 million applications."</h2>
+
+      <div class="short-hook">
+        <div class="short-hook-label">TikTok hook · first 1.5 seconds</div>
+        <p class="short-hook-text">"Nobody told you this but a tailored resume is literally six times more likely to get you an interview."</p>
+      </div>
+
+      <div class="short-pair">
+        <div class="onscreen-mock">
+          <div class="onscreen-label">TikTok on-screen</div>
+          <div class="onscreen-frame">
+            <p class="onscreen-text">TAILORED<br>=<br>6X MORE<br>INTERVIEWS</p>
+          </div>
+        </div>
+        <div class="short-pair-meta">
+          <div class="short-meta-row">
+            <div class="short-meta-label">Length</div>
+            <div class="short-meta-value">35–45s. Fast cuts. Auto-captions on. Direct address — talk to the viewer, not the camera.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Caption</div>
+            <div class="short-meta-value">"i automated my entire job application so my resume is custom tailored to every single job 🤯" <em>(first line is the algo hook — conversational, no punctuation polish)</em></div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Tone</div>
+            <div class="short-meta-value">Slightly breathless. "Nobody told you this" energy. Fast stat drop then the slow reveal that you've automated the part everyone skips.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-spec" style="margin-top:22px;">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Script core</div>
+          <div class="video-spec-value">
+            <ul class="video-cuts">
+              <li><span class="cut-type talk">VO · 0–7s</span><span>"A tailored resume makes you 6 times more likely to land an interview. That's from 3.2 million applications. Not a tip. Data."</span></li>
+              <li><span class="cut-type talk">VO · 7–20s</span><span>"Most people paste the job into ChatGPT, copy the result, move on. Fine for one job. You can't do that 50 times a day."</span></li>
+              <li><span class="cut-type screen">SCREEN</span><span><em>Split: slow copy-paste on left · bot tailoring 50 resumes in seconds on right. ~6s.</em></span></li>
+              <li><span class="cut-type talk">VO · 26–35s</span><span>"Same resume in. Hundreds of custom versions out. One for every job."</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Pulled from</div>
+          <div class="video-spec-value">Beat 2 — resume tailoring. Stat is self-contained; viewer doesn't need the full system context to feel the payoff.</div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Captions</div>
+          <div class="video-spec-value">Native TikTok auto-captions on. Don't burn custom captions — the auto-generated look signals organic, not produced.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ CUT 02 — TIKTOK ONLY: SELF-HEALING ══ -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Cut 02</span>
+        <span class="format-pill video">TikTok only</span>
+        <span class="strength strong">Strong</span>
+      </div>
+      <h2 class="post-headline">"<em>I was asleep.</em> The bot fixed its own code."</h2>
+
+      <div class="short-hook">
+        <div class="short-hook-label">Hook · first 1.5 seconds</div>
+        <p class="short-hook-text">"My code broke at 3am. I didn't fix it. The AI did."</p>
+      </div>
+
+      <div class="short-pair">
+        <div class="onscreen-mock">
+          <div class="onscreen-label">On-screen text</div>
+          <div class="onscreen-frame">
+            <p class="onscreen-text">AI FIXED<br>ITS OWN<br>CODE</p>
+          </div>
+        </div>
+        <div class="short-pair-meta">
+          <div class="short-meta-row">
+            <div class="short-meta-label">Pulled from</div>
+            <div class="short-meta-value">Beat 4 — the climax. Day-three crash, log catch, Claude Code patch, next app goes through.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Why TikTok, not Reels</div>
+            <div class="short-meta-value">The raw screen-recording of a bot patching its own function is <em>messy</em> — that roughness is a feature on TikTok. Reels would want a cleaner demo video, which neuters the "this actually happened" credibility. The jarring cut from crash to fix is the point.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Length</div>
+            <div class="short-meta-value">30–50s. Fast. Don't over-explain. Show the log, show the patch, show the confirmation. Let the footage do the convincing.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-spec">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Script · verbatim</div>
+          <div class="video-spec-value">
+            <ul class="video-cuts">
+              <li><span class="cut-type talk">VO · 0–5s</span><span>"My code broke at 3am. I didn't fix it. The AI did."</span></li>
+              <li><span class="cut-type bridge">BRIDGE</span><span><em>"Here's the actual log."</em></span></li>
+              <li><span class="cut-type screen">SCREEN · 7–15s</span><span><em>Log file. Red error. Timestamp. Raw — don't clean it up.</em></span></li>
+              <li><span class="cut-type talk">VO · 15–22s</span><span>"LinkedIn changed a button. The applier crashed. Claude Code read the log, found the bug, patched it."</span></li>
+              <li><span class="cut-type screen">SCREEN · 22–35s</span><span><em>Claude Code reading the error, generating the fix — sped up 3×. Green confirmation page.</em></span></li>
+              <li><span class="cut-type talk">VO · 35–45s</span><span>"Next application went through. No human in the loop. I woke up and it was already fixed."</span></li>
+              <li><span class="cut-type cut">LOOP</span><span>"My code broke at 3am. I didn't fix it. The AI did." <em>(Repeat of opener — closes the loop.)</em></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Caption · TikTok</div>
+          <div class="video-spec-value">"went to sleep with broken code woke up with working code nobody touched it 🤯 #aiagent #coding #automation"</div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Captions</div>
+          <div class="video-spec-value">Native TikTok auto-captions on. Don't burn custom captions — the auto-generated look signals organic, not produced.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ CUT 04 — NEITHER: CONTRARIAN THESIS ══ -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Cut 04</span>
+        <span class="format-pill" style="color:#555;border-color:#333;background:rgba(85,85,85,0.06);">Neither platform</span>
+        <span class="strength" style="color:#555;background:rgba(85,85,85,0.06);border:1px solid rgba(85,85,85,0.25);">Rejected</span>
+      </div>
+      <h2 class="post-headline" style="color:#555;">"Every AI agent dies in 90 seconds." — <em style="color:#444;">not a cut</em></h2>
+
+      <div class="video-spec">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Pulled from</div>
+          <div class="video-spec-value" style="color:var(--muted);">Tension section — the contrarian thesis. "The LLM is the easy part. The hard part is 3 AM."</div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Why rejected</div>
+          <div class="video-spec-value" style="color:var(--muted);">
+            Without live demo footage of the crash-and-fix, this is a lecture. TikTok punishes lectures from accounts without existing social proof. "Everyone else is doing it wrong" takes need earned credibility to land cold.<br><br>
+            This works as a Twitter thread (already built in the Twitter tab) and as the Tension section in the long-form. Doesn't cross to TikTok without the demo footage to back it.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ROLLOUT ── -->
+    <div class="rollout">
+      <div class="rollout-label">TikTok Posting Cadence</div>
+      <h2 class="rollout-title">2 cuts. Strongest first. Stagger by 24 hours.</h2>
+      <p class="rollout-sub">The self-healing reveal hooks the dev/AI-curious crowd. The 6× stat hits the career-anxious crowd. Different audience angles — let the algorithm read them as separate terrain.</p>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Day 0</div>
+        <div class="rollout-what">
+          <strong>YouTube goes live.</strong> Post <strong>Cut 02 (TikTok only)</strong> same day — most visceral payoff, hooks the dev/AI-curious crowd most likely to already be on TikTok searching this content.
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Day +1</div>
+        <div class="rollout-what">
+          <strong>Cut 01 TikTok variant</strong> — the 6× stat, conversational hook. Different audience angle (career-anxious vs AI-curious), reads as fresh terrain to the algorithm, not a sequel.
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Note</div>
+        <div class="rollout-what">
+          <em>If Cut 02 underperforms on TikTok in 48 hours, hold Cut 01 — the algorithm may be cooling on the topic. Let 3–4 days pass before posting the stat cut.</em>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="tab-content" data-tab="instagram">
+  <div class="hero">
+    <p class="hero-eyebrow">Instagram · Reels · Repurposing Plan</p>
+    <h1>2 Reels cuts <em>found</em>.<br>1 Both. 1 Reels.</h1>
+  </div>
+
+  <div class="container">
+
+    <div class="tw-summary">
+      <div class="tw-summary-label">Inventory</div>
+      <p class="tw-summary-count">REELS CUTS: 2 usable</p>
+      <p class="tw-summary-inv">
+        <strong>1 Both</strong> (the 6× stat — Reels variant; polished hook, tight edit, branded captions) ·
+        <strong>1 Reels only</strong> (the trust-vs-manage dashboard — the heatmap is a polished visual that fits Reels' aesthetic-first audience).<br>
+        Reels gets branded burned-in captions and trending audio layered at low volume. Hook is different from the TikTok variant of Cut 01 — <em>never repost the same opener across platforms</em>.
+      </p>
+    </div>
+
+    <!-- ══ CUT 01 — BOTH (REELS VARIANT): 6X STAT ══ -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Cut 01</span>
+        <span class="format-pill video">Both platforms · Reels variant</span>
+        <span class="strength strong">Strong</span>
+      </div>
+      <h2 class="post-headline">"<em>6× more interviews.</em> I automated 50 a day."</h2>
+
+      <div class="short-hook">
+        <div class="short-hook-label">Reels hook · first 1.5 seconds — DIFFERENT from TikTok</div>
+        <p class="short-hook-text">"A tailored resume makes you 6× more likely to get an interview. I automated 50 of them a day."</p>
+      </div>
+
+      <div class="short-pair">
+        <div class="onscreen-mock">
+          <div class="onscreen-label">Reels on-screen</div>
+          <div class="onscreen-frame">
+            <p class="onscreen-text">6×<br>MORE<br>LIKELY</p>
+          </div>
+        </div>
+        <div class="short-pair-meta">
+          <div class="short-meta-row">
+            <div class="short-meta-label">Length</div>
+            <div class="short-meta-value">20–28s. Tighter than TikTok. Polished one-take or two-cut. Branded caption box bottom-third.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Caption</div>
+            <div class="short-meta-value">"Built an AI that tailors my resume to every job description. 50+ applications per day. This is how it works." <em>(cleaner, structured — Reels audience expects slightly more polish in the copy)</em></div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Audio note</div>
+            <div class="short-meta-value">Check current trending audio in the career/productivity space and layer under the VO at ~15% volume. Trending audio is a real distribution lever on Reels in a way it isn't on TikTok.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-spec" style="margin-top:22px;">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Script core</div>
+          <div class="video-spec-value">
+            <ul class="video-cuts">
+              <li><span class="cut-type talk">VO · 0–7s</span><span>"A tailored resume makes you 6 times more likely to land an interview. That's from 3.2 million applications. Not a tip. Data."</span></li>
+              <li><span class="cut-type talk">VO · 7–20s</span><span>"Most people paste the job into ChatGPT, copy the result, move on. Fine for one job. You can't do that 50 times a day."</span></li>
+              <li><span class="cut-type screen">SCREEN</span><span><em>Split: slow copy-paste on left · bot tailoring 50 resumes in seconds on right. ~6s.</em></span></li>
+              <li><span class="cut-type talk">VO · 26–28s</span><span>"Same resume in. Hundreds of custom versions out. One for every job."</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Pulled from</div>
+          <div class="video-spec-value">Beat 2 — resume tailoring. Stat is self-contained; viewer doesn't need the full system context to feel the payoff.</div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Branded captions</div>
+          <div class="video-spec-value">Burned-in caption box, bottom third. Consistent font and color across all your Reels — treat this as a brand moment, not a subtitles requirement.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ CUT 03 — REELS ONLY: TRUST THE SYSTEM ══ -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Cut 03</span>
+        <span class="format-pill video">Reels only</span>
+        <span class="strength medium">Medium</span>
+      </div>
+      <h2 class="post-headline">"I don't read it to manage. <em>I read it to trust.</em>"</h2>
+
+      <div class="short-hook">
+        <div class="short-hook-label">Hook · first 1.5 seconds</div>
+        <p class="short-hook-text">"This is what 30 days of automated job applications looks like."</p>
+      </div>
+
+      <div class="short-pair">
+        <div class="onscreen-mock">
+          <div class="onscreen-label">On-screen text</div>
+          <div class="onscreen-frame">
+            <p class="onscreen-text">30 DAYS<br>ZERO<br>EFFORT</p>
+          </div>
+        </div>
+        <div class="short-pair-meta">
+          <div class="short-meta-row">
+            <div class="short-meta-label">Pulled from</div>
+            <div class="short-meta-value">Beat 5 — the dashboard and heatmap. The visual does the heavy lifting.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Why Reels, not TikTok</div>
+            <div class="short-meta-value">The heatmap is a <em>polished</em> visual — clean grid, dark green squares, obvious at a glance. Reels rewards aesthetically cohesive content. On TikTok this opener reads slow; the raw self-healing log footage is TikTok's tempo, not this.</div>
+          </div>
+          <div class="short-meta-row">
+            <div class="short-meta-label">Length</div>
+            <div class="short-meta-value">15–25s. Tight. The trust line is the payoff — get there fast.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-spec">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Script · verbatim</div>
+          <div class="video-spec-value">
+            <ul class="video-cuts">
+              <li><span class="cut-type screen">SCREEN · 0–5s</span><span><em>Heatmap filling in over 30 days, time-lapsed. Each green square = one application.</em></span></li>
+              <li><span class="cut-type talk">VO · 5–14s</span><span>"I don't read this dashboard to manage the system. I read it to trust the system."</span></li>
+              <li><span class="cut-type talk">VO · 14–22s</span><span>"If you're letting an AI run your job search, you need to see exactly what it did when you weren't looking."</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Caption</div>
+          <div class="video-spec-value">"Built an AI that applies to jobs while I sleep. The dashboard is how I keep it honest. 30 days of automated applications." <em>(Clean. Structured. Reels audience.)</em></div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Branded captions</div>
+          <div class="video-spec-value">Burned-in caption box, bottom third. Consistent font and color across all your Reels — treat this as a brand moment, not a subtitles requirement.</div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Audio note</div>
+          <div class="video-spec-value">Check current trends — look for ambient/lo-fi productivity audio with good engagement in your niche. Layer at low volume under VO.</div>
+        </div>
+      </div>
+
+      <div class="caveat">
+        <strong>Why medium</strong>
+        Needs the heatmap to be visually dense and legible on a phone screen. If the dashboard mock is sparse or hard to read at 9:16, this drops fast. Shoot a real 30-day run — don't mock it. Also: the trust insight lands harder after viewers have already seen the 6× stat Reel. Post Cut 01 first.
+      </div>
+    </div>
+
+    <!-- ── ROLLOUT ── -->
+    <div class="rollout">
+      <div class="rollout-label">Reels Posting Cadence</div>
+      <h2 class="rollout-title">2 cuts. Polish-first. Post Cut 01 two days after TikTok.</h2>
+      <p class="rollout-sub">Don't mirror-post with TikTok on the same day — stagger by 1–2 days to get a real A/B read on hook performance and avoid algorithmic cannibalization.</p>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Day +2</div>
+        <div class="rollout-what">
+          <strong>Cut 01 Reels variant</strong> — the 6× stat, polished hook. Posting 2 days after the TikTok version gives you a real A/B read on which opener drives more watch-time. Don't post both simultaneously — you lose the data.
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Day +4</div>
+        <div class="rollout-what">
+          <strong>Cut 03 (Reels only)</strong> — the heatmap/trust cut. Context from Cut 01 makes the insight land harder. <em>Only post if the heatmap is visually dense on a phone screen — don't rush it.</em>
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Note</div>
+        <div class="rollout-what">
+          <em>If Cut 01 Reels underperforms in 48 hours, skip Cut 03 entirely. A weak visual on Cut 03 will hurt more than it helps — and don't post it into a cold Reels audience.</em>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="tab-content" data-tab="linkedin">
+  <div class="hero">
+    <p class="hero-eyebrow">LinkedIn · Repurposing Plan</p>
+    <h1>1 post <em>found</em>.<br>Written post.<br>No native video.</h1>
+  </div>
+
+  <div class="container">
+
+    <div class="tw-summary">
+      <div class="tw-summary-label">Assessment</div>
+      <p class="tw-summary-count">FORMAT: WRITTEN POST (300–500 words)</p>
+      <p class="tw-summary-inv">
+        <strong>Personal stake:</strong> present and visible — unemployment is the setup, building the system is the response.
+        <strong>Macro insight:</strong> strong — "the loop, not the model" is the kind of operational take that career-adjacent professionals recognize and share.
+        <strong>Visual evidence for native video:</strong> insufficient for LinkedIn. The self-healing clip works on Twitter and Shorts because those audiences are already technical-curious. On LinkedIn, a 75s screen recording of Claude Code patching a function needs more setup than the format allows — it reads like a product demo, not a human story. Skip native video here.
+        <strong>Crossover appeal:</strong> high. Job seekers, engineering managers, recruiters, and people generally anxious about AI in the workplace all have a stake in this post. That's the rare kind of crossover that earns distribution on LinkedIn.
+      </p>
+    </div>
+
+    <!-- ── POST 01 — WRITTEN POST ── -->
+    <div class="post-block">
+      <div class="post-meta-row">
+        <span class="post-num">Post 01</span>
+        <span class="format-pill single">Written post · 300–500 words</span>
+        <span class="strength strong">Strong</span>
+      </div>
+      <h2 class="post-headline">I'm unemployed. So I built an AI that applies to jobs <em>while I sleep.</em></h2>
+
+      <div class="video-spec">
+        <div class="video-spec-row">
+          <div class="video-spec-label">Full post text</div>
+          <div class="video-spec-value">
+            <p style="margin-bottom:14px;">I'm unemployed. So I built an AI that applies to jobs while I sleep.</p>
+            <p style="margin-bottom:14px;">Not a script that fills out a form. A system — one that finds jobs, rewrites my resume to match each one, submits, and fixes itself when it breaks.</p>
+            <p style="margin-bottom:14px;">[X] applications submitted. [Y] hours of my time.</p>
+            <p style="margin-bottom:14px;">Here's what I actually learned building it.</p>
+            <p style="margin-bottom:14px;">The model is the easy part.</p>
+            <p style="margin-bottom:14px;">Tailored resumes make you 6x more likely to land an interview — that stat is from 3.2 million applications. Wiring up an LLM to do the rewriting took me about 20 lines of code. Anyone reading this could ship that on a Saturday afternoon.</p>
+            <p style="margin-bottom:14px;">The hard part is what happens at 3 AM when LinkedIn changes a button and your script silently breaks for a week before you notice.</p>
+            <p style="margin-bottom:14px;">Every "AI agent" I've seen fails here. The demo looks clean for 90 seconds. Then it touches a real website, gets a DOM change it didn't expect, and dies quietly.</p>
+            <p style="margin-bottom:14px;">So I built the loop around the model instead.</p>
+            <p style="margin-bottom:14px;">Every step logs to a file. Every failure surfaces to a queue that Claude Code reads, diagnoses, and patches before the next run. Day three of running it, LinkedIn moved a button selector. The system caught it, rewrote the failing function, and the next application went through.</p>
+            <p style="margin-bottom:14px;">I was asleep.</p>
+            <p style="margin-bottom:14px;">That's the shift I didn't expect: I stopped managing the system and started trusting it. The dashboard I built isn't about oversight — it's about confidence. A heatmap of every application, every timestamp, every screenshot of the confirmation page. Not so I can micromanage it. So I know it's running when I'm not watching.</p>
+            <p style="margin-bottom:14px;">The intelligence isn't the moat. The loop is.</p>
+            <p style="margin-bottom:0;">If you're in a job search right now — or you manage people who are — the leverage isn't applying more. It's building the system that applies for you, and trusting it enough to sleep.</p>
+          </div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">First comment</div>
+          <div class="video-spec-value">Full build walkthrough — how the job finder, resume rewriter, applier, and self-healing loop work together: [YouTube link]</div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Hashtags</div>
+          <div class="video-spec-value">#JobSearch #AI #CareerDevelopment <em>(max 3 — stick to these, they span all three crossover audiences)</em></div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">Word count</div>
+          <div class="video-spec-value">~340 words. In range. Don't pad it.</div>
+        </div>
+        <div class="video-spec-row">
+          <div class="video-spec-label">First 2 lines</div>
+          <div class="video-spec-value">"I'm unemployed. So I built an AI that applies to jobs while I sleep." — Personal stake in line 1, payoff in line 2. Both visible before "see more." The word <em>unemployed</em> stops the scroll; the word <em>sleep</em> earns the click.</div>
+        </div>
+      </div>
+
+      <div class="why-format">
+        <strong>Why written post, not native video</strong>
+        The self-healing moment is the most cinematic beat in this script — but LinkedIn's native video audience skews toward polished talking-head content, not screen recordings. A 75s clip of Claude Code patching a function loses the human stakes entirely. The written post leads with unemployment (personal), builds to operational insight (professional), and lands on a line that managers and job seekers can share with their own audience. That's the LinkedIn flywheel: personal story + transferable lesson = reach beyond your followers.
+      </div>
+    </div>
+
+    <!-- ── ROLLOUT ── -->
+    <div class="rollout">
+      <div class="rollout-label">Posting Notes</div>
+      <h2 class="rollout-title">Post same day the video goes live.</h2>
+      <p class="rollout-sub">LinkedIn and YouTube serve different audiences — post them together, not sequentially.</p>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Day 0</div>
+        <div class="rollout-what">
+          <strong>YouTube video launches.</strong> Post the LinkedIn written post the same day — ideally within 2 hours of the video going live. The audiences don't overlap much; this isn't cannibalism, it's parallel distribution.
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">First comment</div>
+        <div class="rollout-what">
+          Drop the YouTube link immediately as the first comment. Do it before the post gets any engagement — don't wait. LinkedIn suppresses external links in the body; the comment placement is the workaround, and it's standard practice now.
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">Don't</div>
+        <div class="rollout-what">
+          <em>Don't edit the post body after it starts getting traction.</em> LinkedIn's algorithm treats edits as resets. If the numbers are moving, leave it alone.
+        </div>
+      </div>
+
+      <div class="rollout-day">
+        <div class="rollout-when">If it lands</div>
+        <div class="rollout-what">
+          The comments that ask "how did you build this?" are the signal. Reply with one sentence and the YouTube link. Don't paste the full build in the thread — that kills the click-through. Curiosity gap stays open until they watch.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="vbar">
+  <div id="vbar-left">
+    <span id="vbar-label">Auto-versioned</span>
+    <span id="ver-badge">v1 — Initial render</span>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;">
+    <div id="view-toggle">
+      <button class="vtab" data-view="script">Script</button>
+      <button class="vtab" data-view="shots">Shots</button>
+      <button class="vtab" data-view="music">Music</button>
+      <div id="vtab-indicator"></div>
+    </div>
+    <button class="vbtn" id="btn-history">History</button>
+  </div>
+</div>
+
+<div id="vpanel">
+  <div id="vpanel-head">
+    <span>Version History</span>
+    <button id="vpanel-close">×</button>
+  </div>
+  <div id="vlist"><div id="vempty">Loading…</div></div>
+</div>
+
+<script>
+const STORE_KEY = 'script_versions';
+const CURRENT_KEY = 'script_current';
+const DOC_HASH_KEY = 'script_doc_hash';
+
+const SCRIPT_VERSION = "v12";
+const VERSION_LABEL = "Shorts plan drafted";
+
+let versions = [];
+let currentIdx = null;
+
+const MUSIC_CUES = [
+  { title: 'Suspended Pulse', meta: '85 BPM · Minimal electronic',
+    desc: 'Atmospheric drone, quiet anticipation. Single repeating note that lets your VO sit on top.',
+    note: 'Holds through Frame. Don\'t compete with the cold open.', end: '0:18' },
+  { title: '(carries over)', meta: 'Same as Hook',
+    desc: 'No transition. Music carries from the cold open into the contract.',
+    note: 'Light build cued for the pivot into Tension.', end: '0:42' },
+  { title: 'Forward Pulse', meta: '105 BPM · Pulsing minimal',
+    desc: 'Confident forward push. Underlines the contrarian thesis without overpowering it.',
+    note: 'Lift on "That\'s wrong." Drop slightly under "The intelligence isn\'t the moat."', end: '1:30' },
+  { title: 'Working', meta: '110 BPM · Rhythmic electronic',
+    desc: 'Forward motion, system-at-work feel. New track signals the build phase.',
+    note: 'Hard cut on Beat 1 opening. Hold through Beat 2.', end: '2:00' },
+  { title: '(continues)', meta: 'Same track · slight build',
+    desc: 'Energy lifts under the resume tailoring example.',
+    note: 'Hold through to Beat 3 climb.', end: '2:48' },
+  { title: 'Climbing', meta: '115 BPM · Building',
+    desc: 'Watch-this energy. Tension climbs into the submission moment.',
+    note: 'Lift right before "twelve seconds, start to finish."', end: '3:12' },
+  { title: 'DROP — Suspended', meta: 'Ambient pad · near-silence',
+    desc: 'Strip everything back. The reveal needs space — your face, the screen, the words.',
+    note: 'Music swells back in on "Woke up with working code." That\'s the catharsis.', end: '4:00' },
+  { title: 'Reflective', meta: '90 BPM · Downtempo',
+    desc: 'Settled, trust. The system is real and it\'s yours. Quieter than Beats 1–3.',
+    note: 'Search: "downtempo reflective electronic" or "introspective ambient".', end: '4:51' },
+  { title: '(continues)', meta: 'Same track',
+    desc: 'Hold under the receipts. Don\'t change tracks for the close.',
+    note: 'Soft hold through "that\'s not the part of this that matters."', end: '5:09' },
+  { title: 'DROP — Crystal', meta: 'Hold · silence',
+    desc: 'Music drops out under the crystallize line. The line lands in air.',
+    note: 'One full beat of silence after "fixing its own bugs." Then resolution swells in.', end: '5:24' },
+  { title: 'Resolution', meta: '95 BPM · Cinematic ambient',
+    desc: 'Slight rise into the call to action. Not triumphant — settled.',
+    note: 'Tail out under "Be one of them." Let it ring for a half-second after VO ends.', end: '5:54' }
+];
+
+const SHOTS = [
+  [
+    { type: 'SCREEN', desc: 'Dashboard scrolling, applications auto-filling. <em>No face yet.</em>' },
+    { type: 'SCREEN', desc: 'Counter ticking up to [X] applications. Number visible on screen.' },
+    { type: 'TALK', desc: 'Cut to your face for "I haven\'t opened LinkedIn in a week." <em>Small smile.</em>' }
+  ],
+  [
+    { type: 'TALK', desc: 'Direct camera. Slightly tighter framing than the rest of the video.' },
+    { type: 'CUT', desc: '4-flash montage previewing each beat: find / tailor / apply / heal. ~2s each.' },
+    { type: 'TALK', desc: 'Back to face for the "build one too" close. <em>Subtle smirk.</em>' }
+  ],
+  [
+    { type: 'TALK', desc: 'Direct address. "Here\'s the thing though..."' },
+    { type: 'GRAPHIC', desc: 'Pull-quote overlay: <em>THAT\'S WRONG</em>' },
+    { type: 'SCREEN', desc: 'Brief flash of LLM API call code under "twenty lines of code."' },
+    { type: 'B-ROLL', desc: 'Generic broken-website / crash screenshot under "every AI agent dies."' },
+    { type: 'GRAPHIC', desc: 'Pull-quote overlay: <em>THE INTELLIGENCE ISN\'T THE MOAT. THE LOOP IS.</em>' }
+  ],
+  [
+    { type: 'TALK', desc: '"First problem — finding jobs is the worst part of being unemployed."' },
+    { type: 'B-ROLL', desc: 'You making coffee. Morning kitchen light. Casual, candid.' },
+    { type: 'SCREEN', desc: 'Browser scraping LinkedIn listings — automation visible.' },
+    { type: 'SCREEN', desc: 'Same on Indeed. Quick cut.' },
+    { type: 'GRAPHIC', desc: 'Lower-third: <em>GREENHOUSE NEXT</em>' },
+    { type: 'TALK', desc: '"It compounds." <em>Single-word emphasis. Hold.</em>' }
+  ],
+  [
+    { type: 'TALK', desc: '"A tailored resume makes you 6 times more likely..."' },
+    { type: 'GRAPHIC', desc: 'Big stat overlay: <em>6× MORE LIKELY · 3.2M APPLICATIONS</em>' },
+    { type: 'SCREEN', desc: 'ChatGPT used manually — paste JD, get resume, copy. Show how slow it is.' },
+    { type: 'SCREEN', desc: 'Side-by-side: original resume vs. tailored. Distributed-systems bullet highlighted.' },
+    { type: 'TALK', desc: '"Same resume going in, hundreds of versions coming out, one for each job."' }
+  ],
+  [
+    { type: 'TALK', desc: '"Now the part that actually saves time."' },
+    { type: 'SCREEN', desc: 'Watch-this sequence: bot opens application page, fills form, submits.' },
+    { type: 'GRAPHIC', desc: 'Stopwatch animation hitting <em>12s</em>.' },
+    { type: 'SCREEN', desc: 'Confirmation screenshot saving to log. Timestamp visible.' }
+  ],
+  [
+    { type: 'TALK', desc: '"Here\'s the part that broke my brain." <em>Lean in slightly.</em>' },
+    { type: 'TITLE', desc: 'Black card / pause for tonal shift. ~1s of held black.' },
+    { type: 'SCREEN', desc: 'Log file showing the day-three crash entry. Red error highlighted.' },
+    { type: 'SCREEN', desc: 'Claude Code reading log, diagnosing, patching the function.' },
+    { type: 'SCREEN', desc: 'Next successful application going through.' },
+    { type: 'TALK', desc: '"I went to sleep with broken code. Woke up with working code." <em>Slow delivery. Hold on face.</em>' }
+  ],
+  [
+    { type: 'TALK', desc: '"Last piece. I needed to actually see what this thing was doing."' },
+    { type: 'SCREEN', desc: 'Dashboard card view — scrolling through applications.' },
+    { type: 'SCREEN', desc: 'Heatmap visualization. Your morning glance.' },
+    { type: 'TALK', desc: '"I read it to <em>trust</em> the system." Hit "trust" hard.' }
+  ],
+  [
+    { type: 'TALK', desc: 'Direct camera. "So — did it work?"' },
+    { type: 'GRAPHIC', desc: 'Big numbers reveal: <em>[X] applications · [Y] hours · [Z] days</em>' },
+    { type: 'TALK', desc: '"But honestly — that\'s not the part of this that matters."' }
+  ],
+  [
+    { type: 'TALK', desc: 'Slow push-in or hold. No cuts.' },
+    { type: 'TITLE', desc: 'Crystallize line as on-screen text: <em>AI stopped being a tool the day it started fixing its own bugs.</em>' }
+  ],
+  [
+    { type: 'TALK', desc: 'Direct address.' },
+    { type: 'B-ROLL', desc: 'Hands at keyboard. Claude Code opening in terminal.' },
+    { type: 'TALK', desc: '"Be one of them." <em>Hold for a beat. Cut.</em>' }
+  ]
+];
+
+function injectMusicCues() {
+  const sections = document.querySelectorAll('.tab-content[data-tab="youtube"] #content-block > .section');
+  sections.forEach((section, i) => {
+    if (section.querySelector(':scope > .music-cue')) return;
+    const cue = MUSIC_CUES[i];
+    if (!cue) return;
+    let body = section.querySelector(':scope > .section-body');
+    if (!body) {
+      body = document.createElement('div');
+      body.className = 'section-body';
+      const kids = Array.from(section.children);
+      kids.forEach(k => body.appendChild(k));
+      section.appendChild(body);
+    }
+    const aside = document.createElement('aside');
+    aside.className = 'music-cue';
+    aside.innerHTML = `
+      <div class="cue-label">Music · ends ${cue.end}</div>
+      <h3 class="cue-title">${cue.title}</h3>
+      <div class="cue-meta">${cue.meta}</div>
+      <p class="cue-desc">${cue.desc}</p>
+      <div class="cue-note">${cue.note}</div>
+    `;
+    section.insertBefore(aside, body);
+    section.dataset.endTime = cue.end;
+
+    const shots = SHOTS[i];
+    if (shots && shots.length) {
+      const list = document.createElement('div');
+      list.className = 'shot-list';
+      list.innerHTML = `
+        <div class="shot-list-label">Shot list</div>
+        ${shots.map((s, j) => `
+          <div class="shot">
+            <div class="shot-num">${String(j+1).padStart(2,'0')}</div>
+            <div class="shot-type t-${s.type.toLowerCase().replace('-','')}">${s.type}</div>
+            <div class="shot-desc">${s.desc}</div>
+          </div>
+        `).join('')}
+      `;
+      section.appendChild(list);
+
+      // inject inline markers and wire up bidirectional hover
+      const scriptEls = Array.from(body.querySelectorAll(':scope > p, :scope > .pull, :scope > .crystallize'));
+      const shotRows = Array.from(list.querySelectorAll('.shot'));
+      shots.forEach((s, j) => {
+        const el = scriptEls[j];
+        const shotRow = shotRows[j];
+        if (!el) return;
+
+        const marker = document.createElement('span');
+        marker.className = 'shot-marker';
+        marker.textContent = String(j + 1).padStart(2, '0');
+        el.insertBefore(marker, el.firstChild);
+
+        const highlight = () => {
+          marker.classList.add('shot-hover');
+          el.classList.add('script-el-hover');
+          if (shotRow) shotRow.classList.add('shot-hover');
+        };
+        const unhighlight = () => {
+          marker.classList.remove('shot-hover');
+          el.classList.remove('script-el-hover');
+          if (shotRow) shotRow.classList.remove('shot-hover');
+        };
+
+        marker.addEventListener('mouseenter', highlight);
+        marker.addEventListener('mouseleave', unhighlight);
+        el.addEventListener('mouseenter', highlight);
+        el.addEventListener('mouseleave', unhighlight);
+        if (shotRow) {
+          shotRow.addEventListener('mouseenter', highlight);
+          shotRow.addEventListener('mouseleave', unhighlight);
+        }
+      });
+    }
+  });
+}
+
+async function loadMode() {
+  let view = 'script';
+  try {
+    const r = await window.storage.get('active_view');
+    if (r && r.value) view = r.value;
+  } catch(e) {}
+  setView(view, false);
+}
+
+function setView(view, save = true) {
+  document.body.classList.remove('show-music', 'show-shots');
+  if (view === 'music') document.body.classList.add('show-music');
+  if (view === 'shots') document.body.classList.add('show-shots');
+
+  document.querySelectorAll('.vtab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.view === view);
+  });
+
+  const indicator = document.getElementById('vtab-indicator');
+  const activeBtn = document.querySelector(`.vtab[data-view="${view}"]`);
+  if (activeBtn && indicator) {
+    const parent = document.getElementById('view-toggle');
+    const parentRect = parent.getBoundingClientRect();
+    const btnRect = activeBtn.getBoundingClientRect();
+    indicator.style.left = (btnRect.left - parentRect.left - 3) + 'px';
+    indicator.style.width = btnRect.width + 'px';
+  }
+
+  if (save) {
+    try { window.storage.set('active_view', view); } catch(e) {}
+  }
+}
+
+document.querySelectorAll('.vtab').forEach(btn => {
+  btn.addEventListener('click', () => setView(btn.dataset.view));
+});
+
+async function loadTab() {
+  let tab = 'shorts';  // default to shorts on this version since that's what just changed
+  try {
+    const r = await window.storage.get('active_tab');
+    if (r) tab = r.value;
+  } catch(e) {}
+  setActiveTab(tab, false);
+}
+
+function setActiveTab(tab, save = true) {
+  document.querySelectorAll('.tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.tab === tab);
+  });
+  document.querySelectorAll('.tab-content').forEach(c => {
+    c.classList.toggle('active', c.dataset.tab === tab);
+  });
+  document.body.dataset.tab = tab;
+  if (save) {
+    try { window.storage.set('active_tab', tab); } catch(e) {}
+  }
+}
+
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.addEventListener('click', () => setActiveTab(btn.dataset.tab));
+});
+
+async function loadVersions() {
+  try {
+    const r = await window.storage.get(STORE_KEY);
+    if (r) versions = JSON.parse(r.value);
+  } catch(e) { versions = []; }
+  try {
+    const r = await window.storage.get(CURRENT_KEY);
+    if (r && r.value !== '') currentIdx = parseInt(r.value);
+  } catch(e) { currentIdx = null; }
+}
+
+async function saveVersions() {
+  try { await window.storage.set(STORE_KEY, JSON.stringify(versions)); } catch(e){}
+  try { await window.storage.set(CURRENT_KEY, String(currentIdx ?? '')); } catch(e){}
+}
+
+function snapshot() {
+  const result = {};
+  document.querySelectorAll('.tab-content').forEach(tc => {
+    const clone = tc.cloneNode(true);
+    clone.querySelectorAll('.music-cue, .shot-list').forEach(el => el.remove());
+    clone.querySelectorAll('.section-body').forEach(body => {
+      const parent = body.parentNode;
+      while (body.firstChild) parent.appendChild(body.firstChild);
+      body.remove();
+    });
+    clone.querySelectorAll('.section').forEach(s => s.removeAttribute('data-end-time'));
+    result[tc.dataset.tab] = clone.innerHTML;
+  });
+  return result;
+}
+
+function applySnapshot(snap) {
+  if (snap.hero !== undefined && snap.content !== undefined) {
+    const yt = document.querySelector('.tab-content[data-tab="youtube"]');
+    if (yt) {
+      yt.innerHTML = `<div class="hero" id="hero-block">${snap.hero}</div><div class="container" id="content-block">${snap.content}</div><footer>${snap.footer || ''}</footer>`;
+    }
+  } else {
+    Object.entries(snap).forEach(([tab, html]) => {
+      const tc = document.querySelector(`.tab-content[data-tab="${tab}"]`);
+      if (tc) tc.innerHTML = html;
+    });
+  }
+  injectMusicCues();
+}
+
+function hashSnap(snap) {
+  const s = Object.keys(snap).sort().map(k => k + ':' + snap[k]).join('|');
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = ((h << 5) - h) + s.charCodeAt(i);
+    h |= 0;
+  }
+  return String(h);
+}
+
+function updateBadge() {
+  const el = document.getElementById('ver-badge');
+  if (currentIdx === null || !versions[currentIdx]) {
+    el.textContent = 'No version';
+    return;
+  }
+  const v = versions[currentIdx];
+  el.textContent = `v${currentIdx + 1} — ${v.label}`;
+}
+
+function renderList() {
+  const list = document.getElementById('vlist');
+  if (!versions.length) {
+    list.innerHTML = '<div id="vempty">No saved versions yet.</div>';
+    return;
+  }
+  list.innerHTML = versions.slice().reverse().map((v, ri) => {
+    const i = versions.length - 1 - ri;
+    const isCurrent = i === currentIdx;
+    const d = new Date(v.ts);
+    const time = d.toLocaleDateString('en-US', {month:'short',day:'numeric'}) + ' · ' + d.toLocaleTimeString('en-US', {hour:'2-digit',minute:'2-digit'});
+    return `<div class="vitem${isCurrent ? ' current' : ''}">
+      <div class="vitem-meta">
+        <div class="vitem-name">v${i+1} — ${v.label}</div>
+        <div class="vitem-time">${time}</div>
+      </div>
+      <button class="vitem-restore${isCurrent ? ' disabled' : ''}" data-i="${i}">${isCurrent ? 'Current' : 'Restore'}</button>
+    </div>`;
+  }).join('');
+  list.querySelectorAll('.vitem-restore:not(.disabled)').forEach(btn => {
+    btn.addEventListener('click', () => restore(parseInt(btn.dataset.i)));
+  });
+}
+
+async function restore(i) {
+  if (!versions[i]) return;
+  applySnapshot(versions[i].snap);
+  currentIdx = i;
+  await saveVersions();
+  updateBadge();
+  renderList();
+  document.getElementById('vpanel').classList.remove('open');
+  showToast(`Restored v${i+1} — ${versions[i].label}`);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+document.getElementById('btn-history').addEventListener('click', () => {
+  document.getElementById('vpanel').classList.toggle('open');
+});
+document.getElementById('vpanel-close').addEventListener('click', () => {
+  document.getElementById('vpanel').classList.remove('open');
+});
+
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  if (h > 0) document.getElementById('progress').style.width = (s / h * 100) + '%';
+});
+
+(async () => {
+  injectMusicCues();
+  await loadMode();
+  await loadTab();
+  await loadVersions();
+
+  const currentSnap = snapshot();
+  const currentHash = hashSnap(currentSnap);
+
+  let lastHash = null;
+  try {
+    const r = await window.storage.get(DOC_HASH_KEY);
+    if (r) lastHash = r.value;
+  } catch(e) {}
+
+  if (lastHash !== currentHash) {
+    const v = { label: VERSION_LABEL, ts: Date.now(), snap: currentSnap, scriptVer: SCRIPT_VERSION };
+    versions.push(v);
+    currentIdx = versions.length - 1;
+    await saveVersions();
+    try { await window.storage.set(DOC_HASH_KEY, currentHash); } catch(e) {}
+    showToast(`Auto-saved v${versions.length} — ${v.label}`);
+  }
+
+  updateBadge();
+  renderList();
+})();
+</script>
+</body>
+</html>
