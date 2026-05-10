@@ -180,9 +180,15 @@
     pointer-events: none;
   }
   body.show-music .music-cue {
+    /* Use visibility (not display:none) so the element stays in the flex
+       layout and holds its column position — eliminates the bottom-flash
+       caused by the element briefly rendering at its DOM position before
+       the flex row recalculates. */
     display: block;
+    visibility: hidden;
   }
   body.show-music-visible .music-cue {
+    visibility: visible;
     opacity: 1; transform: translateX(0);
     pointer-events: auto;
   }
@@ -270,13 +276,17 @@
     pointer-events: none;
   }
   body.show-shots .shot-list {
+    /* Use visibility (not display:none) so the element stays in the grid
+       layout and holds its column position — eliminates the bottom-flash. */
     display: block;
+    visibility: hidden;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: 20px 22px;
   }
   body.show-shots-visible .shot-list {
+    visibility: visible;
     opacity: 1; transform: translateX(0);
     pointer-events: auto;
   }
@@ -1886,9 +1896,9 @@
   </div>
   <div style="display:flex;gap:8px;align-items:center;">
     <div id="view-toggle">
+      <button class="vtab" data-view="music">Music</button>
       <button class="vtab" data-view="script">Script</button>
       <button class="vtab" data-view="shots">Shots</button>
-      <button class="vtab" data-view="music">Music</button>
       <div id="vtab-indicator"></div>
     </div>
     <button class="vbtn" id="btn-history">History</button>
@@ -2219,17 +2229,13 @@ function setView(view, save = true) {
       document.body.classList.remove('show-shots');
       document.body.classList.add('show-music');
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          document.body.classList.add('show-music-visible');
-        });
+        document.body.classList.add('show-music-visible');
       });
     } else if (view === 'shots') {
       document.body.classList.remove('show-music');
       document.body.classList.add('show-shots');
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          document.body.classList.add('show-shots-visible');
-        });
+        document.body.classList.add('show-shots-visible');
       });
     } else {
       // Returning to script — panels slide out to the right
