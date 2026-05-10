@@ -39,3 +39,71 @@ Don't dump all five at once if he came in with a specific question. Answer the q
 
 # Format rule
 If writing a script, shot list, or any structured content artifact — put it in code blocks in markdown format.
+
+# Script viewer — project structure
+
+The viewer is a static site hosted on GitHub Pages. Content is separated from presentation:
+
+```
+youtube-content/
+├── index.html              ← dashboard listing all videos
+├── template.html           ← 16-line shell for new scripts
+├── assets/
+│   ├── style.css           ← ALL CSS (shared, never edit per-video)
+│   └── renderer.js         ← ALL JS + DOM rendering (shared, never edit per-video)
+└── <video-slug>/
+    ├── index.html          ← 16-line shell (copy of template.html)
+    └── data.json           ← all script content for this video
+```
+
+## To add a new script
+1. Create a folder with a URL-friendly slug (e.g. `my-new-video/`)
+2. Copy `template.html` into it as `index.html`
+3. Create `data.json` with the script content (see `auto-ai-applier/data.json` as reference)
+4. Add a card to the root `index.html` dashboard
+
+## data.json schema
+```json
+{
+  "meta": { "title": "...", "eyebrow": "...", "footerNote": "..." },
+  "tabs": [
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "hero": { "eyebrow": "...", "title": "HTML allowed e.g. <em>word</em>" },
+      "sections": [ ...see below... ]
+    },
+    { "id": "youtube-shorts", ... },
+    { "id": "twitter", ... },
+    { "id": "tiktok", ... },
+    { "id": "instagram", ... },
+    { "id": "linkedin", ... }
+  ]
+}
+```
+
+Each YouTube section:
+```json
+{
+  "label": "HOOK",
+  "sublabel": "Optional subtitle",
+  "endTime": "0:42",
+  "items": [
+    { "type": "p", "text": "Plain paragraph" },
+    { "type": "pull", "text": "Pull quote text" },
+    { "type": "crystallize", "text": "Big italic statement" }
+  ],
+  "shotList": [
+    { "num": 1, "shotType": "TALK", "desc": "Description", "note": "Optional italic note" }
+  ],
+  "musicCue": {
+    "title": "Track Name", "bpm": "95 BPM", "genre": "GENRE",
+    "desc": "Description", "note": "Optional note", "label": "MUSIC · ENDS 0:42"
+  }
+}
+```
+
+## Key files
+- `assets/renderer.js` — fetches `data.json`, builds the full DOM, handles all view transitions (Music/Script/Shots), tab switching, fullscreen, history versioning, shot hover
+- `assets/style.css` — all visual styles; dark theme with Playfair Display + Open Sans
+- Preview server runs on port 3456 (`npx serve -l 3456 .` from repo root)
