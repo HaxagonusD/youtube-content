@@ -1,0 +1,755 @@
+{
+  "meta": {
+    "title": "I'm Unemployed. So I Hired an <em>AI</em> to Get Me Hired.",
+    "eyebrow": "Video Script — Full Draft",
+    "scriptVersion": "v12",
+    "versionLabel": "Shorts plan drafted",
+    "footerNote": "Script Draft · Fill in [X], [Y], [Z] before filming"
+  },
+  "tabs": [
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "hero": {
+        "eyebrow": "Video Script — Full Draft",
+        "title": "I'm Unemployed.<br>So I Hired an <em>AI</em><br>to Get Me Hired."
+      },
+      "sections": [
+        {
+          "label": "Hook",
+          "type": "hook",
+          "items": [
+            { "type": "p", "text": "<span class=\"stat\">[X]</span> job applications. Zero hours of my time." },
+            { "type": "p", "text": "I built a system that finds jobs, rewrites my resume for each one, and applies — while I sleep." },
+            { "type": "p", "text": "I haven't opened LinkedIn in a week." }
+          ],
+          "musicCue": {
+            "title": "Suspended Pulse",
+            "meta": "85 BPM · Minimal electronic",
+            "desc": "Atmospheric drone, quiet anticipation. Single repeating note that lets your VO sit on top.",
+            "note": "Holds through Frame. Don't compete with the cold open.",
+            "end": "0:18"
+          },
+          "shotList": [
+            { "type": "SCREEN", "desc": "Dashboard scrolling, applications auto-filling. <em>No face yet.</em>" },
+            { "type": "SCREEN", "desc": "Counter ticking up to [X] applications. Number visible on screen." },
+            { "type": "TALK", "desc": "Cut to your face for \"I haven't opened LinkedIn in a week.\" <em>Small smile.</em>" }
+          ]
+        },
+        {
+          "label": "Frame",
+          "type": "frame",
+          "endTime": "0:42",
+          "items": [
+            { "type": "p", "text": "I built this in a weekend with Claude Code — and I mean Claude actually designed the architecture, not just wrote the code." },
+            { "type": "p", "text": "By the end of this video you'll see exactly how it finds jobs, tailors my resume to each one, applies, and fixes itself when it breaks." },
+            { "type": "p", "text": "And after watching, you'll probably want to build one too." }
+          ],
+          "musicCue": {
+            "title": "(carries over)",
+            "meta": "Same as Hook",
+            "desc": "No transition. Music carries from the cold open into the contract.",
+            "note": "Light build cued for the pivot into Tension.",
+            "end": "0:42"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "Direct camera. Slightly tighter framing than the rest of the video." },
+            { "type": "CUT", "desc": "4-flash montage previewing each beat: find / tailor / apply / heal. ~2s each." },
+            { "type": "TALK", "desc": "Back to face for the \"build one too\" close. <em>Subtle smirk.</em>" }
+          ]
+        },
+        {
+          "label": "Tension",
+          "type": "tension",
+          "endTime": "1:30",
+          "items": [
+            { "type": "p", "text": "Here's the thing though." },
+            { "type": "p", "text": "When you see a build like this, you probably assume the impressive part is the AI — the so-called \"intelligence\" picking jobs and rewriting the resume." },
+            { "type": "pull", "text": "That's wrong." },
+            { "type": "p", "text": "The LLM is the easy part. OpenRouter plus a prompt does the resume tailoring in twenty lines of code. Anyone watching this could ship that on a Saturday." },
+            { "type": "p", "text": "The hard part — the part that makes this an actual system instead of a demo — is what happens at 3 AM when LinkedIn changes a button and your script silently breaks for a week before you notice." },
+            { "type": "p", "text": "That's the part nobody builds. That's why every \"AI agent\" you've seen on Twitter looks magical for 90 seconds and then dies the second it touches a real website." },
+            { "type": "pull", "text": "The intelligence isn't the moat. The loop is." }
+          ],
+          "musicCue": {
+            "title": "Forward Pulse",
+            "meta": "105 BPM · Pulsing minimal",
+            "desc": "Confident forward push. Underlines the contrarian thesis without overpowering it.",
+            "note": "Lift on \"That's wrong.\" Drop slightly under \"The intelligence isn't the moat.\"",
+            "end": "1:30"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "Direct address. \"Here's the thing though...\"" },
+            { "type": "GRAPHIC", "desc": "Pull-quote overlay: <em>THAT'S WRONG</em>" },
+            { "type": "SCREEN", "desc": "Brief flash of LLM API call code under \"twenty lines of code.\"" },
+            { "type": "B-ROLL", "desc": "Generic broken-website / crash screenshot under \"every AI agent dies.\"" },
+            { "type": "GRAPHIC", "desc": "Pull-quote overlay: <em>THE INTELLIGENCE ISN'T THE MOAT. THE LOOP IS.</em>" }
+          ]
+        },
+        {
+          "label": "Beat 1",
+          "sublabel": "It finds the jobs",
+          "type": "beat",
+          "endTime": "2:00",
+          "items": [
+            { "type": "p", "text": "First problem — finding jobs is the worst part of being unemployed." },
+            { "type": "p", "text": "While I was making coffee this morning, it had already pulled the day's listings from LinkedIn — exactly the kind of role I'd search for myself. Then it did the same thing on Indeed." },
+            { "type": "p", "text": "Greenhouse is next. Each platform I add is one more module hitting the same queue. It compounds." }
+          ],
+          "musicCue": {
+            "title": "Working",
+            "meta": "110 BPM · Rhythmic electronic",
+            "desc": "Forward motion, system-at-work feel. New track signals the build phase.",
+            "note": "Hard cut on Beat 1 opening. Hold through Beat 2.",
+            "end": "2:00"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "\"First problem — finding jobs is the worst part of being unemployed.\"" },
+            { "type": "B-ROLL", "desc": "You making coffee. Morning kitchen light. Casual, candid." },
+            { "type": "SCREEN", "desc": "Browser scraping LinkedIn listings — automation visible." },
+            { "type": "SCREEN", "desc": "Same on Indeed. Quick cut." },
+            { "type": "GRAPHIC", "desc": "Lower-third: <em>GREENHOUSE NEXT</em>" },
+            { "type": "TALK", "desc": "\"It compounds.\" <em>Single-word emphasis. Hold.</em>" }
+          ]
+        },
+        {
+          "label": "Beat 2",
+          "sublabel": "It tailors the resume",
+          "type": "beat",
+          "endTime": "2:48",
+          "items": [
+            { "type": "p", "text": "A tailored resume makes you 6 times more likely to land an interview. That's not a tip — that's from 3.2 million applications." },
+            { "type": "p", "text": "Here's where most people stop. They paste the job description into ChatGPT, get a tailored resume back, copy it over. Fine for one job. But you can't do that 50 times a day." },
+            { "type": "p", "text": "So I had Claude wire up the rewrite. Take this listing — they wanted distributed systems experience. The model found the bullet on my resume that matched, pulled it to the top, and rewrote it in the exact language they used." },
+            { "type": "p", "text": "Same resume going in, hundreds of versions coming out, one for each job." }
+          ],
+          "musicCue": {
+            "title": "(continues)",
+            "meta": "Same track · slight build",
+            "desc": "Energy lifts under the resume tailoring example.",
+            "note": "Hold through to Beat 3 climb.",
+            "end": "2:48"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "\"A tailored resume makes you 6 times more likely...\"" },
+            { "type": "GRAPHIC", "desc": "Big stat overlay: <em>6× MORE LIKELY · 3.2M APPLICATIONS</em>" },
+            { "type": "SCREEN", "desc": "ChatGPT used manually — paste JD, get resume, copy. Show how slow it is." },
+            { "type": "SCREEN", "desc": "Side-by-side: original resume vs. tailored. Distributed-systems bullet highlighted." },
+            { "type": "TALK", "desc": "\"Same resume going in, hundreds of versions coming out, one for each job.\"" }
+          ]
+        },
+        {
+          "label": "Beat 3",
+          "sublabel": "It applies",
+          "type": "beat",
+          "endTime": "3:12",
+          "items": [
+            { "type": "p", "text": "Now the part that actually saves time." },
+            { "type": "p", "text": "Watch this. It opens the application page, walks through the form, hits submit — about twelve seconds, start to finish. The confirmation page screenshots to a log with a timestamp, so I can prove it actually went through." },
+            { "type": "p", "text": "That log matters in a second." }
+          ],
+          "musicCue": {
+            "title": "Climbing",
+            "meta": "115 BPM · Building",
+            "desc": "Watch-this energy. Tension climbs into the submission moment.",
+            "note": "Lift right before \"twelve seconds, start to finish.\"",
+            "end": "3:12"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "\"Now the part that actually saves time.\"" },
+            { "type": "SCREEN", "desc": "Watch-this sequence: bot opens application page, fills form, submits." },
+            { "type": "GRAPHIC", "desc": "Stopwatch animation hitting <em>12s</em>." },
+            { "type": "SCREEN", "desc": "Confirmation screenshot saving to log. Timestamp visible." }
+          ]
+        },
+        {
+          "label": "Beat 4",
+          "sublabel": "It fixes itself — climax",
+          "type": "beat",
+          "endTime": "4:00",
+          "items": [
+            { "type": "p", "text": "Here's the part that broke my brain." },
+            { "type": "p", "text": "And this is the part nobody builds." },
+            { "type": "p", "text": "So I gave Claude Code access to the logs." },
+            { "type": "p", "text": "This happened on day three. LinkedIn changed a button selector. The applier crashed." },
+            { "type": "p", "text": "The log caught it. Claude Code read it, figured out what broke, and fixed the function. The next application went through." },
+            { "type": "pull", "text": "No human in the loop. I was asleep." },
+            { "type": "p", "text": "I went to sleep with broken code. Woke up with working code. Nobody touched it." }
+          ],
+          "musicCue": {
+            "title": "DROP — Suspended",
+            "meta": "Ambient pad · near-silence",
+            "desc": "Strip everything back. The reveal needs space — your face, the screen, the words.",
+            "note": "Music swells back in on \"Woke up with working code.\" That's the catharsis.",
+            "end": "4:00"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "\"Here's the part that broke my brain.\" <em>Lean in slightly.</em>" },
+            { "type": "TITLE", "desc": "Black card / pause for tonal shift. ~1s of held black." },
+            { "type": "SCREEN", "desc": "Log file showing the day-three crash entry. Red error highlighted." },
+            { "type": "SCREEN", "desc": "Claude Code reading log, diagnosing, patching the function." },
+            { "type": "SCREEN", "desc": "Next successful application going through." },
+            { "type": "TALK", "desc": "\"I went to sleep with broken code. Woke up with working code.\" <em>Slow delivery. Hold on face.</em>" }
+          ]
+        },
+        {
+          "label": "Beat 5",
+          "sublabel": "The dashboard",
+          "type": "beat",
+          "endTime": "4:51",
+          "items": [
+            { "type": "p", "text": "Last piece. I needed to actually see what this thing was doing." },
+            { "type": "p", "text": "Every job it applies to gets a card. Title, company, link to the listing, the resume version it sent, screenshots of every step. All timestamped." },
+            { "type": "p", "text": "And then the part I actually look at every morning." },
+            { "type": "p", "text": "A heatmap. Same idea as the GitHub contribution graph, but for applications. Dark green squares are heavy days. Light squares are light days. Empty squares mean something broke — and I check the logs to see why." },
+            { "type": "p", "text": "I don't read the dashboard to <em>manage</em> the system. I read it to <em>trust</em> the system." },
+            { "type": "p", "text": "Because if you're going to let an AI run your job search, you need to be able to see exactly what it did when you weren't looking." }
+          ],
+          "musicCue": {
+            "title": "Reflective",
+            "meta": "90 BPM · Downtempo",
+            "desc": "Settled, trust. The system is real and it's yours. Quieter than Beats 1–3.",
+            "note": "Search: \"downtempo reflective electronic\" or \"introspective ambient\".",
+            "end": "4:51"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "\"Last piece. I needed to actually see what this thing was doing.\"" },
+            { "type": "SCREEN", "desc": "Dashboard card view — scrolling through applications." },
+            { "type": "SCREEN", "desc": "Heatmap visualization. Your morning glance." },
+            { "type": "TALK", "desc": "\"I read it to <em>trust</em> the system.\" Hit \"trust\" hard." }
+          ]
+        },
+        {
+          "label": "Payoff",
+          "sublabel": "Close the loop",
+          "type": "payoff",
+          "endTime": "5:09",
+          "items": [
+            { "type": "p", "text": "So — did it work?" },
+            { "type": "p", "text": "<span class=\"stat\">[X]</span> applications submitted. <span class=\"stat\">[Y]</span> hours of my time. The system has been running for <span class=\"stat\">[Z]</span> days and I haven't touched it." },
+            { "type": "p", "text": "But honestly — that's not the part of this that matters." }
+          ],
+          "musicCue": {
+            "title": "(continues)",
+            "meta": "Same track",
+            "desc": "Hold under the receipts. Don't change tracks for the close.",
+            "note": "Soft hold through \"that's not the part of this that matters.\"",
+            "end": "5:09"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "Direct camera. \"So — did it work?\"" },
+            { "type": "GRAPHIC", "desc": "Big numbers reveal: <em>[X] applications · [Y] hours · [Z] days</em>" },
+            { "type": "TALK", "desc": "\"But honestly — that's not the part of this that matters.\"" }
+          ]
+        },
+        {
+          "label": "Payoff",
+          "sublabel": "Crystallize",
+          "type": "payoff",
+          "endTime": "5:24",
+          "items": [
+            { "type": "p", "text": "Most AI agents fail because nobody builds the loop around them. The model isn't the bottleneck." },
+            { "type": "crystallize", "text": "AI stopped being a tool the day it started fixing its own bugs." }
+          ],
+          "musicCue": {
+            "title": "DROP — Crystal",
+            "meta": "Hold · silence",
+            "desc": "Music drops out under the crystallize line. The line lands in air.",
+            "note": "One full beat of silence after \"fixing its own bugs.\" Then resolution swells in.",
+            "end": "5:24"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "Slow push-in or hold. No cuts." },
+            { "type": "TITLE", "desc": "Crystallize line as on-screen text: <em>AI stopped being a tool the day it started fixing its own bugs.</em>" }
+          ]
+        },
+        {
+          "label": "Payoff",
+          "sublabel": "Next move",
+          "type": "payoff",
+          "endTime": "5:54",
+          "items": [
+            { "type": "p", "text": "If you can write code, open Claude Code tonight." },
+            { "type": "p", "text": "Build the dumbest version of this you can — one job board, no resume tailoring, nothing fancy." },
+            { "type": "p", "text": "But build the loop. Make it log everything. Make it catch its own errors. Make it heal itself when something breaks. That's the part you have to feel work to understand." },
+            { "type": "p", "text": "The people who build these systems are going to be fine. Be one of them." }
+          ],
+          "musicCue": {
+            "title": "Resolution",
+            "meta": "95 BPM · Cinematic ambient",
+            "desc": "Slight rise into the call to action. Not triumphant — settled.",
+            "note": "Tail out under \"Be one of them.\" Let it ring for a half-second after VO ends.",
+            "end": "5:54"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "Direct address." },
+            { "type": "B-ROLL", "desc": "Hands at keyboard. Claude Code opening in terminal." },
+            { "type": "TALK", "desc": "\"Be one of them.\" <em>Hold for a beat. Cut.</em>" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shorts",
+      "label": "YouTube Shorts",
+      "hero": {
+        "eyebrow": "YouTube Shorts · Repurposing Plan",
+        "title": "4 shorts <em>found</em>.<br>2 strong. 2 medium."
+      },
+      "summary": {
+        "label": "Inventory",
+        "count": "SHORTS FOUND: 4",
+        "inv": "<strong>2 strong</strong> (the self-healing climax, the 6× resume stat) · <strong>2 medium</strong> (the contrarian thesis, the trust-the-system line).<br>Did <em>not</em> pull from the cold open — that's the long-form's hook and posting it as a Short would cannibalize the main video. All four pass the 4/4 standalone test: own beginning, own payoff, no required setup, hook lands in &lt;2s."
+      },
+      "posts": [
+        {
+          "num": "Short 01",
+          "formatPill": { "class": "video", "text": "~50s · 9:16 vertical" },
+          "strength": "strong",
+          "headline": "\"I went to sleep with broken code. <em>Woke up with working code.</em>\"",
+          "hook": { "label": "Hook · first 1.5 seconds", "text": "\"I went to sleep with broken code. Woke up with working code. Nobody touched it.\"" },
+          "onscreenText": "SLEPT.\nWOKE UP.\nCODE FIXED.",
+          "onscreenLabel": "On-screen text",
+          "meta": [
+            { "label": "Pulled from", "value": "Beat 4 — the climax. Day-three crash and self-heal." },
+            { "label": "Why it stands alone", "value": "A cold viewer learns there's an AI agent <em>and</em> sees it fix itself in 50 seconds — full before/after with no required setup." },
+            { "label": "Ending", "value": "Repeat the opening line. Loops back to the start — viewer stays for the rewatch." }
+          ],
+          "specs": [
+            {
+              "label": "Script · verbatim",
+              "cuts": [
+                { "type": "talk", "label": "VO · 0–6s", "text": "\"I went to sleep with broken code. Woke up with working code. Nobody touched it.\"" },
+                { "type": "bridge", "label": "BRIDGE", "text": "<em>\"Here's what actually happened.\"</em>" },
+                { "type": "talk", "label": "VO · 8–18s", "text": "\"This happened on day three. LinkedIn changed a button selector. The applier crashed.\"" },
+                { "type": "talk", "label": "VO · 18–32s", "text": "\"So I gave Claude Code access to the logs. The log caught it. Claude Code read it, figured out what broke, and fixed the function. The next application went through.\"" },
+                { "type": "talk", "label": "VO · 32–38s", "text": "\"No human in the loop. I was asleep.\"" },
+                { "type": "cut", "label": "LOOP", "text": "\"I went to sleep with broken code. Woke up with working code.\" <em>(Repeat of opener — closes the loop.)</em>" }
+              ]
+            },
+            { "label": "Visual", "value": "Open on face delivering the hook. Cut to log file with red error highlighted → Claude Code patching the function (sped up ~3×) → green confirmation page → back to face for the closing repeat. Captions burned in throughout, top-third placement, never bottom." }
+          ]
+        },
+        {
+          "num": "Short 02",
+          "formatPill": { "class": "video", "text": "~45s · 9:16 vertical" },
+          "strength": "strong",
+          "headline": "\"<em>6× more interviews.</em> From 3.2 million applications.\"",
+          "hook": { "label": "Hook · first 1.5 seconds", "text": "\"A tailored resume makes you 6 times more likely to land an interview.\"" },
+          "onscreenText": "6×\nMORE\nINTERVIEWS",
+          "onscreenLabel": "On-screen text",
+          "meta": [
+            { "label": "Pulled from", "value": "Beat 2 — resume tailoring." },
+            { "label": "Why it stands alone", "value": "A self-contained insight (stat → why people fail → solution). Teaches something useful even if the viewer never sees the rest of the system." },
+            { "label": "Ending", "value": "\"Hundreds of versions, one for each job.\" Cut to fanned-out resume stack — loops back visually to the opening 6× number." }
+          ],
+          "specs": [
+            {
+              "label": "Script · verbatim",
+              "cuts": [
+                { "type": "talk", "label": "VO · 0–7s", "text": "\"A tailored resume makes you 6 times more likely to land an interview. That's not a tip — that's from 3.2 million applications.\"" },
+                { "type": "talk", "label": "VO · 7–22s", "text": "\"Here's where most people stop. They paste the job description into ChatGPT, get a tailored resume back, copy it over. Fine for one job. But you can't do that 50 times a day.\"" },
+                { "type": "talk", "label": "VO · 22–38s", "text": "\"So I had Claude wire up the rewrite. Take this listing — they wanted distributed systems experience. The model found the bullet on my resume that matched, pulled it to the top, and rewrote it in the exact language they used.\"" },
+                { "type": "talk", "label": "VO · 38–45s", "text": "\"Same resume going in, hundreds of versions coming out, one for each job.\"" }
+              ]
+            },
+            { "label": "Visual", "value": "Big stat slam (6× / 3.2M) for the first 2s — fills the frame. Cut to split-screen: left side shows someone slowly copy-pasting into ChatGPT. Right side shows the bot tailoring 50 resumes in seconds. Close on a side-by-side resume diff with the distributed-systems bullet animating from middle to top." }
+          ]
+        },
+        {
+          "num": "Short 03",
+          "formatPill": { "class": "video", "text": "~40s · 9:16 vertical" },
+          "strength": "medium",
+          "headline": "\"Every AI agent on Twitter dies <em>in 90 seconds.</em>\"",
+          "hook": { "label": "Hook · first 1.5 seconds", "text": "\"Every 'AI agent' you've seen on Twitter looks magical for 90 seconds and then dies the second it touches a real website.\"" },
+          "onscreenText": "THE LOOP\nIS THE\nMOAT",
+          "onscreenLabel": "On-screen text",
+          "meta": [
+            { "label": "Pulled from", "value": "Tension section — the contrarian thesis." },
+            { "label": "Why it stands alone", "value": "Contrarian thesis that resolves to a quotable line in under 40s. Viewer doesn't need to see the build to feel the argument." },
+            { "label": "Ending", "value": "Hold on the crystallize: <em>\"The intelligence isn't the moat. The loop is.\"</em> Text overlay sits a half-beat after VO ends." }
+          ],
+          "specs": [
+            {
+              "label": "Script · verbatim",
+              "cuts": [
+                { "type": "talk", "label": "VO · 0–8s", "text": "\"Every 'AI agent' you've seen on Twitter looks magical for 90 seconds and then dies the second it touches a real website.\"" },
+                { "type": "talk", "label": "VO · 8–20s", "text": "\"The LLM is the easy part. OpenRouter plus a prompt does the resume tailoring in twenty lines of code. Anyone watching this could ship that on a Saturday.\"" },
+                { "type": "talk", "label": "VO · 20–34s", "text": "\"The hard part is what happens at 3 AM when LinkedIn changes a button and your script silently breaks for a week before you notice. That's the part nobody builds.\"" },
+                { "type": "talk", "label": "VO · 34–40s", "text": "\"The intelligence isn't the moat. The loop is.\"" }
+              ]
+            },
+            { "label": "Visual", "value": "Open on a fast B-roll montage of \"viral AI agent\" tweets crashing — broken websites, 404s, error stacktraces, ~1s each. Cut to your face for the contrarian setup. Hold on a single still frame for the final crystallize line." }
+          ],
+          "caveat": { "strength": "Why medium", "text": "Without seeing an actual agent fix itself, this is a take, not a demo. It can land as smart, or it can land as preachy, depending on delivery. Watch first 24-hour metrics — if it underperforms, it's probably the latter." }
+        },
+        {
+          "num": "Short 04",
+          "formatPill": { "class": "video", "text": "~40s · 9:16 vertical" },
+          "strength": "medium",
+          "headline": "\"I don't read it to manage. <em>I read it to trust.</em>\"",
+          "hook": { "label": "Hook · first 1.5 seconds", "text": "\"A heatmap. Same idea as the GitHub contribution graph, but for applications.\"" },
+          "onscreenText": "JOB APPS\n·\nDAILY",
+          "onscreenLabel": "On-screen text",
+          "meta": [
+            { "label": "Pulled from", "value": "Beat 5 — the dashboard moment." },
+            { "label": "Why it stands alone", "value": "The trust-vs-manage framing is a self-contained idea about working with autonomous tools — applies beyond job applications." },
+            { "label": "Ending", "value": "Final line lands on \"when you weren't looking.\" Cut back to the heatmap, fully filled. The visual answers the question." }
+          ],
+          "specs": [
+            {
+              "label": "Script · verbatim",
+              "cuts": [
+                { "type": "bridge", "label": "BRIDGE", "text": "<em>\"I built a bot that applies to jobs for me while I sleep.\"</em>" },
+                { "type": "talk", "label": "VO · 3–18s", "text": "\"A heatmap. Same idea as the GitHub contribution graph, but for applications. Dark green squares are heavy days. Light squares are light days. Empty squares mean something broke — and I check the logs to see why.\"" },
+                { "type": "talk", "label": "VO · 18–28s", "text": "\"I don't read the dashboard to manage the system. I read it to trust the system.\"" },
+                { "type": "talk", "label": "VO · 28–40s", "text": "\"Because if you're going to let an AI run your job search, you need to be able to see exactly what it did when you weren't looking.\"" }
+              ]
+            },
+            { "label": "Visual", "value": "Lead with the heatmap filling in over 30 days, time-lapsed. Each green square = one application landing. Cut to your face for the \"trust\" line. Hold on the heatmap for the close." }
+          ],
+          "caveat": { "strength": "Why medium", "text": "Needs a one-line bridge to set up that there's an autonomous system at all. The trust insight is genuine — but lives or dies on whether the heatmap visual is satisfying. If the dashboard mock looks sparse on camera, this drops to weak fast." }
+        }
+      ],
+      "rollout": {
+        "label": "Posting Cadence",
+        "title": "Stagger across ~3 weeks. Don't dump.",
+        "sub": "Strongest first. Different hook angles spaced apart. Bank the medium ones for slow weeks.",
+        "days": [
+          { "when": "Day 0", "what": "<strong>Long-form video launches.</strong> Same day, post <strong>Short 01 · self-healing</strong>. Most visceral payoff. Doubles as a teaser — viewers who want context click through to the full build." },
+          { "when": "Day +4", "what": "<strong>Short 02 · the 6× stat.</strong> Different audience hook (career-anxious vs. AI-curious), so the algorithm reads it as fresh terrain instead of a sequel." },
+          { "when": "Bank", "what": "<strong>Short 03</strong> for the next \"AI agent went viral\" moment on the timeline — ride the topic. <strong>Short 04</strong> for whenever the dashboard heatmap gets re-photographed cleanly. <em>No fixed dates — these are slow-week ammo.</em>" },
+          { "when": "Don't", "what": "<em>If Short 01 underperforms in 48 hours, do not follow with Short 03.</em> Both lean on the same thesis — back-to-back failures will train the algorithm against the topic. Pivot to Short 02 instead and let the channel cool." }
+        ]
+      }
+    },
+    {
+      "id": "twitter",
+      "label": "Twitter",
+      "hero": {
+        "eyebrow": "Twitter / X · Repurposing Plan",
+        "title": "4 posts <em>found</em>.<br>1 thread. 1 video.<br>2 singles."
+      },
+      "summary": {
+        "label": "Inventory",
+        "count": "TWITTER POSTS FOUND: 4",
+        "inv": "<strong>1 thread</strong> (6 tweets — the contrarian thesis) · <strong>1 native video clip</strong> (the self-healing reveal, ~75s) · <strong>1 single tweet</strong> with dashboard image (the receipts) · <strong>1 image quote</strong> (the crystallize line).<br>Zero text-only tweets. Every post pairs with a visual — that's the rule on X in 2026."
+      },
+      "posts": [
+        {
+          "num": "Post 01",
+          "formatPill": { "class": "thread", "text": "Thread · 6 tweets" },
+          "strength": "strong",
+          "headline": "\"The intelligence isn't the moat. <em>The loop is.</em>\"",
+          "specs": [
+            {
+              "label": "Tweets",
+              "cuts": [
+                { "type": "talk", "label": "01 / 06", "text": "\"every 'AI agent' you see on this app is a demo. they look magical for 90 seconds and die the second a real website changes a button. mine has been running for [Z] days without me touching it. the trick isn't the model.\"" },
+                { "type": "talk", "label": "02 / 06", "text": "\"the LLM is the easy part. OpenRouter + a prompt rewrites my resume in ~20 lines of code. anyone watching could ship that on a saturday.\"" },
+                { "type": "talk", "label": "03 / 06", "text": "\"the hard part is 3 AM. LinkedIn changes a button selector. your script silently breaks. you don't notice for a week. every agent on your timeline is one DOM change away from dead.\"" },
+                { "type": "talk", "label": "04 / 06", "text": "\"so i gave Claude Code access to the logs. day three: LinkedIn moved a button. applier crashed. Claude read the error, found the bug, patched the function. next application went through. i was asleep.\"" },
+                { "type": "talk", "label": "05 / 06", "text": "\"the intelligence isn't the moat. the loop is.\"" },
+                { "type": "screen", "label": "06 / 06", "text": "full breakdown — how it finds jobs, tailors resumes, submits, and heals itself when something breaks: [YouTube link]" }
+              ]
+            }
+          ],
+          "whyFormat": { "label": "Why a thread, not a single", "text": "Setup → tension → payoff → crystallize takes 5 tweets to land. Compressing this kills the \"every agent dies\" beat — and that beat is what earns the contrarian thesis. A single tweet of \"the loop is the moat\" without the setup just reads as cope." }
+        },
+        {
+          "num": "Post 02",
+          "formatPill": { "class": "video", "text": "Native video · ~75s" },
+          "strength": "strong",
+          "headline": "\"I went to sleep with broken code. <em>Woke up with working code.</em>\"",
+          "specs": [
+            { "label": "Tweet text", "value": "\"i went to sleep with broken code. woke up with working code. nobody touched it.\" <em>(~80 chars · above attached video)</em>" },
+            { "label": "Pulled from", "value": "Beat 4 — the climax. Day-three crash and self-heal moment." },
+            { "label": "Hook line", "value": "\"Day three of running my AI job application agent. LinkedIn changed a button. The bot crashed.\"" },
+            { "label": "Duration", "value": "~75 seconds (don't push past 90)" },
+            {
+              "label": "Cuts",
+              "cuts": [
+                { "type": "talk", "label": "TALK", "text": "\"Day three. LinkedIn changed a button selector. The applier crashed.\"" },
+                { "type": "screen", "label": "SCREEN", "text": "<em>Log file. Red error highlighted. Timestamp visible. ~6s.</em>" },
+                { "type": "talk", "label": "TALK", "text": "\"I'd given Claude Code access to the logs.\"" },
+                { "type": "screen", "label": "SCREEN", "text": "<em>Claude Code reading the log, diagnosing, patching the function. Sped up to ~10s.</em>" },
+                { "type": "screen", "label": "SCREEN", "text": "<em>Next application going through. Confirmation page. ~5s.</em>" },
+                { "type": "talk", "label": "TALK", "text": "\"I went to sleep with broken code. Woke up with working code. Nobody touched it.\"" }
+              ]
+            },
+            { "label": "Ending", "value": "Hard cut to: <em>\"The intelligence isn't the moat. The loop is.\"</em> Hold on face for a half-beat. End card." },
+            { "label": "First reply", "value": "full build — job scraper, resume tailoring, dashboard, and the dumb mistakes i made along the way: [YouTube link]" }
+          ],
+          "whyFormat": { "label": "Why native video, not single tweet", "text": "The reveal lives or dies on showing the actual log file and actual code change. Text descriptions of \"AI fixed itself\" read as hype — video reads as proof. Native video also gets ~5–10× the reach of YouTube link embeds on X." }
+        },
+        {
+          "num": "Post 03",
+          "formatPill": { "class": "single", "text": "Single tweet · with image" },
+          "strength": "strong",
+          "headline": "\"<em>[X] applications. [Y] hours.</em> I haven't opened LinkedIn in a week.\"",
+          "specs": [
+            { "label": "Tweet text", "value": "\"[X] applications. [Y] hours of my time. [Z] days running. i haven't opened LinkedIn in a week.\" <em>(~95 chars with stats filled)</em>" },
+            { "label": "Attached image", "value": "Dashboard heatmap screenshot — GitHub-contribution-style grid showing daily application volume. Dark green squares = heavy days. Visual proof the system is running unattended. The same heatmap from Beat 5." },
+            { "label": "First reply", "value": "built it in a weekend with Claude Code. full walkthrough: [YouTube link]" }
+          ],
+          "whyFormat": { "label": "Why single, not thread", "text": "It's a one-liner with hard numbers and visual proof. Quoting it shorter makes it sharper. A thread would dilute the punch — the heatmap image does the storytelling that 5 follow-up tweets would do worse." }
+        },
+        {
+          "num": "Post 04",
+          "formatPill": { "class": "image-q", "text": "Image quote" },
+          "strength": "medium",
+          "headline": "The crystallize line, on a card.",
+          "specs": [
+            { "label": "Tweet text", "value": "\"spent a weekend building an AI agent. this is the line i wrote down after.\" <em>(~74 chars · above attached image)</em>" },
+            { "label": "Image content", "value": "Quote graphic, 1200×1200. Type-set treatment of: <em>\"AI stopped being a tool the day it started fixing its own bugs.\"</em>" },
+            { "label": "First reply", "value": "the full build that got me there: [YouTube link]" }
+          ],
+          "whyFormat": { "label": "Why image quote, not text-only", "text": "Line is quotable but punches harder with type treatment than as raw text in a feed. Honest read on strength: <em>medium</em> as a cold standalone post — works best at the end of the rollout, after the audience has already seen the build and can attach the line to actual receipts. Posted cold on day 1, it'd just sound like an aphorism. Posted day 7, it lands as a takeaway." }
+        }
+      ],
+      "rollout": {
+        "label": "Rollout Plan",
+        "title": "Spread across ~7 days. Don't dump.",
+        "sub": "Native video first for reach. Thread later for depth. Receipts and quote pace the cycle.",
+        "days": [
+          { "when": "Day 1", "what": "<strong>YouTube video goes live.</strong> Same day, post the <strong>native video clip</strong> (Post 02). Highest-reach format on X — let the algorithm warm to the topic before you start telling people what it means." },
+          { "when": "Day 2", "what": "<strong>Receipts tweet</strong> (Post 03). Dashboard heatmap. The audience that saw yesterday's clip now sees the proof — curiosity gap → click. <em>Different hook, same audience, second touch.</em>" },
+          { "when": "Day 4", "what": "<strong>The thread</strong> (Post 01). By now the receipts and clip are circulating. The thread expands the contrarian thesis for the people asking \"okay but how though?\" Quote-RT the original video clip in the thread for context." },
+          { "when": "Day 7", "what": "<strong>Image quote</strong> (Post 04). Caps the cycle. Surfaces the crystallize line for everyone who missed the earlier posts. Low-effort, high-quotability — and by now the audience has earned the line." },
+          { "when": "Note", "what": "<em>If video clip + thread underperform in the first 48 hours, skip Post 04 entirely.</em> Don't run the medium-strength post into a cold audience." }
+        ]
+      }
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "hero": {
+        "eyebrow": "TikTok · Repurposing Plan",
+        "title": "2 cuts. <em>1 TikTok.</em><br>1 Both."
+      },
+      "summary": {
+        "label": "Inventory",
+        "count": "TIKTOK CUTS: 2 usable · 1 rejected",
+        "inv": "<strong>1 Both</strong> (the 6× stat — TikTok variant; career-anxiety hook, conversational, fast cuts) · <strong>1 TikTok only</strong> (the self-healing reveal — rough proof-of-demo that TikTok rewards over Reels) · <strong>1 Neither</strong> (the contrarian thesis — without live demo footage it lectures; doesn't land cold on TikTok).<br>TikTok gets native auto-captions and direct address. \"Both\" uses a distinct TikTok-specific opener — never the same hook as the Reels variant."
+      },
+      "posts": [
+        {
+          "num": "Cut 01",
+          "formatPill": { "class": "video", "text": "Both platforms · TikTok variant" },
+          "strength": "strong",
+          "headline": "\"<em>6× more interviews.</em> From 3.2 million applications.\"",
+          "hook": { "label": "TikTok hook · first 1.5 seconds", "text": "\"Nobody told you this but a tailored resume is literally six times more likely to get you an interview.\"" },
+          "onscreenText": "TAILORED\n=\n6X MORE\nINTERVIEWS",
+          "onscreenLabel": "TikTok on-screen",
+          "meta": [
+            { "label": "Length", "value": "35–45s. Fast cuts. Auto-captions on. Direct address — talk to the viewer, not the camera." },
+            { "label": "Caption", "value": "\"i automated my entire job application so my resume is custom tailored to every single job 🤯\" <em>(first line is the algo hook — conversational, no punctuation polish)</em>" },
+            { "label": "Tone", "value": "Slightly breathless. \"Nobody told you this\" energy. Fast stat drop then the slow reveal that you've automated the part everyone skips." }
+          ],
+          "specs": [
+            {
+              "label": "Script core",
+              "cuts": [
+                { "type": "talk", "label": "VO · 0–7s", "text": "\"A tailored resume makes you 6 times more likely to land an interview. That's from 3.2 million applications. Not a tip. Data.\"" },
+                { "type": "talk", "label": "VO · 7–20s", "text": "\"Most people paste the job into ChatGPT, copy the result, move on. Fine for one job. You can't do that 50 times a day.\"" },
+                { "type": "screen", "label": "SCREEN", "text": "<em>Split: slow copy-paste on left · bot tailoring 50 resumes in seconds on right. ~6s.</em>" },
+                { "type": "talk", "label": "VO · 26–35s", "text": "\"Same resume in. Hundreds of custom versions out. One for every job.\"" }
+              ]
+            },
+            { "label": "Pulled from", "value": "Beat 2 — resume tailoring. Stat is self-contained; viewer doesn't need the full system context to feel the payoff." },
+            { "label": "Captions", "value": "Native TikTok auto-captions on. Don't burn custom captions — the auto-generated look signals organic, not produced." }
+          ]
+        },
+        {
+          "num": "Cut 02",
+          "formatPill": { "class": "video", "text": "TikTok only" },
+          "strength": "strong",
+          "headline": "\"<em>I was asleep.</em> The bot fixed its own code.\"",
+          "hook": { "label": "Hook · first 1.5 seconds", "text": "\"My code broke at 3am. I didn't fix it. The AI did.\"" },
+          "onscreenText": "AI FIXED\nITS OWN\nCODE",
+          "onscreenLabel": "On-screen text",
+          "meta": [
+            { "label": "Pulled from", "value": "Beat 4 — the climax. Day-three crash, log catch, Claude Code patch, next app goes through." },
+            { "label": "Why TikTok, not Reels", "value": "The raw screen-recording of a bot patching its own function is <em>messy</em> — that roughness is a feature on TikTok. Reels would want a cleaner demo video, which neuters the \"this actually happened\" credibility. The jarring cut from crash to fix is the point." },
+            { "label": "Length", "value": "30–50s. Fast. Don't over-explain. Show the log, show the patch, show the confirmation. Let the footage do the convincing." }
+          ],
+          "specs": [
+            {
+              "label": "Script · verbatim",
+              "cuts": [
+                { "type": "talk", "label": "VO · 0–5s", "text": "\"My code broke at 3am. I didn't fix it. The AI did.\"" },
+                { "type": "bridge", "label": "BRIDGE", "text": "<em>\"Here's the actual log.\"</em>" },
+                { "type": "screen", "label": "SCREEN · 7–15s", "text": "<em>Log file. Red error. Timestamp. Raw — don't clean it up.</em>" },
+                { "type": "talk", "label": "VO · 15–22s", "text": "\"LinkedIn changed a button. The applier crashed. Claude Code read the log, found the bug, patched it.\"" },
+                { "type": "screen", "label": "SCREEN · 22–35s", "text": "<em>Claude Code reading the error, generating the fix — sped up 3×. Green confirmation page.</em>" },
+                { "type": "talk", "label": "VO · 35–45s", "text": "\"Next application went through. No human in the loop. I woke up and it was already fixed.\"" },
+                { "type": "cut", "label": "LOOP", "text": "\"My code broke at 3am. I didn't fix it. The AI did.\" <em>(Repeat of opener — closes the loop.)</em>" }
+              ]
+            },
+            { "label": "Caption · TikTok", "value": "\"went to sleep with broken code woke up with working code nobody touched it 🤯 #aiagent #coding #automation\"" },
+            { "label": "Captions", "value": "Native TikTok auto-captions on. Don't burn custom captions — the auto-generated look signals organic, not produced." }
+          ]
+        },
+        {
+          "num": "Cut 04",
+          "formatPill": { "class": "", "text": "Neither platform", "style": "color:#555;border-color:#333;background:rgba(85,85,85,0.06);" },
+          "strength": "rejected",
+          "headline": "\"Every AI agent dies in 90 seconds.\" — <em style=\"color:#444;\">not a cut</em>",
+          "headlineStyle": "color:#555;",
+          "specs": [
+            { "label": "Pulled from", "value": "Tension section — the contrarian thesis. \"The LLM is the easy part. The hard part is 3 AM.\"", "style": "color:var(--muted);" },
+            { "label": "Why rejected", "value": "Without live demo footage of the crash-and-fix, this is a lecture. TikTok punishes lectures from accounts without existing social proof. \"Everyone else is doing it wrong\" takes need earned credibility to land cold.<br><br>This works as a Twitter thread (already built in the Twitter tab) and as the Tension section in the long-form. Doesn't cross to TikTok without the demo footage to back it.", "style": "color:var(--muted);" }
+          ]
+        }
+      ],
+      "rollout": {
+        "label": "TikTok Posting Cadence",
+        "title": "2 cuts. Strongest first. Stagger by 24 hours.",
+        "sub": "The self-healing reveal hooks the dev/AI-curious crowd. The 6× stat hits the career-anxious crowd. Different audience angles — let the algorithm read them as separate terrain.",
+        "days": [
+          { "when": "Day 0", "what": "<strong>YouTube goes live.</strong> Post <strong>Cut 02 (TikTok only)</strong> same day — most visceral payoff, hooks the dev/AI-curious crowd most likely to already be on TikTok searching this content." },
+          { "when": "Day +1", "what": "<strong>Cut 01 TikTok variant</strong> — the 6× stat, conversational hook. Different audience angle (career-anxious vs AI-curious), reads as fresh terrain to the algorithm, not a sequel." },
+          { "when": "Note", "what": "<em>If Cut 02 underperforms on TikTok in 48 hours, hold Cut 01 — the algorithm may be cooling on the topic. Let 3–4 days pass before posting the stat cut.</em>" }
+        ]
+      }
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "hero": {
+        "eyebrow": "Instagram · Reels · Repurposing Plan",
+        "title": "2 Reels cuts <em>found</em>.<br>1 Both. 1 Reels."
+      },
+      "summary": {
+        "label": "Inventory",
+        "count": "REELS CUTS: 2 usable",
+        "inv": "<strong>1 Both</strong> (the 6× stat — Reels variant; polished hook, tight edit, branded captions) · <strong>1 Reels only</strong> (the trust-vs-manage dashboard — the heatmap is a polished visual that fits Reels' aesthetic-first audience).<br>Reels gets branded burned-in captions and trending audio layered at low volume. Hook is different from the TikTok variant of Cut 01 — <em>never repost the same opener across platforms</em>."
+      },
+      "posts": [
+        {
+          "num": "Cut 01",
+          "formatPill": { "class": "video", "text": "Both platforms · Reels variant" },
+          "strength": "strong",
+          "headline": "\"<em>6× more interviews.</em> I automated 50 a day.\"",
+          "hook": { "label": "Reels hook · first 1.5 seconds — DIFFERENT from TikTok", "text": "\"A tailored resume makes you 6× more likely to get an interview. I automated 50 of them a day.\"" },
+          "onscreenText": "6×\nMORE\nLIKELY",
+          "onscreenLabel": "Reels on-screen",
+          "meta": [
+            { "label": "Length", "value": "20–28s. Tighter than TikTok. Polished one-take or two-cut. Branded caption box bottom-third." },
+            { "label": "Caption", "value": "\"Built an AI that tailors my resume to every job description. 50+ applications per day. This is how it works.\" <em>(cleaner, structured — Reels audience expects slightly more polish in the copy)</em>" },
+            { "label": "Audio note", "value": "Check current trending audio in the career/productivity space and layer under the VO at ~15% volume. Trending audio is a real distribution lever on Reels in a way it isn't on TikTok." }
+          ],
+          "specs": [
+            {
+              "label": "Script core",
+              "cuts": [
+                { "type": "talk", "label": "VO · 0–7s", "text": "\"A tailored resume makes you 6 times more likely to land an interview. That's from 3.2 million applications. Not a tip. Data.\"" },
+                { "type": "talk", "label": "VO · 7–20s", "text": "\"Most people paste the job into ChatGPT, copy the result, move on. Fine for one job. You can't do that 50 times a day.\"" },
+                { "type": "screen", "label": "SCREEN", "text": "<em>Split: slow copy-paste on left · bot tailoring 50 resumes in seconds on right. ~6s.</em>" },
+                { "type": "talk", "label": "VO · 26–28s", "text": "\"Same resume in. Hundreds of custom versions out. One for every job.\"" }
+              ]
+            },
+            { "label": "Pulled from", "value": "Beat 2 — resume tailoring. Stat is self-contained; viewer doesn't need the full system context to feel the payoff." },
+            { "label": "Branded captions", "value": "Burned-in caption box, bottom third. Consistent font and color across all your Reels — treat this as a brand moment, not a subtitles requirement." }
+          ]
+        },
+        {
+          "num": "Cut 03",
+          "formatPill": { "class": "video", "text": "Reels only" },
+          "strength": "medium",
+          "headline": "\"I don't read it to manage. <em>I read it to trust.</em>\"",
+          "hook": { "label": "Hook · first 1.5 seconds", "text": "\"This is what 30 days of automated job applications looks like.\"" },
+          "onscreenText": "30 DAYS\nZERO\nEFFORT",
+          "onscreenLabel": "On-screen text",
+          "meta": [
+            { "label": "Pulled from", "value": "Beat 5 — the dashboard and heatmap. The visual does the heavy lifting." },
+            { "label": "Why Reels, not TikTok", "value": "The heatmap is a <em>polished</em> visual — clean grid, dark green squares, obvious at a glance. Reels rewards aesthetically cohesive content. On TikTok this opener reads slow; the raw self-healing log footage is TikTok's tempo, not this." },
+            { "label": "Length", "value": "15–25s. Tight. The trust line is the payoff — get there fast." }
+          ],
+          "specs": [
+            {
+              "label": "Script · verbatim",
+              "cuts": [
+                { "type": "screen", "label": "SCREEN · 0–5s", "text": "<em>Heatmap filling in over 30 days, time-lapsed. Each green square = one application.</em>" },
+                { "type": "talk", "label": "VO · 5–14s", "text": "\"I don't read this dashboard to manage the system. I read it to trust the system.\"" },
+                { "type": "talk", "label": "VO · 14–22s", "text": "\"If you're letting an AI run your job search, you need to see exactly what it did when you weren't looking.\"" }
+              ]
+            },
+            { "label": "Caption", "value": "\"Built an AI that applies to jobs while I sleep. The dashboard is how I keep it honest. 30 days of automated applications.\" <em>(Clean. Structured. Reels audience.)</em>" },
+            { "label": "Branded captions", "value": "Burned-in caption box, bottom third. Consistent font and color across all your Reels — treat this as a brand moment, not a subtitles requirement." },
+            { "label": "Audio note", "value": "Check current trends — look for ambient/lo-fi productivity audio with good engagement in your niche. Layer at low volume under VO." }
+          ],
+          "caveat": { "strength": "Why medium", "text": "Needs the heatmap to be visually dense and legible on a phone screen. If the dashboard mock is sparse or hard to read at 9:16, this drops fast. Shoot a real 30-day run — don't mock it. Also: the trust insight lands harder after viewers have already seen the 6× stat Reel. Post Cut 01 first." }
+        }
+      ],
+      "rollout": {
+        "label": "Reels Posting Cadence",
+        "title": "2 cuts. Polish-first. Post Cut 01 two days after TikTok.",
+        "sub": "Don't mirror-post with TikTok on the same day — stagger by 1–2 days to get a real A/B read on hook performance and avoid algorithmic cannibalization.",
+        "days": [
+          { "when": "Day +2", "what": "<strong>Cut 01 Reels variant</strong> — the 6× stat, polished hook. Posting 2 days after the TikTok version gives you a real A/B read on which opener drives more watch-time. Don't post both simultaneously — you lose the data." },
+          { "when": "Day +4", "what": "<strong>Cut 03 (Reels only)</strong> — the heatmap/trust cut. Context from Cut 01 makes the insight land harder. <em>Only post if the heatmap is visually dense on a phone screen — don't rush it.</em>" },
+          { "when": "Note", "what": "<em>If Cut 01 Reels underperforms in 48 hours, skip Cut 03 entirely. A weak visual on Cut 03 will hurt more than it helps — and don't post it into a cold Reels audience.</em>" }
+        ]
+      }
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "hero": {
+        "eyebrow": "LinkedIn · Repurposing Plan",
+        "title": "1 post <em>found</em>.<br>Written post.<br>No native video."
+      },
+      "summary": {
+        "label": "Assessment",
+        "count": "FORMAT: WRITTEN POST (300–500 words)",
+        "inv": "<strong>Personal stake:</strong> present and visible — unemployment is the setup, building the system is the response. <strong>Macro insight:</strong> strong — \"the loop, not the model\" is the kind of operational take that career-adjacent professionals recognize and share. <strong>Visual evidence for native video:</strong> insufficient for LinkedIn. The self-healing clip works on Twitter and Shorts because those audiences are already technical-curious. On LinkedIn, a 75s screen recording of Claude Code patching a function needs more setup than the format allows — it reads like a product demo, not a human story. Skip native video here. <strong>Crossover appeal:</strong> high. Job seekers, engineering managers, recruiters, and people generally anxious about AI in the workplace all have a stake in this post. That's the rare kind of crossover that earns distribution on LinkedIn."
+      },
+      "posts": [
+        {
+          "num": "Post 01",
+          "formatPill": { "class": "single", "text": "Written post · 300–500 words" },
+          "strength": "strong",
+          "headline": "I'm unemployed. So I built an AI that applies to jobs <em>while I sleep.</em>",
+          "specs": [
+            {
+              "label": "Full post text",
+              "paragraphs": [
+                "I'm unemployed. So I built an AI that applies to jobs while I sleep.",
+                "Not a script that fills out a form. A system — one that finds jobs, rewrites my resume to match each one, submits, and fixes itself when it breaks.",
+                "[X] applications submitted. [Y] hours of my time.",
+                "Here's what I actually learned building it.",
+                "The model is the easy part.",
+                "Tailored resumes make you 6x more likely to land an interview — that stat is from 3.2 million applications. Wiring up an LLM to do the rewriting took me about 20 lines of code. Anyone reading this could ship that on a Saturday afternoon.",
+                "The hard part is what happens at 3 AM when LinkedIn changes a button and your script silently breaks for a week before you notice.",
+                "Every \"AI agent\" I've seen fails here. The demo looks clean for 90 seconds. Then it touches a real website, gets a DOM change it didn't expect, and dies quietly.",
+                "So I built the loop around the model instead.",
+                "Every step logs to a file. Every failure surfaces to a queue that Claude Code reads, diagnoses, and patches before the next run. Day three of running it, LinkedIn moved a button selector. The system caught it, rewrote the failing function, and the next application went through.",
+                "I was asleep.",
+                "That's the shift I didn't expect: I stopped managing the system and started trusting it. The dashboard I built isn't about oversight — it's about confidence. A heatmap of every application, every timestamp, every screenshot of the confirmation page. Not so I can micromanage it. So I know it's running when I'm not watching.",
+                "The intelligence isn't the moat. The loop is.",
+                "If you're in a job search right now — or you manage people who are — the leverage isn't applying more. It's building the system that applies for you, and trusting it enough to sleep."
+              ]
+            },
+            { "label": "First comment", "value": "Full build walkthrough — how the job finder, resume rewriter, applier, and self-healing loop work together: [YouTube link]" },
+            { "label": "Hashtags", "value": "#JobSearch #AI #CareerDevelopment <em>(max 3 — stick to these, they span all three crossover audiences)</em>" },
+            { "label": "Word count", "value": "~340 words. In range. Don't pad it." },
+            { "label": "First 2 lines", "value": "\"I'm unemployed. So I built an AI that applies to jobs while I sleep.\" — Personal stake in line 1, payoff in line 2. Both visible before \"see more.\" The word <em>unemployed</em> stops the scroll; the word <em>sleep</em> earns the click." }
+          ],
+          "whyFormat": { "label": "Why written post, not native video", "text": "The self-healing moment is the most cinematic beat in this script — but LinkedIn's native video audience skews toward polished talking-head content, not screen recordings. A 75s clip of Claude Code patching a function loses the human stakes entirely. The written post leads with unemployment (personal), builds to operational insight (professional), and lands on a line that managers and job seekers can share with their own audience. That's the LinkedIn flywheel: personal story + transferable lesson = reach beyond your followers." }
+        }
+      ],
+      "rollout": {
+        "label": "Posting Notes",
+        "title": "Post same day the video goes live.",
+        "sub": "LinkedIn and YouTube serve different audiences — post them together, not sequentially.",
+        "days": [
+          { "when": "Day 0", "what": "<strong>YouTube video launches.</strong> Post the LinkedIn written post the same day — ideally within 2 hours of the video going live. The audiences don't overlap much; this isn't cannibalism, it's parallel distribution." },
+          { "when": "First comment", "what": "Drop the YouTube link immediately as the first comment. Do it before the post gets any engagement — don't wait. LinkedIn suppresses external links in the body; the comment placement is the workaround, and it's standard practice now." },
+          { "when": "Don't", "what": "<em>Don't edit the post body after it starts getting traction.</em> LinkedIn's algorithm treats edits as resets. If the numbers are moving, leave it alone." },
+          { "when": "If it lands", "what": "The comments that ask \"how did you build this?\" are the signal. Reply with one sentence and the YouTube link. Don't paste the full build in the thread — that kills the click-through. Curiosity gap stays open until they watch." }
+        ]
+      }
+    }
+  ]
+}
