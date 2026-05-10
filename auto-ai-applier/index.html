@@ -33,7 +33,9 @@
   .section-subtitle { font-family: 'Playfair Display', serif; font-size: 13px; font-style: italic; color: var(--muted); }
   .section p { font-size: 17px; font-weight: 300; color: var(--text); margin-bottom: 18px; line-height: 1.35; }
   .section p:last-child { margin-bottom: 0; }
-  .section p:has(.shot-marker) { display: grid; grid-template-columns: 36px 1fr; gap: 0 8px; align-items: start; }
+  .section p:has(.shot-marker) { display: flex; align-items: start; gap: 8px; }
+  .section p .shot-marker { flex-shrink: 0; width: 36px; margin-top: 2px; }
+  .shot-text { flex: 1; min-width: 0; }
   .pull { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.5vw, 24px); font-style: italic; color: var(--accent); border-left: 3px solid var(--accent); padding: 12px 0 12px 24px; margin: 32px 0; line-height: 1.5; }
   .crystallize { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); padding: 28px 32px; margin: 32px 0; border-radius: 0 4px 4px 0; }
   .crystallize p { font-family: 'Playfair Display', serif !important; font-size: clamp(18px, 2.5vw, 22px) !important; font-weight: 700 !important; font-style: italic; color: #fff !important; line-height: 1.4 !important; margin: 0 !important; }
@@ -346,9 +348,9 @@
     outline: 1px solid rgba(232, 213, 163, 0.22);
   }
   .script-el-hover {
-    background: rgba(232, 213, 163, 0.05);
+    outline: 1px solid rgba(232, 213, 163, 0.15);
     border-radius: 3px;
-    padding: 2px 4px;
+    background: rgba(232, 213, 163, 0.04);
     transition: background 0.15s ease;
   }
 
@@ -2047,6 +2049,14 @@ function injectMusicCues() {
         marker.className = 'shot-marker';
         marker.textContent = String(j + 1).padStart(2, '0');
         el.insertBefore(marker, el.firstChild);
+
+        // Wrap remaining content in .shot-text so flex can target it
+        const shotText = document.createElement('span');
+        shotText.className = 'shot-text';
+        while (marker.nextSibling) {
+          shotText.appendChild(marker.nextSibling);
+        }
+        el.appendChild(shotText);
 
         const highlight = () => {
           marker.classList.add('shot-hover');
