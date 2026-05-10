@@ -23,6 +23,10 @@
   document.body.innerHTML = `
     <div id="progress"></div>
     <div id="toast"></div>
+    <div class="hero" id="hero-block">
+      <p class="hero-eyebrow"></p>
+      <h1></h1>
+    </div>
     <nav class="tabs" id="tabs-nav"></nav>
     <div id="tab-panels"></div>
     <div id="vbar">
@@ -78,10 +82,6 @@
 
     if (tab.id === 'youtube') {
       return `
-        <div class="hero" id="hero-block">
-          <p class="hero-eyebrow">${eyebrow}</p>
-          <h1>${titleHtml}</h1>
-        </div>
         <div class="container" id="content-block">
           ${(tab.sections || []).map(buildYouTubeSection).join('')}
         </div>
@@ -95,10 +95,6 @@
     const rolloutHtml = tab.rollout ? buildRollout(tab.rollout) : '';
 
     return `
-      <div class="hero">
-        <p class="hero-eyebrow">${eyebrow}</p>
-        <h1>${titleHtml}</h1>
-      </div>
       <div class="container">
         ${summaryHtml}
         ${postsHtml}
@@ -482,6 +478,16 @@
       c.classList.toggle('active', c.dataset.tab === tab);
     });
     document.body.dataset.tab = tab;
+
+    // Update shared hero block
+    const tabData = data.tabs.find(t => t.id === tab);
+    const hero = tabData?.hero || {};
+    const heroBlock = document.getElementById('hero-block');
+    if (heroBlock) {
+      heroBlock.querySelector('.hero-eyebrow').textContent = hero.eyebrow || '';
+      heroBlock.querySelector('h1').innerHTML = hero.title || '';
+    }
+
     if (tab === 'youtube') {
       const activeBtn = document.querySelector('.vtab.active');
       const indicator = document.getElementById('vtab-indicator');
