@@ -180,12 +180,8 @@
     pointer-events: none;
   }
   body.show-music .music-cue {
-    /* position:absolute removes the panel from flex flow so it never
-       stretches the section height while sliding in/out */
     display: block;
-    position: absolute;
-    top: 56px; right: 36px;
-    width: 240px;
+    width: 240px; flex-shrink: 0;
     visibility: hidden;
   }
   body.show-music-visible .music-cue {
@@ -200,14 +196,12 @@
   body.show-music .section,
   body.show-shots .section { position: relative; }
   body.show-music .section {
-    display: block;
-    /* right padding reserves space for the absolute-positioned music panel */
-    padding-right: calc(36px + 240px + 56px);
+    display: flex; gap: 56px; align-items: flex-start;
   }
-  body.show-music .section-body { min-width: 0; }
+  body.show-music .section-body { flex: 1; min-width: 0; }
   body.show-shots .section {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 340px;
     gap: 0 40px;
     align-items: start;
     border-radius: 6px;
@@ -217,27 +211,15 @@
     margin-right: -36px;
     border-top: 1px solid var(--border);
     margin-top: 0;
-    /* right padding reserves space for the absolute-positioned shot list */
-    padding-right: calc(36px + 340px + 40px);
   }
   body.show-shots .section:hover {
     background: rgba(232, 213, 163, 0.025);
   }
   body.show-shots .shot-list {
-    /* position:absolute removes the panel from grid flow so it never
-       stretches the section height while sliding in/out */
-    position: absolute;
-    top: 56px; right: 36px;
-    width: 340px;
+    grid-column: 2;
+    grid-row: 1 / 99;
     align-self: start;
     margin-top: 0;
-  }
-  body.show-shots .section-label,
-  body.show-shots .section > p,
-  body.show-shots .section > .pull,
-  body.show-shots .section > .crystallize,
-  body.show-shots .section-body {
-    grid-column: 1;
   }
   body.show-music .section[data-end-time]::after,
   body.show-shots .section[data-end-time]::after {
