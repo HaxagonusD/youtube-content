@@ -42,6 +42,8 @@
   .crystallize .shot-marker { flex-shrink: 0; width: 36px; margin-top: 4px; }
   .pull .shot-text,
   .crystallize .shot-text { flex: 1; min-width: 0; }
+  .pull:has(.shot-marker) { padding-left: 0; border-left: none; }
+  .pull:has(.shot-marker) .shot-text { border-left: 3px solid var(--accent); padding-left: 24px; }
   .pull { font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.5vw, 24px); font-style: italic; color: var(--accent); border-left: 3px solid var(--accent); padding: 12px 0 12px 24px; margin: 32px 0; line-height: 1.5; }
   .crystallize { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); padding: 28px 32px; margin: 32px 0; border-radius: 0 4px 4px 0; }
   .crystallize p { font-family: 'Playfair Display', serif !important; font-size: clamp(18px, 2.5vw, 22px) !important; font-weight: 700 !important; font-style: italic; color: #fff !important; line-height: 1.4 !important; margin: 0 !important; }
