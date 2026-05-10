@@ -116,6 +116,7 @@
     transition: border-color 0.15s, color 0.15s;
   }
   .vbtn:hover { border-color: var(--accent); color: var(--accent); }
+  #btn-fullscreen { padding: 6px 10px; font-size: 14px; line-height: 1; }
 
   #vpanel {
     position: sticky; bottom: 52px; z-index: 290;
@@ -1861,6 +1862,7 @@
       <div id="vtab-indicator"></div>
     </div>
     <button class="vbtn" id="btn-history">History</button>
+    <button class="vbtn" id="btn-fullscreen" title="Toggle fullscreen">⛶</button>
   </div>
 </div>
 
@@ -2102,6 +2104,19 @@ function setView(view, save = true) {
 
 document.querySelectorAll('.vtab').forEach(btn => {
   btn.addEventListener('click', () => setView(btn.dataset.view));
+});
+
+document.getElementById('btn-fullscreen').addEventListener('click', () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+});
+document.addEventListener('fullscreenchange', () => {
+  const btn = document.getElementById('btn-fullscreen');
+  btn.textContent = document.fullscreenElement ? '✕' : '⛶';
+  btn.title = document.fullscreenElement ? 'Exit fullscreen' : 'Toggle fullscreen';
 });
 
 async function loadTab() {
