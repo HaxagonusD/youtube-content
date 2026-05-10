@@ -2121,6 +2121,20 @@ function setActiveTab(tab, save = true) {
     c.classList.toggle('active', c.dataset.tab === tab);
   });
   document.body.dataset.tab = tab;
+  // Re-position the vtab indicator when the YouTube tab becomes visible,
+  // since #view-toggle is display:none on other tabs so getBoundingClientRect()
+  // returns 0 when setView() runs during initial load.
+  if (tab === 'youtube') {
+    const activeBtn = document.querySelector('.vtab.active');
+    const indicator = document.getElementById('vtab-indicator');
+    const parent = document.getElementById('view-toggle');
+    if (activeBtn && indicator && parent) {
+      const parentRect = parent.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      indicator.style.left = (btnRect.left - parentRect.left - 3) + 'px';
+      indicator.style.width = btnRect.width + 'px';
+    }
+  }
   if (save) {
     try { window.storage.set('active_tab', tab); } catch(e) {}
   }
