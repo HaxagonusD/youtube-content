@@ -1,0 +1,6 @@
+# Claude local state (worktrees, session data)
+.claude/
+
+# Local footage-transfer tool — not part of the script viewer
+transfer_status.json
+dashboard.html

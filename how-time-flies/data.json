@@ -288,6 +288,55 @@
       "posts": []
     },
     {
+      "id": "todo",
+      "label": "To-Do",
+      "hero": {
+        "eyebrow": "Production Checklist",
+        "title": "Pre-Production <em>Checklist</em>"
+      },
+      "groups": [
+        {
+          "label": "Pre-Production",
+          "items": [
+            { "id": "pre-1", "text": "Lock final script" },
+            { "id": "pre-2", "text": "Plan shot list and B-roll" },
+            { "id": "pre-3", "text": "Design thumbnail concept" },
+            { "id": "pre-4", "text": "Decide which personal numbers go on camera" }
+          ]
+        },
+        {
+          "label": "Production",
+          "items": [
+            { "id": "prod-1", "text": "Film cold open — the tweet scroll moment" },
+            { "id": "prod-2", "text": "Film talking head sections" },
+            { "id": "prod-3", "text": "Gather old photos / B-roll from abroad period" },
+            { "id": "prod-4", "text": "Capture screen recordings (animation editor, timeline)" }
+          ]
+        },
+        {
+          "label": "Post-Production",
+          "items": [
+            { "id": "post-1", "text": "Edit full video" },
+            { "id": "post-2", "text": "Add music cues" },
+            { "id": "post-3", "text": "Burn in captions" },
+            { "id": "post-4", "text": "Finalise thumbnail" },
+            { "id": "post-5", "text": "Write title + description + tags" },
+            { "id": "post-6", "text": "Upload and schedule" }
+          ]
+        },
+        {
+          "label": "Distribution",
+          "items": [
+            { "id": "dist-1", "text": "Post YouTube Short" },
+            { "id": "dist-2", "text": "Post TikTok cuts" },
+            { "id": "dist-3", "text": "Post Instagram Reels" },
+            { "id": "dist-4", "text": "Post Twitter thread + clips" },
+            { "id": "dist-5", "text": "Post LinkedIn written post" }
+          ]
+        }
+      ]
+    },
+    {
       "id": "linkedin",
       "label": "LinkedIn",
       "hero": {

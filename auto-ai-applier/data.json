@@ -91,6 +91,7 @@
           "sublabel": "It finds the jobs",
           "type": "beat",
           "endTime": "2:00",
+          "animation": { "duration": 1.5, "brief": "Promise Row 01 animation. Three elements (number '01', verb 'Finds', object 'the jobs') rise 28px from below and fade in over 0.6s. Divider sweeps left-to-right at 0.2s. Accent underline sweeps in under 'Finds' at 0.5s. File: Promise Row 01 - Finds.mp4 (done)" },
           "items": [
             { "type": "p", "text": "First problem — finding jobs is the worst part of being unemployed." },
             { "type": "p", "text": "While I was making coffee this morning, it had already pulled the day's listings from LinkedIn — exactly the kind of role I'd search for myself. Then it did the same thing on Indeed." },
@@ -117,6 +118,7 @@
           "sublabel": "It tailors the resume",
           "type": "beat",
           "endTime": "2:48",
+          "animation": { "duration": 1.5, "brief": "Promise Row 02 animation. Same structure as Row 01. File: Promise Row 02 - Tailors.mp4 (done)" },
           "items": [
             { "type": "p", "text": "A tailored resume makes you 6 times more likely to land an interview. That's not a tip — that's from 3.2 million applications." },
             { "type": "p", "text": "Here's where most people stop. They paste the job description into ChatGPT, get a tailored resume back, copy it over. Fine for one job. But you can't do that 50 times a day." },
@@ -143,6 +145,7 @@
           "sublabel": "It applies",
           "type": "beat",
           "endTime": "3:12",
+          "animation": { "duration": 1.5, "brief": "Promise Row 03 animation. Same structure as Row 01. File: Promise Row 03 - Applies.mp4 (done)" },
           "items": [
             { "type": "p", "text": "Now the part that actually saves time." },
             { "type": "p", "text": "Watch this. It opens the application page, walks through the form, hits submit — about twelve seconds, start to finish. The confirmation page screenshots to a log with a timestamp, so I can prove it actually went through." },
@@ -167,6 +170,7 @@
           "sublabel": "It fixes itself — climax",
           "type": "beat",
           "endTime": "4:00",
+          "animation": { "duration": 1.5, "brief": "Promise Row 04 animation. Same structure as Row 01. File: Promise Row 04 - Fixes.mp4 (done)" },
           "items": [
             { "type": "p", "text": "Here's the part that broke my brain." },
             { "type": "p", "text": "And this is the part nobody builds." },
@@ -197,6 +201,7 @@
           "sublabel": "The dashboard",
           "type": "beat",
           "endTime": "4:51",
+          "animation": { "duration": 1.6, "brief": "Dashboard title card. Large italic 'The dashboard' at 200px rises in. Eyebrow label 'UI' and flanking lines appear first. Accent underline sweeps in last. File: the-dashboard.mp4 (done)" },
           "items": [
             { "type": "p", "text": "Last piece. I needed to actually see what this thing was doing." },
             { "type": "p", "text": "Every job it applies to gets a card. Title, company, link to the listing, the resume version it sent, screenshots of every step. All timestamped." },
@@ -692,6 +697,40 @@
           { "when": "Note", "what": "<em>If Cut 01 Reels underperforms in 48 hours, skip Cut 03 entirely. A weak visual on Cut 03 will hurt more than it helps — and don't post it into a cold Reels audience.</em>" }
         ]
       }
+    },
+    {
+      "id": "todo",
+      "label": "To-Do",
+      "hero": {
+        "eyebrow": "Production Checklist",
+        "title": "Pre-Production <em>Checklist</em>"
+      },
+      "groups": [
+        {
+          "label": "Animations",
+          "items": [
+            { "id": "anim-1", "text": "Replay animation: Finds the jobs" },
+            { "id": "anim-2", "text": "Replay animation: Tailors the resume" },
+            { "id": "anim-3", "text": "Replay animation: Apply / fixes itself" },
+            { "id": "anim-4", "text": "UI animations from the app interface" },
+            { "id": "anim-5", "text": "Outro" }
+          ]
+        },
+        {
+          "label": "Audio",
+          "items": [
+            { "id": "audio-1", "text": "Music transitions between sections" },
+            { "id": "audio-2", "text": "Sound effects" }
+          ]
+        },
+        {
+          "label": "Color",
+          "items": [
+            { "id": "color-1", "text": "Color grade clips outside of animations" },
+            { "id": "color-2", "text": "Figure out how to color grade the Fusion animation clip" }
+          ]
+        }
+      ]
     },
     {
       "id": "linkedin",

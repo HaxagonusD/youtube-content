@@ -19,6 +19,8 @@
   const meta = data.meta || {};
   document.title = meta.title ? meta.title.replace(/<[^>]+>/g, '') : 'Script';
 
+  let animFps = parseInt(localStorage.getItem('anim_fps') || '30');
+
   // ── 2. Build skeleton ─────────────────────────────────────────────────────
   document.body.innerHTML = `
     <div id="progress"></div>
@@ -35,12 +37,22 @@
         <span id="ver-badge">v1 — Initial render</span>
       </div>
       <div style="display:flex;gap:8px;align-items:center;">
+        <div id="anim-fps-wrap">
+          <span class="anim-fps-label">FPS</span>
+          <div class="anim-fps-toggle">
+            <button class="anim-fps-btn" data-fps="24">24</button>
+            <button class="anim-fps-btn" data-fps="30">30</button>
+            <button class="anim-fps-btn" data-fps="60">60</button>
+          </div>
+        </div>
         <div id="view-toggle">
           <button class="vtab" data-view="music">Music</button>
           <button class="vtab" data-view="script">Script</button>
           <button class="vtab" data-view="shots">Shots</button>
+          <button class="vtab" data-view="anim">Anim</button>
           <div id="vtab-indicator"></div>
         </div>
+        <button class="vbtn" id="btn-import-script" title="Copy DaVinci import script to clipboard">Import Script</button>
         <button class="vbtn" id="btn-history">History</button>
         <button class="vbtn" id="btn-fullscreen" title="Toggle fullscreen">⛶</button>
       </div>
@@ -89,6 +101,10 @@
       `;
     }
 
+    if (tab.id === 'todo') {
+      return buildTodoPanel(tab);
+    }
+
     // Social tabs (shorts, twitter, tiktok, instagram, linkedin)
     const summaryHtml = tab.summary ? buildSummary(tab.summary) : '';
     const postsHtml = (tab.posts || []).map(p => buildPost(p, tab.id)).join('');
@@ -110,16 +126,62 @@
       ? `<span class="section-tag ${tag}">${escHtml(sec.label)}</span><span class="section-subtitle">${escHtml(sec.sublabel)}</span>`
       : `<span class="section-tag ${tag}">${escHtml(sec.label)}</span>`;
 
-    const itemsHtml = (sec.items || []).map(item => {
-      if (item.type === 'pull') return `<div class="pull">${item.text}</div>`;
-      if (item.type === 'crystallize') return `<div class="crystallize"><p>${item.text}</p></div>`;
-      return `<p>${item.text}</p>`;
+    const sectionId = (sec.label + (sec.sublabel ? '-' + sec.sublabel : ''))
+      .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
+    const stored = (() => { try { const s = localStorage.getItem('anim_' + sectionId); return s ? JSON.parse(s) : {}; } catch(e) { return {}; } })();
+    const storedItems = stored.items || [];
+
+    const itemsHtml = (sec.items || []).map((item, i) => {
+      const sv = storedItems[i] ? (storedItems[i].start || '') : '';
+      const ev = storedItems[i] ? (storedItems[i].end   || '') : '';
+      const noteVal = storedItems[i] ? (storedItems[i].note || '') : '';
+      const anno = `<div class="anim-line-anno" data-item-idx="${i}">
+        <div class="anim-line-row">
+          <span class="anim-line-num">${String(i+1).padStart(2,'0')}</span>
+          <input class="anim-frame-input" type="text" inputmode="numeric" placeholder="—" value="${escHtml(sv)}" data-role="start">
+          <span class="anim-arrow">→</span>
+          <input class="anim-frame-input" type="text" inputmode="numeric" placeholder="—" value="${escHtml(ev)}" data-role="end">
+        </div>
+        <input class="anim-note-input" type="text" placeholder="note…" value="${escHtml(noteVal)}">
+      </div>`;
+      if (item.type === 'pull') return `<div class="pull">${item.text}</div>${anno}`;
+      if (item.type === 'crystallize') return `<div class="crystallize"><p>${item.text}</p></div>${anno}`;
+      return `<p>${item.text}</p>${anno}`;
     }).join('');
 
     return `
-      <div class="section"${sec.endTime ? ` data-end-time="${sec.endTime}"` : ''}>
+      <div class="section"${sec.endTime ? ` data-end-time="${sec.endTime}"` : ''} data-section-id="${escHtml(sectionId)}">
         <div class="section-label">${labelHtml}</div>
         ${itemsHtml}
+        <div class="anim-section-footer">
+          <button class="anim-copy-btn">Copy brief</button>
+        </div>
+      </div>
+    `;
+  }
+
+  // ── 5b. Todo panel builder ────────────────────────────────────────────────
+  function buildTodoPanel(tab) {
+    const groups = tab.groups || [];
+    const groupsHtml = groups.map(g => {
+      const items = (g.items || []).map(item => `
+        <label class="todo-item" data-id="${escHtml(item.id)}">
+          <input type="checkbox" class="todo-check" data-id="${escHtml(item.id)}">
+          <span class="todo-text">${escHtml(item.text)}</span>
+        </label>
+      `).join('');
+      return `
+        <div class="todo-group">
+          <div class="todo-group-label">${escHtml(g.label)}</div>
+          <div class="todo-items">${items}</div>
+        </div>
+      `;
+    }).join('');
+
+    return `
+      <div class="container">
+        <div class="todo-panel">${groupsHtml}</div>
       </div>
     `;
   }
@@ -283,7 +345,75 @@
     `;
   }
 
-  // ── 9. Music cue + shot list injection ───────────────────────────────────
+  // ── 9. Animation annotations ─────────────────────────────────────────────
+  function initAnimAnnotations() {
+    // FPS toggle
+    document.querySelectorAll('.anim-fps-btn').forEach(btn => {
+      const fps = parseInt(btn.dataset.fps);
+      btn.classList.toggle('active', fps === animFps);
+      btn.addEventListener('click', () => {
+        animFps = fps;
+        localStorage.setItem('anim_fps', animFps);
+        document.querySelectorAll('.anim-fps-btn').forEach(b => b.classList.toggle('active', parseInt(b.dataset.fps) === animFps));
+      });
+    });
+
+    // Per-section: save inputs + handle copy
+    document.querySelectorAll('.section[data-section-id]').forEach(sectionEl => {
+      const sectionId = sectionEl.dataset.sectionId;
+
+      const save = () => {
+        const items = [];
+        sectionEl.querySelectorAll('.anim-line-anno').forEach(anno => {
+          items.push({
+            start: (anno.querySelector('[data-role="start"]') || {}).value || '',
+            end:   (anno.querySelector('[data-role="end"]')   || {}).value || '',
+            note:  (anno.querySelector('.anim-note-input')    || {}).value || ''
+          });
+        });
+        try { localStorage.setItem('anim_' + sectionId, JSON.stringify({ items })); } catch(e) {}
+      };
+
+      sectionEl.querySelectorAll('.anim-frame-input').forEach(inp => inp.addEventListener('input', save));
+      sectionEl.querySelectorAll('.anim-note-input').forEach(inp => inp.addEventListener('input', save));
+
+      const copyBtn = sectionEl.querySelector('.anim-copy-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          const labelEl    = sectionEl.querySelector('.section-tag');
+          const sublabelEl = sectionEl.querySelector('.section-subtitle');
+          const label    = labelEl    ? labelEl.textContent.trim()    : sectionId;
+          const sublabel = sublabelEl ? sublabelEl.textContent.trim() : '';
+          const header   = sublabel ? `${label} — ${sublabel}` : label;
+          const endTime  = sectionEl.dataset.endTime || '';
+
+          const lines = [
+            `${header}${endTime ? `  (ends ${endTime})` : ''}`,
+            `FPS: ${animFps}`,
+            ''
+          ];
+
+          const bodyEl   = sectionEl.querySelector('.section-body') || sectionEl;
+          const scriptEls = Array.from(bodyEl.querySelectorAll(':scope > p, :scope > .pull, :scope > .crystallize'));
+          const annos     = Array.from(sectionEl.querySelectorAll('.anim-line-anno'));
+
+          scriptEls.forEach((el, i) => {
+            const anno = annos[i];
+            const s = anno ? ((anno.querySelector('[data-role="start"]') || {}).value || '—') : '—';
+            const e = anno ? ((anno.querySelector('[data-role="end"]')   || {}).value || '—') : '—';
+            const note = anno ? ((anno.querySelector('.anim-note-input') || {}).value || '') : '';
+            const text = el.textContent.replace(/\s+/g, ' ').trim();
+            lines.push(`Line ${String(i+1).padStart(2,'0')}  [ ${s.padStart(5)} → ${e.padStart(5)} ]:  ${text}`);
+            if (note) lines.push(`          note: ${note}`);
+          });
+
+          navigator.clipboard.writeText(lines.join('\n')).then(() => showToast('Copied!'));
+        });
+      }
+    });
+  }
+
+  // ── 10. Music cue + shot list injection ───────────────────────────────────
   function injectMusicCues() {
     const sections = document.querySelectorAll('.tab-content[data-tab="youtube"] #content-block > .section');
     const ytTab = data.tabs.find(t => t.id === 'youtube');
@@ -392,7 +522,8 @@
   function setView(view, save = true) {
     const wasMusic = document.body.classList.contains('show-music');
     const wasShots = document.body.classList.contains('show-shots');
-    const isChanging = wasMusic || wasShots || view !== 'script';
+    const wasAnim = document.body.classList.contains('show-anim');
+    const isChanging = wasMusic || wasShots || wasAnim || view !== 'script';
 
     const container = document.querySelector('.container');
     if (container && isChanging) container.style.opacity = '0';
@@ -400,15 +531,18 @@
     const swapClasses = () => {
       document.body.classList.remove('show-music-visible', 'show-shots-visible');
       if (view === 'music') {
-        document.body.classList.remove('show-shots');
+        document.body.classList.remove('show-shots', 'show-anim');
         document.body.classList.add('show-music');
         requestAnimationFrame(() => document.body.classList.add('show-music-visible'));
       } else if (view === 'shots') {
-        document.body.classList.remove('show-music');
+        document.body.classList.remove('show-music', 'show-anim');
         document.body.classList.add('show-shots');
         requestAnimationFrame(() => document.body.classList.add('show-shots-visible'));
-      } else {
+      } else if (view === 'anim') {
         document.body.classList.remove('show-music', 'show-shots');
+        document.body.classList.add('show-anim');
+      } else {
+        document.body.classList.remove('show-music', 'show-shots', 'show-anim');
       }
       if (container) requestAnimationFrame(() => { container.style.opacity = '1'; });
     };
@@ -458,6 +592,89 @@
     const btn = document.getElementById('btn-fullscreen');
     btn.textContent = document.fullscreenElement ? '✕' : '⛶';
     btn.title = document.fullscreenElement ? 'Exit fullscreen' : 'Toggle fullscreen';
+  });
+
+  // ── 11b. Import script ────────────────────────────────────────────────────
+  const DAVINCI_IMPORT_SCRIPT = `local BASE = "/Users/julianquezada/Desktop/VIDEOS/Auto AI Applier"
+
+local BINS = {
+    "Raw Footage",
+    "Music",
+    "Sound Effects",
+    "Scripts",
+    "Transcripts",
+    "Animations",
+}
+
+local MEDIA_EXTS = {
+    mp4=true, mov=true, avi=true, mkv=true, mxf=true,
+    mp3=true, wav=true, aiff=true, aif=true, m4a=true,
+    png=true, jpg=true, jpeg=true, tiff=true, psd=true, gif=true,
+}
+
+local function getExt(filename)
+    return filename:match("%.(%w+)$"):lower()
+end
+
+local function getOrCreateBin(mediaPool, parent, name)
+    for _, sub in ipairs(parent:GetSubFolderList()) do
+        if sub:GetName() == name then
+            return sub
+        end
+    end
+    return mediaPool:AddSubFolder(parent, name)
+end
+
+local function getExistingPaths(bin)
+    local paths = {}
+    for _, clip in ipairs(bin:GetClipList()) do
+        paths[clip:GetClipProperty("File Path")] = true
+    end
+    return paths
+end
+
+local mediaPool   = resolve:GetProjectManager():GetCurrentProject():GetMediaPool()
+local rootFolder  = mediaPool:GetRootFolder()
+local projectBin  = getOrCreateBin(mediaPool, rootFolder, "Auto AI Applier")
+
+for _, binName in ipairs(BINS) do
+    local folderPath = BASE .. "/" .. binName
+    local targetBin  = getOrCreateBin(mediaPool, projectBin, binName)
+    local existing   = getExistingPaths(targetBin)
+
+    mediaPool:SetCurrentFolder(targetBin)
+
+    local newFiles = {}
+    local handle = io.popen('ls "' .. folderPath .. '" 2>/dev/null')
+    if handle then
+        for filename in handle:lines() do
+            local ext = filename:match("%.(%w+)$")
+            if ext and MEDIA_EXTS[ext:lower()] then
+                local fullPath = folderPath .. "/" .. filename
+                if not existing[fullPath] then
+                    table.insert(newFiles, fullPath)
+                end
+            end
+        end
+        handle:close()
+    end
+
+    if #newFiles > 0 then
+        mediaPool:ImportMedia(newFiles)
+        print("'" .. binName .. "': imported " .. #newFiles .. " new file(s)")
+    else
+        print("'" .. binName .. "': nothing new to import")
+    end
+end
+
+-- Return focus to Raw Footage bin after all imports
+local rawFootageBin = getOrCreateBin(mediaPool, projectBin, "Raw Footage")
+mediaPool:SetCurrentFolder(rawFootageBin)
+
+print("All done.")`;
+
+  document.getElementById('btn-import-script').addEventListener('click', () => {
+    navigator.clipboard.writeText(DAVINCI_IMPORT_SCRIPT).then(() => showToast('Import script copied!'));
   });
 
   // ── 12. Tab switching ─────────────────────────────────────────────────────
@@ -630,6 +847,26 @@
     document.getElementById('vpanel').classList.remove('open');
   });
 
+  // ── 13b. Todo persistence ─────────────────────────────────────────────────
+  function initTodos() {
+    if (!data.tabs.find(t => t.id === 'todo')) return;
+    const slug = window.location.pathname.split('/').filter(Boolean).slice(-2, -1)[0] || 'script';
+    const storeKey = `todo_state_${slug}`;
+    let state = {};
+    try { const s = localStorage.getItem(storeKey); if (s) state = JSON.parse(s); } catch (e) {}
+    const save = () => { try { localStorage.setItem(storeKey, JSON.stringify(state)); } catch (e) {} };
+
+    document.querySelectorAll('.todo-check').forEach(cb => {
+      const id = cb.dataset.id;
+      if (state[id]) { cb.checked = true; cb.closest('.todo-item').classList.add('done'); }
+      cb.addEventListener('change', () => {
+        state[id] = cb.checked;
+        cb.closest('.todo-item').classList.toggle('done', cb.checked);
+        save();
+      });
+    });
+  }
+
   // ── 14. Progress bar ──────────────────────────────────────────────────────
   window.addEventListener('scroll', () => {
     const s = document.documentElement.scrollTop;
@@ -659,6 +896,8 @@
 
   // ── 17. Boot sequence ─────────────────────────────────────────────────────
   injectMusicCues();
+  initTodos();
+  initAnimAnnotations();
   loadMode(); // rough pass so indicator appears immediately
 
   await document.fonts.ready;
