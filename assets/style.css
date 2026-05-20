@@ -24,6 +24,10 @@
   .section-tag.frame { background: #9b7ec8; }
   .section-tag.tension { background: #c4875a; }
   .section-subtitle { font-family: 'Playfair Display', serif; font-size: 13px; font-style: italic; color: var(--muted); }
+  .section-purpose { background: var(--surface); border-left: 3px solid var(--accent-dim); padding: 18px 22px; margin: 0 0 40px; border-radius: 0 4px 4px 0; }
+  .section-purpose .sp-eyebrow { display: block; font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-dim); margin-bottom: 8px; }
+  .section-purpose .sp-text { font-size: 15px; line-height: 1.65; color: var(--text); font-weight: 300; }
+  .section-purpose .sp-text em { font-style: italic; color: var(--accent); font-weight: 400; }
   .section p { font-size: 17px; font-weight: 300; color: var(--text); margin-bottom: 18px; line-height: 1.35; }
   .section p:last-child { margin-bottom: 0; }
   .section p:has(.shot-marker) { display: flex; align-items: start; gap: 8px; }

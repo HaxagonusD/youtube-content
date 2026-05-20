@@ -1,0 +1,342 @@
+{
+  "meta": {
+    "title": "Leverage",
+    "eyebrow": "Video Script — Beat Outline",
+    "scriptVersion": "v1",
+    "versionLabel": "First pass — talking points",
+    "footerNote": "Beat outline · bullets to hit, not final VO"
+  },
+  "tabs": [
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "hero": {
+        "eyebrow": "Video Script — Beat Outline",
+        "title": "<em>Leverage</em>"
+      },
+      "sections": [
+        {
+          "label": "Cold Open",
+          "sublabel": "Show the stack in motion",
+          "type": "hook",
+          "endTime": "0:15",
+          "purpose": "Drop the viewer into a specific moment where multiple things are running at once — not explained, just shown. The question it plants: how is one person doing all of this at the same time?",
+          "items": [
+            { "type": "p", "text": "Open on your screen — not your face. Show what's actually happening: [PLACEHOLDER — something is building/running/generating in one tab, something else is in progress in another]. You're not watching it. You're starting a third thing." },
+            { "type": "p", "text": "Read what's on screen out loud, matter-of-fact. Don't explain it. Let it be slightly confusing. The viewer should be thinking 'wait, what is all this?'" },
+            { "type": "pull", "text": "I'm not working faster. I'm working in parallel." }
+          ],
+          "musicCue": {
+            "title": "[TBD]",
+            "meta": "[BPM] · [Genre]",
+            "desc": "Ambient, slightly mechanical. Like something is processing in the background. Not music-y — textural.",
+            "note": "Holds through Promise. Don't compete with the screen visual.",
+            "end": "0:15"
+          },
+          "shotList": [
+            { "type": "SCREEN", "desc": "Open on the actual desktop showing multiple things in progress — no face, no intro. Real tabs, real output." },
+            { "type": "TALK", "desc": "Cut to face on the pull quote. Calm, not performative." }
+          ]
+        },
+        {
+          "label": "Promise",
+          "sublabel": "Name the deal",
+          "type": "frame",
+          "endTime": "0:35",
+          "purpose": "This video is for anyone who feels like they don't have enough hours. The deal: by the end they'll understand how to use AI not to go faster, but to be in multiple places at once.",
+          "items": [
+            { "type": "p", "text": "Talk about who this is for — the person who has more ideas than hours. The one who starts things and then has to stop everything else to finish them. The one who context-switches all day and still feels behind." },
+            { "type": "p", "text": "Make the promise: by the end of this video, the way you think about AI as a tool will change. Not because of some new app. Because of how you structure the work." }
+          ],
+          "musicCue": {
+            "title": "(carries over)",
+            "meta": "Same as Cold Open",
+            "desc": "No break. Slight forward momentum starting to build.",
+            "note": "",
+            "end": "0:35"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "Direct camera. Tighter than the rest of the video. Eyes locked." }
+          ]
+        },
+        {
+          "label": "The 4 Forms",
+          "sublabel": "Code, media, labor, money",
+          "type": "tension",
+          "endTime": "2:00",
+          "purpose": "Lay out the four classic forms of leverage — fast, no preaching. The point isn't to explain Naval, it's to show that most people only ever access one of these. Then land the AI angle: AI just collapsed the cost of all four down to one person.",
+          "items": [
+            { "type": "p", "text": "Talk about the four forms of leverage — keep each one to one sentence, no philosophy:" },
+            { "type": "p", "text": "<strong>Code</strong> — software that runs while you sleep. You build it once, it works forever. A script that runs every night, an app that processes requests without you." },
+            { "type": "p", "text": "<strong>Media</strong> — content that works after you stop working. A video you made six months ago is still getting views right now. This video is leverage." },
+            { "type": "p", "text": "<strong>Labor</strong> — other people doing things you'd otherwise have to do yourself. The reason companies exist." },
+            { "type": "p", "text": "<strong>Money</strong> — capital that makes more capital. The oldest one. Also the hardest to access when you're starting." },
+            { "type": "p", "text": "Talk about the problem: most people only ever touch one of these. If you're a solo person with no team and no capital, you're basically stuck with code or media. And those take time to build." },
+            { "type": "pull", "text": "AI just changed that math. One person can now access all four — at the same time." },
+            { "type": "p", "text": "Talk about why: AI gives you labor without headcount, code without being a full-time engineer, and media output without a production team. And it runs in the background while you do something else. That last part is the whole video." }
+          ],
+          "musicCue": {
+            "title": "[TBD]",
+            "meta": "[BPM] · [Genre]",
+            "desc": "Slight build. Forward motion. Not too dramatic — this should feel like clarity, not hype.",
+            "note": "Lift on the pull quote.",
+            "end": "2:00"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "Direct address through the four forms — keep the energy even, no fanfare on each one." },
+            { "type": "GRAPHIC", "desc": "Simple on-screen labels for each form as you name them: CODE · MEDIA · LABOR · MONEY." },
+            { "type": "TALK", "desc": "Locked face on the pull quote. Pause before and after." }
+          ]
+        },
+        {
+          "label": "Scene 1",
+          "sublabel": "The way most people use AI",
+          "type": "beat",
+          "endTime": "3:30",
+          "purpose": "Show the default pattern — AI as a faster typewriter. You ask, you wait, you review, you move on. That's not leverage. That's just speed. This beat sets up why the background approach is different.",
+          "items": [
+            { "type": "p", "text": "Talk about how most people actually use AI: they open a chat, type something, read the output, edit it, copy it somewhere. Then they close the tab and go do the next thing." },
+            { "type": "p", "text": "Talk about what that is — it's a tool. A faster tool, sure. But it's still the same pattern: you do one thing, then the next thing, then the next thing. Sequential. You are the bottleneck at every step." },
+            { "type": "p", "text": "Talk about what you were doing before you figured this out. [PLACEHOLDER — specific example of a time you were using AI this way, waiting on it, treating it like a search engine with better grammar.]" },
+            { "type": "pull", "text": "You saved two hours. I ran three projects. That's not the same thing." }
+          ],
+          "musicCue": {
+            "title": "[TBD]",
+            "meta": "[BPM] · [Genre]",
+            "desc": "Slightly flat. Intentionally underwhelming — mirror the 'meh' of the default pattern.",
+            "note": "",
+            "end": "3:30"
+          },
+          "shotList": [
+            { "type": "SCREEN", "desc": "Show the typical ChatGPT/Claude loop — type, wait, copy. Make it look repetitive." },
+            { "type": "TALK", "desc": "Direct on the pull quote. Let it land." }
+          ]
+        },
+        {
+          "label": "Scene 2",
+          "sublabel": "The background process shift",
+          "type": "beat",
+          "endTime": "5:00",
+          "purpose": "Introduce the actual concept: AI as a background process, not a foreground tool. You fire a task, walk away, start something else. The shift is psychological as much as practical — you have to trust the brief enough to leave.",
+          "items": [
+            { "type": "p", "text": "Talk about what a background process actually means — your computer is running dozens of things right now that you're not watching. They don't need you present. They just run." },
+            { "type": "p", "text": "Talk about the moment this clicked for you. [PLACEHOLDER — specific moment where you fired off a task to Claude/AI, immediately started something else, and came back to a finished result. What was the task? What did you do instead? What was there when you returned?]" },
+            { "type": "p", "text": "Talk about what the shift requires: a brief good enough that you can walk away. Most people hover. They watch the output generate in real time, correct it mid-stream, stay in the conversation. That's supervision, not leverage. Supervision doesn't scale." },
+            { "type": "p", "text": "Talk about what a proper handoff looks like in practice — not a one-liner prompt, but a real brief: what you want, what format, what constraints, what done looks like. Two minutes of setup means you can leave for an hour." },
+            { "type": "pull", "text": "The brief is the work. Everything after that is waiting." }
+          ],
+          "musicCue": {
+            "title": "[TBD]",
+            "meta": "[BPM] · [Genre]",
+            "desc": "Something clicking into place. Light, forward, a little cleaner than Scene 1.",
+            "note": "",
+            "end": "5:00"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "Direct on the concept. This is the core idea — keep the framing tight." },
+            { "type": "SCREEN", "desc": "[TBD] — show the actual handoff: a real brief being sent to Claude, then switching away to another task." },
+            { "type": "TALK", "desc": "Land the pull quote. Slow delivery." }
+          ]
+        },
+        {
+          "label": "Scene 3",
+          "sublabel": "The stack — how you actually do it",
+          "type": "beat",
+          "endTime": "6:30",
+          "purpose": "Make this concrete and operational. Walk through exactly how you stack projects so AI is always running on something while you're doing something else. This is the practical demo beat.",
+          "items": [
+            { "type": "p", "text": "Talk about what stacking actually looks like in practice — the actual workflow, not the concept:" },
+            { "type": "p", "text": "Step one: you start Project A. You spend real time on the part that requires you — the thinking, the structure, the judgment call. Then you write the handoff brief and fire it to AI." },
+            { "type": "p", "text": "Step two: while AI is running on A, you open Project B. You do the same thing — the part that requires you, then the brief, then fire it." },
+            { "type": "p", "text": "Step three: you go back to A. The output is there. You review it, make judgment calls on what's good, feed back the adjustments if needed. Fire it again. Open B's output. Same process." },
+            { "type": "p", "text": "Talk about what you're actually doing here: you're the creative director, not the executor. You move between projects at the judgment layer. AI handles the execution layer. You are never waiting." },
+            { "type": "p", "text": "[PLACEHOLDER — give a real example from your actual work. What were the two or three projects you were running in parallel? What was AI doing on each one? What were you doing?]" },
+            { "type": "pull", "text": "You're not multitasking. You're managing a team of one — and the team doesn't sleep." }
+          ],
+          "musicCue": {
+            "title": "[TBD]",
+            "meta": "[BPM] · [Genre]",
+            "desc": "Active, slightly faster. The feeling of things moving.",
+            "note": "Energy peaks here — this is the most information-dense beat.",
+            "end": "6:30"
+          },
+          "shotList": [
+            { "type": "SCREEN", "desc": "Show the actual stack — multiple Claude conversations or tasks open, switching between them. Real windows, real projects." },
+            { "type": "TALK", "desc": "Overlay VO on the screen demo where possible. Cut to face for the pull quote." },
+            { "type": "GRAPHIC", "desc": "Optional: a simple diagram — Project A → AI → [you're here] → Project B → AI → back to A. Visual makes the loop clear." }
+          ]
+        },
+        {
+          "label": "Scene 4",
+          "sublabel": "What this compounds into",
+          "type": "beat",
+          "endTime": "7:45",
+          "purpose": "Zoom out from the day-to-day and show what happens when you run this system for weeks or months. Projects stack into assets. Assets generate leverage. One person starts to look like a team.",
+          "items": [
+            { "type": "p", "text": "Talk about what this looks like after 30 days of running projects in parallel versus working sequentially. If you finish one project per week the normal way, that's 4 things. If you're running 3 in parallel and shipping every few days — the math is different." },
+            { "type": "p", "text": "Talk about what those projects become: some are media (this video is a project). Some are code (the AI job applier was a project). Some become things that make money, get views, or build the next thing. Each one done is an asset that works without you." },
+            { "type": "p", "text": "Talk about how this connects back to the four forms of leverage from earlier — when you stack projects this way, you're not just saving time. You're building code leverage, media leverage, and using AI as labor leverage, all at once. The forms compound." },
+            { "type": "p", "text": "[PLACEHOLDER — show your actual output from a recent stretch. How many things did you ship? What are they? Make it concrete, not general.]" },
+            { "type": "pull", "text": "Every project you finish is a machine you don't have to run anymore." }
+          ],
+          "musicCue": {
+            "title": "[TBD]",
+            "meta": "[BPM] · [Genre]",
+            "desc": "Pull back slightly from Scene 3. More reflective, less kinetic — you're looking at the bigger picture now.",
+            "note": "",
+            "end": "7:45"
+          },
+          "shotList": [
+            { "type": "TALK", "desc": "Direct to camera. This beat is about perspective — wider framing than the previous beats." },
+            { "type": "GRAPHIC", "desc": "[TBD] — show a timeline or list of things shipped. Make the output visible." }
+          ]
+        },
+        {
+          "label": "The Lesson",
+          "sublabel": "Close the loop, crystallize, one move",
+          "type": "payoff",
+          "endTime": "8:45",
+          "purpose": "Return to the cold open — same screen, same setup — but now the viewer sees it differently. Land the crystallized line. Give one specific thing to do tonight.",
+          "items": [
+            { "type": "p", "text": "Return to the cold open. Same screen. [PLACEHOLDER — the same things that were running in the background are now done or further along]. You're starting the next thing. Walk through what just happened in the time since the video started." },
+            { "type": "p", "text": "Talk about what the people who win with AI in the next few years have in common — it won't be the ones who use the best prompts. It'll be the ones who figured out how to stay out of the loop long enough to do something else." },
+            { "type": "crystallize", "text": "The people who win with AI aren't going faster. They're running in parallel." },
+            { "type": "p", "text": "Give them one move: tonight, before you finish working, write a real brief for something — a task, a project, a piece of content — and send it to Claude or whatever you use. Don't wait for the output. Close the tab. Start something else. Come back in an hour. That's the whole practice." }
+          ],
+          "musicCue": {
+            "title": "[TBD]",
+            "meta": "[BPM] · [Genre]",
+            "desc": "Mirror the Cold Open texture but fuller now. Settled, not triumphant.",
+            "note": "Drop music on the crystallized line. Full silence. Bring it back softly under the action prompt.",
+            "end": "8:45"
+          },
+          "shotList": [
+            { "type": "SCREEN", "desc": "Return to the same desktop from the cold open — visual symmetry. Things have moved. Progress is visible." },
+            { "type": "TALK", "desc": "Cut to face for the buildup. No cuts during the crystallize line." },
+            { "type": "GRAPHIC", "desc": "Crystallized line as full-screen text — large, screenshotable." },
+            { "type": "TALK", "desc": "Action prompt direct to camera. Forward lean. Then cut — no like/sub until after this lands." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shorts",
+      "label": "YouTube Shorts",
+      "hero": {
+        "eyebrow": "YouTube Shorts · Repurposing Plan",
+        "title": "Shorts <em>TBD</em>"
+      },
+      "summary": {
+        "label": "Strong candidates",
+        "count": "SHORTS FOUND: 3",
+        "inv": "1) The 4 forms in under 60s — rapid-fire, graphic-driven. 2) The pull quote 'You saved two hours. I ran three projects.' — single talking head, no b-roll needed. 3) The brief-is-the-work concept — demo the actual handoff on screen."
+      },
+      "posts": []
+    },
+    {
+      "id": "twitter",
+      "label": "Twitter",
+      "hero": {
+        "eyebrow": "Twitter / X · Repurposing Plan",
+        "title": "Posts <em>TBD</em>"
+      },
+      "summary": {
+        "label": "Strong candidates",
+        "count": "TWITTER POSTS FOUND: TBD",
+        "inv": "The crystallized line is the obvious tweet. Thread angle: walk through the 4 forms + how AI collapses each one — one tweet per form, fifth tweet is the system."
+      },
+      "posts": []
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "hero": {
+        "eyebrow": "TikTok · Repurposing Plan",
+        "title": "Cuts <em>TBD</em>"
+      },
+      "summary": {
+        "label": "Strong candidates",
+        "count": "TIKTOK CUTS: TBD",
+        "inv": "Draft after main script is locked. The stack walkthrough (Scene 3) with screen share could be a strong standalone cut."
+      },
+      "posts": []
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "hero": {
+        "eyebrow": "Instagram · Reels · Repurposing Plan",
+        "title": "Reels <em>TBD</em>"
+      },
+      "summary": {
+        "label": "Strong candidates",
+        "count": "REELS CUTS: TBD",
+        "inv": "Draft after main script is locked."
+      },
+      "posts": []
+    },
+    {
+      "id": "todo",
+      "label": "To-Do",
+      "hero": {
+        "eyebrow": "Production Checklist",
+        "title": "Pre-Production <em>Checklist</em>"
+      },
+      "groups": [
+        {
+          "label": "Pre-Production",
+          "items": [
+            { "id": "pre-1", "text": "Fill in all [PLACEHOLDER] moments with real personal stories" },
+            { "id": "pre-2", "text": "Pick the cold open moment — what specific thing was running in the background?" },
+            { "id": "pre-3", "text": "Decide which real projects to show in Scene 3 stack demo" },
+            { "id": "pre-4", "text": "Design thumbnail concept — probably shows the parallel-running visual" },
+            { "id": "pre-5", "text": "Lock the crystallized line — current draft: 'The people who win with AI aren't going faster. They're running in parallel.'" }
+          ]
+        },
+        {
+          "label": "Production",
+          "items": [
+            { "id": "prod-1", "text": "Film cold open — start on the screen, not the face" },
+            { "id": "prod-2", "text": "Film talking head sections" },
+            { "id": "prod-3", "text": "Capture screen recordings of actual Claude sessions / project stack" },
+            { "id": "prod-4", "text": "Build the 4-forms graphic (CODE · MEDIA · LABOR · MONEY)" }
+          ]
+        },
+        {
+          "label": "Post-Production",
+          "items": [
+            { "id": "post-1", "text": "Edit full video" },
+            { "id": "post-2", "text": "Add music cues" },
+            { "id": "post-3", "text": "Burn in captions" },
+            { "id": "post-4", "text": "Finalise thumbnail" },
+            { "id": "post-5", "text": "Write title + description + tags" },
+            { "id": "post-6", "text": "Upload and schedule" }
+          ]
+        },
+        {
+          "label": "Distribution",
+          "items": [
+            { "id": "dist-1", "text": "Post YouTube Short — the pull quote cut" },
+            { "id": "dist-2", "text": "Post TikTok cuts" },
+            { "id": "dist-3", "text": "Post Instagram Reels" },
+            { "id": "dist-4", "text": "Post Twitter thread" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "hero": {
+        "eyebrow": "LinkedIn · Repurposing Plan",
+        "title": "Post <em>TBD</em>"
+      },
+      "summary": {
+        "label": "Angle",
+        "count": "FORMAT: Short post + link",
+        "inv": "The 4 forms framing works well for LinkedIn — professional audience gets it immediately. Lead with the 'AI collapsed the cost of all four' line, walk through each form in one sentence, close with the crystallized line and link."
+      },
+      "posts": []
+    }
+  ]
+}

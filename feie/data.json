@@ -1,0 +1,232 @@
+{
+  "meta": {
+    "title": "\"Just Pay Your Full Tax Bill Bro.\" Nah.",
+    "eyebrow": "Video Script — Foreign Earned Income Exclusion",
+    "footerNote": "Beat outline · bullets to hit, not final VO",
+    "scriptVersion": "v1",
+    "versionLabel": "FEIE tax explainer"
+  },
+  "tabs": [
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "hero": {
+        "eyebrow": "Contrarian Finance",
+        "title": "\"Just Pay Your Full Tax Bill <em>Bro.</em>\" Nah."
+      },
+      "sections": [
+        {
+          "label": "HOOK",
+          "sublabel": "This is the biggest tax break a W-2 worker can get — and it requires you to leave",
+          "endTime": "0:30",
+          "items": [
+            { "type": "pull", "text": "\"If you work a remote job and you live in the US, you are paying more in taxes than you legally have to. And the fix is leaving.\"" },
+            { "type": "p", "text": "Talk about how this isn't a loophole for rich people or accountants — it's the single largest tax break available to anyone with a remote job, and the only requirement is that you actually live outside the US." },
+            { "type": "p", "text": "Talk about the number: over $126k of your income excluded from federal taxes entirely. Not deducted — excluded. Gone from your taxable income. If you're making $100k in the US right now, you could legally owe close to zero federal income tax. The catch is you have to go." }
+          ],
+          "shotList": [
+            { "num": 1, "type": "GRAPHIC", "desc": "Animated text: \"$126,500\" slams onto screen, then \"EXCLUDED\" underlines itself beneath it. Nothing else." },
+            { "num": 2, "type": "GRAPHIC", "desc": "Character: two identical stick figures side by side. Left (US label): money flying off. Right (ABROAD label): money stays in hand." }
+          ]
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into WHAT IS THE FEIE",
+          "endTime": "",
+          "items": [
+            { "type": "pull", "text": "\"Here's the part they don't put in the headline — this rule has been in the tax code since 1926. The government just doesn't go out of its way to explain it to you.\"" },
+            { "type": "p", "text": "Talk about how the FEIE isn't a loophole someone found — it's been law for nearly a century. The reason most people don't know about it is that nobody who benefits from your ignorance is going to be the one to tell you." }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "WHAT IS THE FEIE",
+          "sublabel": "Explain the rule simply",
+          "endTime": "1:30",
+          "items": [
+            { "type": "p", "text": "Talk about why the FEIE exists at all: the US is one of only 2 countries out of 170+ that taxes citizens on worldwide income no matter where they live. Move to Dubai as a British citizen — the UK doesn't care. German moves to Thailand — Germany isn't coming for them. But an American moves abroad? The IRS still wants its cut. The FEIE is the government's partial concession to that insane system." },
+            { "type": "p", "text": "Talk about what the Foreign Earned Income Exclusion actually is — the IRS lets Americans living outside the US exclude a set amount of earned income from federal taxes each year." },
+            { "type": "p", "text": "Talk about the two tests: bona fide residence (you actually live in another country) or physical presence (330 days outside the US in a 12-month period)." },
+            { "type": "crystallize", "text": "You don't renounce citizenship. You don't hide money. You just live somewhere else and file a form." },
+            { "type": "p", "text": "Talk about Form 2555 — the one form that unlocks this, and how straightforward it actually is." }
+          ],
+          "shotList": [
+            { "num": 1, "type": "GRAPHIC", "desc": "Character: globe with US and Eritrea glowing, all other countries grayed out. Label: \"2 countries that tax you no matter where you live\"." },
+            { "num": 2, "type": "GRAPHIC", "desc": "Animated text: \"330 DAYS\" counts up as tally marks." },
+            { "num": 3, "type": "GRAPHIC", "desc": "Character: stick figure holding one small paper (Form 2555) next to a towering stack. Labels: \"what you file\" vs \"what people think you file\". Animated — first frame empty-handed, last frame with paper and stack. First and last frame images done." }
+          ]
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into THE MATH",
+          "endTime": "",
+          "items": [
+            { "type": "pull", "text": "\"OK so that's how the rule works. Now let me show you what it actually costs you to not know this.\"" },
+            { "type": "p", "text": "Talk about how understanding the mechanics is one thing — seeing the real dollar difference is what makes it concrete. Bridge to the actual numbers." }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "THE MATH",
+          "sublabel": "Show exactly how much this saves",
+          "endTime": "3:00",
+          "items": [
+            { "type": "p", "text": "Talk about the real numbers — if you're making $120k as a remote worker living abroad, you could owe close to zero federal income tax." },
+            { "type": "pull", "text": "\"This isn't a loophole. It's a law that's been on the books since 1926. The government just doesn't advertise it.\"" }
+          ],
+          "shotList": [
+            { "num": 1, "type": "GRAPHIC", "desc": "Animated text: two columns appear line by line. Left: $120k / US / ~$22k federal tax / take home $98k. Right: $120k / abroad / $0 federal tax / take home $120k. Bottom line: \"difference: $22,000\"." }
+          ]
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into MY SITUATION",
+          "endTime": "",
+          "items": [
+            { "type": "pull", "text": "\"That's the general case. Here's what it looked like for me specifically.\"" },
+            { "type": "p", "text": "Talk about how the numbers in the graphic are theoretical — bridge to your own real situation so it's not hypothetical anymore." }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "MY SITUATION",
+          "sublabel": "Your personal numbers — the credibility moment",
+          "endTime": "4:00",
+          "items": [
+            { "type": "p", "text": "Talk about your own situation — how much you actually made, how much you paid in federal taxes, and how much you saved by using the FEIE. Be as specific as you're comfortable with." },
+            { "type": "p", "text": "Talk about how you set it up — where you're based, how long you've been doing this, what the process actually looked like the first time." }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into STATE TAXES",
+          "endTime": "",
+          "items": [
+            { "type": "pull", "text": "\"But there's one thing most people who try this completely miss. And it will follow you if you don't handle it before you leave.\"" },
+            { "type": "p", "text": "Talk about how the federal side is actually the easy part — tease that there's a state-level caveat that trips people up even after they get the federal piece right." }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "STATE TAXES",
+          "sublabel": "The caveat most people miss",
+          "endTime": "4:45",
+          "items": [
+            { "type": "p", "text": "Talk about how the FEIE only covers federal taxes — some states, especially California and New York, will still try to tax you even if you live abroad." },
+            { "type": "crystallize", "text": "The FEIE gets you out of the IRS. Getting out of your state is a separate move." },
+            { "type": "p", "text": "Talk about what you actually need to do — establish domicile in a no-income-tax state (or abroad) before you leave. You can't just move overseas and assume your state forgets you exist." }
+          ],
+          "shotList": [
+            { "num": 1, "type": "GRAPHIC", "desc": "Character: US map outline. CA, NY, NJ fill red. Rest gray. Labels: \"still coming for you\" vs \"not your problem\"." },
+            { "num": 2, "type": "GRAPHIC", "desc": "Animated text: \"FEIE = federal\" fades in, then \"state = separate move\" appears below it." }
+          ],
+          "purpose": "• File a new W-4 with your employer claiming EXEMPT from federal withholding — you're telling them to stop taking federal taxes out of your paycheck<br>• Do the same for state — update your state withholding form to opt out<br>• Your employer runs this through their payroll software (ADP, Gusto, Workday) — they just enter what you give them, they don't review or approve it<br>• These forms are between you and the IRS — your employer doesn't see your tax return, doesn't know what exclusions you're claiming<br>• As long as you actually qualify for FEIE you're doing nothing illegal — your employer won't get stung because you're claiming your own legal exemption<br>• The employer's only job is to process what you submit — once you give them the updated W-4, it's on you"
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into WHERE TO BASE YOURSELF",
+          "endTime": "",
+          "items": [
+            { "type": "pull", "text": "\"So you know the rules. Now the actual question is: where do you go?\"" },
+            { "type": "p", "text": "Talk about how knowing the law is only half of it — the other half is choosing where to base yourself in a way that doesn't accidentally create new tax obligations in another country." }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "WHERE TO BASE YOURSELF",
+          "sublabel": "Two strategies — pick one",
+          "endTime": "5:30",
+          "items": [
+            { "type": "p", "text": "Talk about the two real strategies for where to live abroad. Option one: base yourself in a territorial tax country — a country that only taxes income earned inside its borders. If you're getting paid by a US company, they don't care. UAE and Dubai are the most popular example. Paraguay is another. You live there, you pay nothing locally on your foreign income, and you're out of the IRS with the FEIE. Clean setup." },
+            { "type": "crystallize", "text": "Some countries don't care how much you make abroad. You just have to live there." },
+            { "type": "p", "text": "Talk about option two: the rotation strategy. If you don't want to commit to one country, or if that country has rules about becoming a tax resident after a certain number of days, you rotate. Stay in each country under the threshold that triggers tax residency — typically 90 to 183 days depending on the country." },
+            { "type": "p", "text": "Talk about your own rotation — Colombia, Dominican Republic, Mexico, and Peru. Three to four months in each. You're never in one country long enough to become a tax resident, you still hit 330 days outside the US for the FEIE physical presence test, and you're not locked into anywhere." },
+            { "type": "pull", "text": "\"I move every 3 to 4 months. Four countries a year. It sounds like a lot until you realize it saved me more than most people make in a year.\"" }
+          ],
+          "shotList": [
+            { "num": 1, "type": "GRAPHIC", "desc": "Animated text: two paths appear. Path 1: \"TERRITORIAL → UAE → PARAGUAY → done\". Path 2: \"ROTATION → 90 days → move → 90 days → move\"." },
+            { "num": 2, "type": "GRAPHIC", "desc": "Character: four country icons (Colombia, DR, Mexico, Peru) arranged in a loop with a cycling arrow between them." }
+          ]
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into WHO THIS IS FOR",
+          "endTime": "",
+          "items": [
+            { "type": "pull", "text": "\"Now — who does any of this actually apply to? Probably more people than you think.\"" },
+            { "type": "p", "text": "Talk about how at this point the viewer might be wondering if this is really for them — address that directly before they talk themselves out of it." }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "WHO THIS IS FOR",
+          "sublabel": "Remote workers, freelancers, software engineers",
+          "endTime": "4:30",
+          "items": [
+            { "type": "p", "text": "Talk about who this applies to — remote employees, freelancers, contractors, anyone whose work doesn't require a physical US presence." },
+            { "type": "crystallize", "text": "If you can do your job on a laptop, there's no financial reason to pay full US taxes." },
+            { "type": "p", "text": "Talk about what you need to actually qualify — this isn't just travel a lot. You need to establish real life abroad." }
+          ],
+          "shotList": [
+            { "num": 1, "type": "GRAPHIC", "desc": "Character: laptop with wifi signal. Label underneath: \"if this is your office, this applies to you\"." }
+          ]
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into CLOSE",
+          "endTime": "",
+          "items": [
+            { "type": "pull", "text": "\"If that's you — here's the actual next move.\"" },
+            { "type": "p", "text": "Talk about landing the plane — practical next steps for someone who just realized this applies to them and wants to know where to start." }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "CLOSE",
+          "sublabel": "The call to action",
+          "endTime": "5:30",
+          "items": [
+            { "type": "p", "text": "Talk about how you wish someone had told you this earlier — how long you spent working remotely before you figured this out." },
+            { "type": "pull", "text": "\"The system isn't set up to tell you about the rules that work in your favor. That's what this channel is for.\"" },
+            { "type": "p", "text": "Talk about what to do next — find a tax professional who specializes in expat taxes, and look into the countries that make the physical presence test easiest to hit." }
+          ],
+          "purpose": "Depends on where you are in the process:<br>• Maybe you still need to find a remote job — that's the prerequisite, nothing else moves until you have income that travels with you<br>• Maybe you have the job but haven't figured out where to go — research territorial tax countries (UAE, Paraguay) vs the rotation strategy (Colombia, DR, Mexico, Peru)<br>• Or maybe you're already abroad and just need to tell HR to stop withholding — update your W-4 to EXEMPT and you're done",
+          "shotList": [
+            { "num": 1, "type": "GRAPHIC", "desc": "Animated text: three steps appear one at a time. \"1. Remote job\" → \"2. Pick a country\" → \"3. Update your W-4\". Final frame holds all three." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "youtube-shorts",
+      "label": "Shorts",
+      "hero": { "eyebrow": "YouTube Shorts", "title": "FEIE — <em>Short Cuts</em>" },
+      "sections": [{ "label": "SHORT 1", "sublabel": "TBD", "endTime": "0:60", "items": [{ "type": "p", "text": "TBD — pull from main script once locked." }], "shotList": [] }]
+    },
+    {
+      "id": "twitter",
+      "label": "Twitter",
+      "hero": { "eyebrow": "Twitter / X", "title": "Thread — <em>FEIE</em>" },
+      "sections": [{ "label": "THREAD", "sublabel": "TBD", "endTime": "", "items": [{ "type": "p", "text": "TBD — adapt from main script once locked." }], "shotList": [] }]
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "hero": { "eyebrow": "TikTok", "title": "FEIE — <em>Cut</em>" },
+      "sections": [{ "label": "CUT", "sublabel": "TBD", "endTime": "0:60", "items": [{ "type": "p", "text": "TBD — pull from main script once locked." }], "shotList": [] }]
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "hero": { "eyebrow": "Instagram", "title": "FEIE — <em>Reel</em>" },
+      "sections": [{ "label": "REEL", "sublabel": "TBD", "endTime": "0:30", "items": [{ "type": "p", "text": "TBD — pull from main script once locked." }], "shotList": [] }]
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "hero": { "eyebrow": "LinkedIn", "title": "FEIE — <em>Post</em>" },
+      "sections": [{ "label": "POST", "sublabel": "TBD", "endTime": "", "items": [{ "type": "p", "text": "TBD — adapt from main script once locked." }], "shotList": [] }]
+    }
+  ]
+}

@@ -19,6 +19,15 @@
   const meta = data.meta || {};
   document.title = meta.title ? meta.title.replace(/<[^>]+>/g, '') : 'Script';
 
+  // Polyfill window.storage with localStorage, keyed per page so pages don't share history
+  if (!window.storage) {
+    const pfx = location.pathname.replace(/\/+$/, '') + ':';
+    window.storage = {
+      get: k => Promise.resolve(localStorage.getItem(pfx + k) !== null ? { value: localStorage.getItem(pfx + k) } : null),
+      set: (k, v) => { localStorage.setItem(pfx + k, String(v)); return Promise.resolve(); }
+    };
+  }
+
   let animFps = parseInt(localStorage.getItem('anim_fps') || '30');
 
   // ── 2. Build skeleton ─────────────────────────────────────────────────────
@@ -150,10 +159,15 @@
       return `<p>${item.text}</p>${anno}`;
     }).join('');
 
+    const purposeHtml = sec.purpose
+      ? `<div class="section-purpose"><span class="sp-eyebrow">Notes</span><div class="sp-text">${sec.purpose}</div></div>`
+      : '';
+
     return `
       <div class="section"${sec.endTime ? ` data-end-time="${sec.endTime}"` : ''} data-section-id="${escHtml(sectionId)}">
         <div class="section-label">${labelHtml}</div>
         ${itemsHtml}
+        ${purposeHtml}
         <div class="anim-section-footer">
           <button class="anim-copy-btn">Copy brief</button>
         </div>
@@ -867,14 +881,52 @@ print("All done.")`;
     });
   }
 
-  // ── 14. Progress bar ──────────────────────────────────────────────────────
+  // ── 14. Alt+pointer — highlight on hover, save on click ──────────────────
+  (() => {
+    let altDown = false;
+    let hovered = null;
+
+    const setHighlight = el => {
+      if (hovered && hovered !== el) hovered.style.outline = '';
+      hovered = el;
+      if (el) el.style.outline = '2px solid var(--accent)';
+    };
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Alt') { altDown = true; }
+    });
+    document.addEventListener('keyup', e => {
+      if (e.key === 'Alt') { altDown = false; setHighlight(null); }
+    });
+    document.addEventListener('mouseover', e => {
+      if (altDown) setHighlight(e.target);
+    }, true);
+    document.addEventListener('click', e => {
+      if (!altDown) return;
+      e.preventDefault(); e.stopPropagation();
+      const el = e.target;
+      const data = {
+        tagName: el.tagName,
+        classes: Array.from(el.classList),
+        innerText: el.innerText.slice(0, 2000),
+        url: location.href,
+        timestamp: new Date().toISOString(),
+        position: el.getBoundingClientRect().toJSON(),
+      };
+      fetch('/save-pointer', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+        .then(() => showToast('Pointer saved'))
+        .catch(() => showToast('Save failed — using node server.js?'));
+    }, true);
+  })();
+
+  // ── 15. Progress bar ──────────────────────────────────────────────────────
   window.addEventListener('scroll', () => {
     const s = document.documentElement.scrollTop;
     const h = document.documentElement.scrollHeight - window.innerHeight;
     if (h > 0) document.getElementById('progress').style.width = (s / h * 100) + '%';
   });
 
-  // ── 15. Touch overscroll lock in fullscreen ───────────────────────────────
+  // ── 16. Touch overscroll lock in fullscreen ───────────────────────────────
   document.addEventListener('touchmove', (e) => {
     if (!document.fullscreenElement) return;
     if (window.scrollY === 0 && e.touches[0].clientY > 0) e.preventDefault();
@@ -925,4 +977,5 @@ print("All done.")`;
 
   updateBadge();
   renderList();
+
 })();

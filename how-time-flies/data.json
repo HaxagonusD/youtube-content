@@ -20,10 +20,10 @@
           "sublabel": "Drop into the moment the tweet finally landed",
           "type": "hook",
           "endTime": "0:15",
+          "purpose": "Stop the scroll and plant a question. One job: make a stranger need to know what happened to you. You're not introducing yourself or the topic — you read one provocative line and admit something in you changed. If the viewer doesn't feel a question forming by 0:15, nothing else in the video gets watched.",
           "items": [
-            { "type": "p", "text": "Talk about the moment the tweet landed. What time of day, where were you sitting, what was around you? [PLACEHOLDER — city, room, chair]" },
-            { "type": "p", "text": "Read the Hormozi tweet out loud, word for word: <em>\"Once you realize just how much more work it takes to go from good to great…you realize you can only be great at a few things and ignore the rest.\"</em>" },
-            { "type": "p", "text": "This wasn't the first time you read it. What number read was it? Why did THIS one hit when the others didn't? [PLACEHOLDER]" },
+            { "type": "p", "text": "Talk about the tweet — open cold, no intro, no \"hey guys,\" read it out loud word for word: <em>\"Once you realize just how much more work it takes to go from good to great…you realize you can only be great at a few things and ignore the rest.\"</em>" },
+            { "type": "p", "text": "Talk about how you'd read this tweet many times and it never did anything — until this read, when it hit. Don't explain why yet. [PLACEHOLDER — roughly how many times you'd read it]" },
             { "type": "pull", "text": "Pivot line: <em>\"I'd read this tweet a dozen times. This was the first time it meant something.\"</em>" }
           ],
           "musicCue": {
@@ -44,10 +44,11 @@
           "sublabel": "Name the viewer and the deal",
           "type": "frame",
           "endTime": "0:35",
+          "purpose": "Tell the viewer who this is for and what they get — in one sentence — so they choose to stay on purpose, not by accident. You're not previewing the content; you're making a single promise big enough to be worth nine minutes. Goal: they think <em>\"that's me, and I need to see this.\"</em>",
           "items": [
-            { "type": "p", "text": "Who is this video for? Two candidates — pick one: (a) employed-and-comfortable past version of you, (b) anyone in their 20s who thinks they have time. [DECIDE]" },
-            { "type": "p", "text": "State the deal: by the end, the viewer should see why the years they think they have are already half-spent." },
-            { "type": "p", "text": "Don't list takeaways. Make one promise, one sentence: <em>\"By the end I'm going to show you the math that broke me — and why if you're employed right now, you're sitting on the only window you'll ever have.\"</em>" }
+            { "type": "p", "text": "Talk about who this video is for — pick one: (a) the employed-and-comfortable past version of you, (b) anyone in their 20s who thinks they have time. [DECIDE]" },
+            { "type": "p", "text": "Talk about the deal — by the end, the viewer should see why the years they think they have are already half-spent." },
+            { "type": "p", "text": "Talk about the one promise — don't list takeaways, just one sentence: <em>\"By the end I'm going to show you the math that gutted me — and why if you're employed right now, you're sitting on the only window you'll ever have.\"</em>" }
           ],
           "musicCue": {
             "title": "(carries over from Cold Open)",
@@ -62,13 +63,14 @@
         },
         {
           "label": "The Break",
-          "sublabel": "The belief that broke: \"I had time.\"",
+          "sublabel": "The belief that cracked: \"I had time.\"",
           "type": "tension",
           "endTime": "1:30",
+          "purpose": "Name the belief that ran your life for five years: <em>\"I'm good, good is enough, and I have time.\"</em> This is the lie the entire video exists to take apart. You're showing how reasonable it felt at the time, so the viewer recognizes it in their own life instead of dismissing you as careless.",
           "items": [
-            { "type": "p", "text": "Confess the belief out loud, full sentence: <em>\"For five years I thought I was good, and I thought that was enough.\"</em>" },
-            { "type": "p", "text": "Why did it make sense? Walk through the evidence you had at the time: two jobs, two incomes, living abroad, taxes optimized, savings climbing. Say the numbers if you're willing. [PLACEHOLDER — pick which numbers go on camera]" },
-            { "type": "p", "text": "What was the warning sign you kept ignoring? Was there ONE moment — a friend's comment, a recruiter message, an itch on a Sunday — where you knew the second skill was missing? [PLACEHOLDER — find the moment]" },
+            { "type": "p", "text": "Talk about the belief that cracked — confess it out loud, full sentence: <em>\"For five years I thought I was good, and I thought that was enough.\"</em>" },
+            { "type": "p", "text": "Talk about why it made sense — walk through the evidence you had at the time: two jobs, two incomes, living abroad, taxes optimized, savings climbing. Say the numbers if you're willing. [PLACEHOLDER — pick which numbers go on camera]" },
+            { "type": "p", "text": "Talk about the warning sign you kept ignoring — was there ONE moment (a friend's comment, a recruiter message, an itch on a Sunday) where you knew the second skill was missing? [PLACEHOLDER — find the moment]" },
             { "type": "pull", "text": "Don't resolve it yet. End on: <em>\"I didn't feel lazy. I felt earned. That was the trap.\"</em>" }
           ],
           "musicCue": {
@@ -88,12 +90,13 @@
           "sublabel": "The Peak — when you thought you'd made it",
           "type": "beat",
           "endTime": "3:00",
+          "purpose": "Show the good life at its best so the fall has height to fall from. Make the comfort look genuinely earned and enviable — money, freedom, the dream actually hit — while planting one small unease. Don't moralize yet; let the viewer enjoy it with you so it costs them something when it goes.",
           "items": [
-            { "type": "p", "text": "Pick the specific month and place where the peak was. [PLACEHOLDER — what city, what month, what year]" },
-            { "type": "p", "text": "Open with a sensory detail of comfort: morning routine, evening rhythm, the texture of your weekday. What did \"comfortable\" actually feel like in your body?" },
-            { "type": "p", "text": "Name the high school dream out loud: money on the internet, travel, retire early. Then say: <em>\"And I had done all three.\"</em>" },
-            { "type": "p", "text": "Drop in the numbers, if you'll say them: two incomes for one person's hours, tax savings, monthly burn. [PLACEHOLDER — decide what's on camera]" },
-            { "type": "p", "text": "BUT — one foreshadowing beat. Was there a moment in the peak where something didn't sit right? Even small. A Sunday feeling. A quiet question. [PLACEHOLDER]" }
+            { "type": "p", "text": "Talk about the specific month and place where the peak was. [PLACEHOLDER — what city, what month, what year]" },
+            { "type": "p", "text": "Talk about a sensory detail of comfort — morning routine, evening rhythm, the texture of your weekday. What did \"comfortable\" actually feel like in your body?" },
+            { "type": "p", "text": "Talk about the high school dream out loud — money on the internet, travel, retire early. Then say: <em>\"And I had done all three.\"</em>" },
+            { "type": "p", "text": "Talk about the numbers, if you'll say them — two incomes for one person's hours, tax savings, monthly burn. [PLACEHOLDER — decide what's on camera]" },
+            { "type": "p", "text": "Talk about one foreshadowing beat — was there a moment in the peak where something didn't sit right? Even small. A Sunday feeling. A quiet question. [PLACEHOLDER]" }
           ],
           "musicCue": {
             "title": "[TBD]",
@@ -113,11 +116,12 @@
           "sublabel": "The Crash — both jobs, gone",
           "type": "beat",
           "endTime": "4:30",
+          "purpose": "Both incomes vanish — this is the inciting event, where the story actually starts. Stay inside the scene, don't narrate from today: where you were, what you felt, the first morning with nothing. End it hollow, not sad; the viewer should feel the floor drop.",
           "items": [
-            { "type": "p", "text": "First firing — talk about the moment. Where were you? What time of day? Who told you? What did you do in the next hour? [PLACEHOLDER]" },
-            { "type": "p", "text": "Describe what happened, what you felt, what you did. Don't editorialize from the present — be there." },
-            { "type": "p", "text": "Second firing. How long after the first? Did you see it coming or did it ambush you? [PLACEHOLDER]" },
-            { "type": "p", "text": "First morning waking up with no jobs at all — what was the first thought? One real sentence." },
+            { "type": "p", "text": "Talk about the first firing — the moment itself. Where were you? What time of day? Who told you? What did you do in the next hour? [PLACEHOLDER]" },
+            { "type": "p", "text": "Talk about what happened, what you felt, what you did — don't editorialize from the present, be there." },
+            { "type": "p", "text": "Talk about the second firing — how long after the first? Did you see it coming or did it ambush you? [PLACEHOLDER]" },
+            { "type": "p", "text": "Talk about the first morning waking up with no jobs at all — what was the first thought? One real sentence." },
             { "type": "pull", "text": "Land the scene on: <em>\"For the first time in five years, nobody needed me at a computer.\"</em>" }
           ],
           "musicCue": {
@@ -137,11 +141,12 @@
           "sublabel": "Starting Over — the math is brutal",
           "type": "beat",
           "endTime": "6:00",
+          "purpose": "Show that the way out is brutal once you do the math. Be honest about how long you thought it would take versus reality, and let the fear questions hang without answers. The point: there is no easy escape — that's exactly what makes the tweet's lesson land later.",
           "items": [
-            { "type": "p", "text": "When did the YouTube decision happen? Was it a clear moment or a slow drift? [PLACEHOLDER — find the day or the week]" },
-            { "type": "p", "text": "Be honest about what you thought it would take. Three months? Six? A year? Say the wrong number out loud — viewers connect to it more than the right one." },
-            { "type": "p", "text": "BUT — first reality check. What was the first thing that took 10x longer than expected? Editing? Writing? Thumbnails? The first script? [PLACEHOLDER — pick the one that hit you hardest]" },
-            { "type": "p", "text": "Layer in the fear questions but DON'T resolve them: will the savings last? Will you have to go back to the US? Manual labor? Will anyone even hire you with AI eating the market? Say them out loud once, then move on." }
+            { "type": "p", "text": "Talk about when the YouTube decision happened — was it a clear moment or a slow drift? [PLACEHOLDER — find the day or the week]" },
+            { "type": "p", "text": "Talk about what you thought it would take — three months? Six? A year? Say the wrong number out loud; viewers connect to it more than the right one." },
+            { "type": "p", "text": "Talk about the first reality check — what was the first thing that took 10x longer than expected? Editing? Writing? Thumbnails? The first script? [PLACEHOLDER — pick the one that hit you hardest]" },
+            { "type": "p", "text": "Talk about the fear questions but DON'T resolve them — will the savings last? Will you have to go back to the US? Manual labor? Will anyone even hire you with AI eating the market? Say them out loud once, then move on." }
           ],
           "musicCue": {
             "title": "[TBD]",
@@ -160,10 +165,11 @@
           "sublabel": "The Tweet Lands — return to the cold open",
           "type": "beat",
           "endTime": "7:30",
+          "purpose": "Return to the cold open now that the viewer has the full story, and pay off the open loop you planted at 0:15. Walk the actual math out loud so the realization happens with them, not at them. This is the emotional turn: the regret was never getting fired — it's the five years before it.",
           "items": [
-            { "type": "p", "text": "Return to the cold open moment. Now the viewer has the context — walk through what shifted in your head between then and now." },
-            { "type": "p", "text": "Read the tweet again. Walk through the math out loud: ten years to good at code, five years coasted, how many years to good at THIS new thing? [PLACEHOLDER — say the honest number]" },
-            { "type": "p", "text": "What did you do for the rest of that day after it hit? Did you tell anyone? Did you write anything down? Did you keep scrolling? [PLACEHOLDER — the unglamorous answer is the better one]" },
+            { "type": "p", "text": "Talk about the cold open moment again — now the viewer has the context. Walk through what shifted in your head between then and now." },
+            { "type": "p", "text": "Talk about the tweet again — read it, then walk through the math out loud: ten years to good at code, five years coasted, how many years to good at THIS new thing? [PLACEHOLDER — say the honest number]" },
+            { "type": "p", "text": "Talk about what you did for the rest of that day after it hit — did you tell anyone? Did you write anything down? Did you keep scrolling? [PLACEHOLDER — the unglamorous answer is the better one]" },
             { "type": "pull", "text": "Land the scene on: <em>\"I wasn't sad I got fired. I was sad about the five years before that.\"</em>" }
           ],
           "musicCue": {
@@ -184,11 +190,12 @@
           "sublabel": "The Animation Math — three hours, four seconds",
           "type": "beat",
           "endTime": "8:30",
+          "purpose": "Make the lesson physical and present-tense: three hours of work, four seconds of finished video. Project the math forward on camera and ask the question without answering it. This is the lowest point of the video — do not rescue it; the discomfort is the payload.",
           "items": [
-            { "type": "p", "text": "Three hours of work. Four seconds of output. Say the ratio out loud." },
-            { "type": "p", "text": "Project the math forward on camera: at this rate, X hours = Y minutes of finished video = Z videos a year. Run the actual numbers, don't sanitize. [PLACEHOLDER]" },
-            { "type": "p", "text": "Ask the question and don't answer it: <em>\"Does the math close before the savings run out?\"</em>" },
-            { "type": "p", "text": "Let the silence sit. This is the lowest point of the video — don't rescue it." }
+            { "type": "p", "text": "Talk about the ratio — three hours of work, four seconds of output. Say it out loud." },
+            { "type": "p", "text": "Talk about the math projected forward on camera — at this rate, X hours = Y minutes of finished video = Z videos a year. Run the actual numbers, don't sanitize. [PLACEHOLDER]" },
+            { "type": "p", "text": "Talk about the question — ask it and don't answer it: <em>\"Does the math close before the savings run out?\"</em>" },
+            { "type": "p", "text": "Talk about letting the silence sit — this is the lowest point of the video, don't rescue it." }
           ],
           "musicCue": {
             "title": "[TBD]",
@@ -208,11 +215,12 @@
           "sublabel": "Close the loop, crystallize, leave them with one move",
           "type": "payoff",
           "endTime": "9:30",
+          "purpose": "Close every loop and hand the viewer one move they can make tonight. Crystallize the whole video into one screenshot-able line, generalize it to them in a sentence, then give a single concrete action — not a list. The job isn't to inspire; it's to make them feel the price of their own comfortable years before the video ends.",
           "items": [
-            { "type": "p", "text": "Close the loop — bring the viewer back to the cold open moment one final time." },
+            { "type": "p", "text": "Talk about closing the loop — bring the viewer back to the cold open moment one final time." },
             { "type": "crystallize", "text": "I didn't lose my job. I lost five years I could've spent becoming great at something else — and I gave them away to be comfortable." },
-            { "type": "p", "text": "Generalize for the viewer in ONE sentence: comfort is the most expensive thing you'll ever buy with your time, and you only notice the bill when the comfort is gone." },
-            { "type": "p", "text": "Hand the viewer ONE specific action — something they can do tonight. Suggested: <em>\"If you're employed and comfortable right now, pick one skill you'd want to be great at in five years and put one hour into it before you go to bed.\"</em>" }
+            { "type": "p", "text": "Talk about the generalization for the viewer in ONE sentence: comfort is the most expensive thing you'll ever buy with your time, and you only notice the bill when the comfort is gone." },
+            { "type": "p", "text": "Talk about ONE specific action you're handing the viewer — something they can do tonight. Suggested: <em>\"If you're employed and comfortable right now, pick one skill you'd want to be great at in five years and put one hour into it before you go to bed.\"</em>" }
           ],
           "musicCue": {
             "title": "[TBD]",

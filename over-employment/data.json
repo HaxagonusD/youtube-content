@@ -1,0 +1,803 @@
+{
+  "meta": {
+    "title": "\"Just Work One Job at a Time Bro.\" Nah.",
+    "eyebrow": "Video Script — Over-Employment",
+    "footerNote": "Beat outline · bullets to hit, not final VO",
+    "scriptVersion": "v1",
+    "versionLabel": "OE explainer + personal story"
+  },
+  "tabs": [
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "hero": {
+        "eyebrow": "Contrarian Finance",
+        "title": "\"Just Work One Job at a Time <em>Bro.</em>\" Nah."
+      },
+      "sections": [
+        {
+          "label": "HOOK",
+          "sublabel": "Drop into the moment the math stopped making sense",
+          "endTime": "0:30",
+          "items": [
+            {
+              "type": "pull",
+              "text": "\"You have one employer. One salary. One income. And if you lose it tomorrow, you have nothing. Meanwhile, some guy in a Slack meeting right now has two employers, two salaries, two incomes — and both companies think they have his full attention.\""
+            },
+            {
+              "type": "p",
+              "text": "Talk about how this isn't hypothetical — there's a subreddit with over 300,000 people doing exactly this right now, calling themselves OE: over-employed."
+            },
+            {
+              "type": "p",
+              "text": "Talk about how your first reaction was probably the same as everyone's — that this is dishonest, risky, impossible to pull off. Come back to that. Because the real question isn't whether it's possible. It's whether you've ever done the math on what you're actually trading for loyalty to one employer."
+            }
+          ],
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "FRAME",
+              "desc": "Start frame: one desk, one laptop, one salary figure ($90k). End frame: two desks side by side, two laptops, two salary figures ($90k + $90k). Labels hold off until end frame lands.",
+              "note": "FRAME — two static compositions, cut between them"
+            },
+            {
+              "num": 2,
+              "shotType": "FRAME",
+              "desc": "Start frame: single handshake (you + employer). End frame: two separate handshakes, neither party on the left knows about the other. Employer logos slightly obscured — suggests anonymity.",
+              "note": "FRAME — illustrates the core premise wordlessly"
+            },
+            {
+              "num": 3,
+              "shotType": "TALK",
+              "desc": "Direct to camera — medium close-up. Cold open, no intro, no name drop.",
+              "note": "TALK — tone: observational, not conspiratorial"
+            }
+          ]
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into WHAT IS OVER-EMPLOYMENT",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "\"Most people picture someone working 80-hour weeks. That's not what this is. And once you see the actual structure, the question stops being 'how' — and starts being 'why haven't I looked at this before.'\""
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "WHAT IS OVER-EMPLOYMENT",
+          "sublabel": "The actual structure — not hustle, leverage",
+          "endTime": "1:45",
+          "items": [
+            {
+              "type": "p",
+              "text": "Talk about what over-employment actually is: holding two or more full-time remote jobs simultaneously, where neither employer knows about the other. This isn't freelancing on the side — it's two salaried W-2 positions, two benefit packages, two 401k matches."
+            },
+            {
+              "type": "p",
+              "text": "Talk about why remote work made this possible. This is a post-2020 phenomenon. Before remote work normalized, showing up at two offices was impossible. The internet made the work location-agnostic, which means it also made employer exclusivity optional for anyone willing to operate that way."
+            },
+            {
+              "type": "crystallize",
+              "text": "Remote work didn't just change where people work. It changed what loyalty to one employer is actually worth."
+            },
+            {
+              "type": "p",
+              "text": "Talk about the mechanics: most OE people hold a J1 (their main job, heavier workload) and a J2 (lighter job, treated as mostly passive income). Some have a J3. The goal isn't to work harder — it's to stack salaries that don't stack hours proportionally."
+            },
+            {
+              "type": "p",
+              "text": "Talk about r/overemployed: 300k+ members sharing strategies, job recommendations, calendaring tricks, and how to manage two sets of meetings without collisions. It's a real, documented subculture — not a Reddit niche."
+            }
+          ],
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "FRAME",
+              "desc": "Start frame: two blank columns labeled J1 / J2. End frame: columns filled — J1: 40 hrs/wk, $90k, 'primary'; J2: ~20 real hrs but 40 hrs paid, $90k, 'passive income.' Bottom row total appears in end frame: $180k, ~55 real hrs.",
+              "note": "FRAME — before/after reveal, not animated build"
+            },
+            {
+              "num": 2,
+              "shotType": "FRAME",
+              "desc": "Start frame: office building, clock-in/out terminal visible, year label '2019.' End frame: laptop on a desk, wifi signal, no building, year label '2024.' Same person, different constraints.",
+              "note": "FRAME — marks the pre/post-remote shift that made OE possible"
+            },
+            {
+              "num": 3,
+              "shotType": "MOTION",
+              "desc": "r/overemployed member counter. Starts at 0, animates up to 300,000+ like a live ticker. Holds on the final number. No other elements — let the number do the work.",
+              "note": "MOTION — animated counter; do not combine with FRAME shots in same sequence"
+            }
+          ]
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into THE MATH",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "\"The part that actually gets people isn't the concept. It's when they run their own numbers. Most people are surprised by how small the math is.\""
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "THE MATH",
+          "sublabel": "Stack the numbers — this is why people do it",
+          "endTime": "3:00",
+          "items": [
+            {
+              "type": "p",
+              "text": "Talk about the baseline comparison: a software engineer making $130k at one job works one year and makes $130k. Same engineer takes a J2 at $100k. Same year, same hours roughly, makes $230k. After 3 years of J2: $300k extra. That's the down payment on a house, or an investment account that compounds for 30 years."
+            },
+            {
+              "type": "pull",
+              "text": "\"The income from one year of J2 can change what the next decade looks like.\""
+            },
+            {
+              "type": "p",
+              "text": "Talk about the benefits angle that almost nobody mentions: two 401k matches, two health insurance plans (you pick the better one, decline the other), two sets of stock vesting. The compensation isn't just the salary line."
+            },
+            {
+              "type": "p",
+              "text": "Talk about the exit ramp math: if your goal is to quit and build something, OE can compress that timeline from 7 years to 3. Every month of J2 is money you didn't have to sacrifice quality of life to save."
+            },
+            {
+              "type": "crystallize",
+              "text": "One salary builds a life. Two salaries builds optionality."
+            }
+          ],
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "MOTION",
+              "desc": "Three-line income comparison builds sequentially. Line 1 types in: '1 job × 3 years = $390k.' Pause. Line 2: '2 jobs × 3 years = $690k.' Pause. Line 3 slams in bold: 'difference: $300,000.' All three hold on screen.",
+              "note": "MOTION — timed text build; this is the core math moment"
+            },
+            {
+              "num": 2,
+              "shotType": "FRAME",
+              "desc": "Start frame: one exit-ramp arrow pointing to 'QUIT & BUILD — Year 7.' End frame: two parallel income streams feeding the same exit ramp, now labeled 'Year 3.' Same destination, compressed timeline.",
+              "note": "FRAME — illustrates the exit ramp compression argument"
+            },
+            {
+              "num": 3,
+              "shotType": "FRAME",
+              "desc": "Start frame: one 401k piggy bank icon, one health plan icon. End frame: two of each, stacked, with a '×2' badge on each. Label underneath: 'benefits you're leaving on the table.'",
+              "note": "FRAME — static before/after; keep simple"
+            }
+          ]
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into MY SITUATION",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "\"But here's what the spreadsheet doesn't tell you. There's a reason most people who know about this still don't do it.\""
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "MY SITUATION",
+          "sublabel": "The personal story — real numbers, real decisions",
+          "endTime": "4:30",
+          "items": [
+            {
+              "type": "p",
+              "text": "Talk about your own situation with this — how you came across the OE community, what your initial reaction was, and what made you take it seriously or not. [PLACEHOLDER — fill with your actual story and numbers as you're comfortable sharing]"
+            },
+            {
+              "type": "p",
+              "text": "Talk about the specific moment the math became real for you. Whether you did it, considered it, or are doing it now — give the viewer a firsthand perspective, not just an explainer."
+            },
+            {
+              "type": "p",
+              "text": "Talk about what changed in how you think about employment after engaging with this idea seriously. Even if you didn't do it, what did looking at it teach you about your own situation?"
+            }
+          ],
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "TALK",
+              "desc": "Direct to camera — medium close-up. Personal story, natural delivery. No cuts to graphics here.",
+              "note": "TALK — most credible section; let it breathe, don't rush to B-roll"
+            }
+          ]
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into HOW IT ACTUALLY WORKS",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "\"The part nobody actually talks about is the logistics. Not the ethics — the mechanics. How you manage two full-time jobs without either company noticing.\""
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "HOW IT ACTUALLY WORKS",
+          "sublabel": "The operational logistics — calendar, communication, capacity",
+          "endTime": "6:00",
+          "items": [
+            {
+              "type": "p",
+              "text": "Talk about the calendar strategy: OE practitioners are obsessive about blocking time. Two separate work calendars, meetings color-coded, hard rules about double-booking. Most people pick a J2 with fewer recurring meetings — individual contributor roles over management, async-heavy companies over meeting-heavy ones."
+            },
+            {
+              "type": "p",
+              "text": "Talk about communication cadence: neither employer should be getting 100% of your synchronous attention anyway. Most high-performing remote workers already batch their communication. OE people just apply that same discipline more precisely."
+            },
+            {
+              "type": "p",
+              "text": "Talk about job selection for J2: the r/overemployed community has a reputation list. Jobs that are heavy on deliverables and light on surveillance, companies that judge output over presence, roles where you can set your own schedule. Not every remote job works — you need to pick the right kind."
+            },
+            {
+              "type": "crystallize",
+              "text": "You're not working twice as hard. You're working the same amount, for two people who each think they have all of it."
+            },
+            {
+              "type": "p",
+              "text": "Talk about the non-compete and exclusivity clause problem — this is the part people skip. Some employment contracts have exclusivity provisions. You have to actually read your contract. This is the real legal risk, not some law against working multiple jobs."
+            }
+          ],
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "FRAME",
+              "desc": "Start frame: two blank weekly calendar grids labeled 'Company A' / 'Company B.' End frame: both filled with color-blocked time slots — blue for J1, orange for J2. No overlap anywhere. Label appears: 'zero collisions.'",
+              "note": "FRAME — the end state is the payoff, not the animation of filling it"
+            },
+            {
+              "num": 2,
+              "shotType": "MOTION",
+              "desc": "Meeting conflict animation. A red 'CONFLICT' warning flashes on a calendar block. The block shifts one hour earlier. Warning clears. Green checkmark. Shows the real-time juggling logic OE people do.",
+              "note": "MOTION — this one needs to animate; the shift and resolve is the point"
+            },
+            {
+              "num": 3,
+              "shotType": "FRAME",
+              "desc": "Start frame: blank J2 job checklist. End frame: four items revealed — '✓ async-heavy,' '✓ output-measured,' '✓ flexible hours,' '✗ management role.' The X item is red. Label: 'what to look for in a J2.'",
+              "note": "FRAME — static checklist reveal; no animation needed"
+            },
+            {
+              "num": 4,
+              "shotType": "FRAME",
+              "desc": "Start frame: full-page employment contract, wall of text, no highlights. End frame: one clause circled in red — 'exclusivity / moonlighting' section. Rest of page desaturates slightly. Label: 'the only line that matters.'",
+              "note": "FRAME — the before/after focus pull; do not animate the text itself"
+            }
+          ]
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into THE RISKS",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "\"Before you do anything else, there's one document you need to read. Most people don't. That's where the actual exposure is.\""
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "THE RISKS",
+          "sublabel": "Be honest — don't sugarcoat, don't catastrophize",
+          "endTime": "7:30",
+          "items": [
+            {
+              "type": "p",
+              "text": "Talk about the real risks vs. the imagined ones. The imagined risk: some law against working two jobs. That doesn't exist in the US. You are legally allowed to work multiple jobs. There's no statute, no regulation, no federal rule that prohibits it."
+            },
+            {
+              "type": "p",
+              "text": "Talk about the real risk #1: contract violation. If your employment agreement has an exclusivity clause or a moonlighting policy, and you violate it, your employer has grounds to fire you. Read the contract."
+            },
+            {
+              "type": "p",
+              "text": "Talk about the real risk #2: getting fired for performance reasons if you can't actually manage both roles. The cover story falls apart if your work quality drops. The exit scenario isn't legal exposure — it's a PIP and a termination."
+            },
+            {
+              "type": "pull",
+              "text": "\"The risk isn't prison. The risk is getting fired. And you were already one reorg away from that anyway.\""
+            },
+            {
+              "type": "p",
+              "text": "Talk about the tax side: two W-2s means both employers are withholding taxes assuming their job is your only income. You'll owe at tax time. This is a solvable problem — adjust withholding, work with a CPA, make quarterly payments — but it surprises people."
+            }
+          ],
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "MOTION",
+              "desc": "Two-column risk table builds row by row. Left column 'IMAGINED' fills first: 'arrest,' 'federal charges,' 'blacklist' — each appearing then getting a strikethrough. Then right column 'ACTUAL' fills: 'fired for contract violation,' 'fired for underperformance,' 'surprise tax bill.' No strikethroughs on the right.",
+              "note": "MOTION — the sequential reveal and strikethroughs require animation"
+            },
+            {
+              "num": 2,
+              "shotType": "FRAME",
+              "desc": "Start frame: one W-2, one employer, withholding looks correct. End frame: two W-2s side by side, each withholding as if it's the only income. A gap appears below showing total withheld vs. total owed. Label: 'what surprises people at tax time.'",
+              "note": "FRAME — static two-state diagram; the gap is the whole point"
+            }
+          ]
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into WHO THIS IS FOR",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "\"So assuming you've read your contract and none of that applies to you — the next question is whether you're even in the right type of job for this to be realistic. Most people aren't. Here's how to tell.\""
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "WHO THIS IS FOR",
+          "sublabel": "The profile — be direct",
+          "endTime": "8:30",
+          "items": [
+            {
+              "type": "p",
+              "text": "Talk about who OE is built for: fully remote individual contributors — software engineers, product managers, UX designers, data analysts, marketing strategists, finance roles. Anyone whose work is async-heavy, output-measurable, and doesn't require physical presence."
+            },
+            {
+              "type": "crystallize",
+              "text": "If your manager measures what you produce, not when you're at your desk — the structural conditions for OE already exist."
+            },
+            {
+              "type": "p",
+              "text": "Talk about who it doesn't work for: anyone who has to be physically present, anyone in a management role with direct reports on multiple teams, anyone in security-sensitive positions with background check obligations, anyone with an airtight exclusivity clause they can't get out of."
+            },
+            {
+              "type": "p",
+              "text": "Talk about the mindset it requires: you have to stop thinking of your employer as someone you're loyal to and start thinking of them as a client. That's a specific worldview shift, and it's not for everyone."
+            }
+          ],
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "FRAME",
+              "desc": "Start frame: wide cloud of job titles (sales rep, nurse, teacher, barista, etc.) all present. End frame: most fade back, six tiles come forward and highlight — Software Engineer, Product Manager, UX Designer, Data Analyst, Marketing Strategist, Finance Analyst. Label: 'remote + output-measured = this applies to you.'",
+              "note": "FRAME — fade back / come forward is a two-state; do not animate the individual titles"
+            },
+            {
+              "num": 2,
+              "shotType": "FRAME",
+              "desc": "Start frame: person at desk, time-clock punch card visible on wall, label 'managed by hours.' End frame: same person, time-clock gone, replaced by a deliverable checklist with checkmarks, label 'managed by output.' Same desk, same person — only the measurement changes.",
+              "note": "FRAME — this is the mindset shift made visual; keep it minimal"
+            }
+          ]
+        },
+        {
+          "label": "↓",
+          "sublabel": "Micro-hook into CLOSE",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "\"There's one question nobody actually asks when they find out about this. And it's the one that matters most.\""
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "CLOSE",
+          "sublabel": "The reframe — what this is actually about",
+          "endTime": "9:30",
+          "items": [
+            {
+              "type": "p",
+              "text": "Talk about the bigger picture: employers lay people off. They restructure, they offshore, they freeze salaries. They have been treating employees as at-will resources for decades. The OE community is just people who decided to apply that same logic in reverse."
+            },
+            {
+              "type": "pull",
+              "text": "\"Your employer isn't loyal to you. The question is whether you're going to keep being loyal to them anyway.\""
+            },
+            {
+              "type": "p",
+              "text": "Talk about what to do if this is interesting: read your employment contract tonight — specifically any exclusivity or moonlighting clauses. Go to r/overemployed and read the wiki. Understand what the job categories are that make J2 viable. Then decide with actual information, not default assumptions."
+            },
+            {
+              "type": "p",
+              "text": "Talk about what this channel is about — the financial decisions that are legal, real, and that most people never find out about because nobody with a stake in your ignorance is going to explain it."
+            }
+          ],
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "MOTION",
+              "desc": "Three action steps appear one at a time with a beat between each. '1. Read your contract tonight — look for exclusivity or moonlighting clauses.' Pause. '2. Read the r/overemployed wiki.' Pause. '3. Decide with actual information, not assumptions.' Final frame holds all three.",
+              "note": "MOTION — the staggered reveal needs timing; this is a sequence, not a static list"
+            },
+            {
+              "num": 2,
+              "shotType": "TALK",
+              "desc": "Direct to camera — medium close-up. Calm, even delivery. No music swell, no motivational energy.",
+              "note": "TALK — end on a question, not a call to action"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "youtube-shorts",
+      "label": "Shorts",
+      "hero": {
+        "eyebrow": "YouTube Shorts",
+        "title": "Over-Employment — <em>Short Cuts</em>"
+      },
+      "sections": [
+        {
+          "label": "SHORT 1",
+          "sublabel": "The real math — $80k becomes $280k",
+          "endTime": "0:52",
+          "items": [
+            {
+              "type": "pull",
+              "text": "If you make $80k at one job, you don't make $160k with two. You make closer to $280k."
+            },
+            {
+              "type": "p",
+              "text": "Talk about why the number isn't just doubled salary — walk through the second equity package, the second 401k match, the second sign-on bonus, the second performance bonus"
+            },
+            {
+              "type": "p",
+              "text": "Talk about how companies design total compensation assuming loyalty — two companies doing that simultaneously is the exploit"
+            },
+            {
+              "type": "crystallize",
+              "text": "They designed the compensation assuming loyalty. Over-employed people just stopped assuming the same thing back."
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "SHORT 2",
+          "sublabel": "The risk reframe — getting caught isn't the real risk",
+          "endTime": "0:50",
+          "items": [
+            {
+              "type": "pull",
+              "text": "The risk isn't getting caught. The risk is that you spend three years in a job that was never going to promote you anyway."
+            },
+            {
+              "type": "p",
+              "text": "Talk about the assumed risk everyone fixates on — discovery, termination, the awkward firing conversation"
+            },
+            {
+              "type": "p",
+              "text": "Talk about the risk nobody calculates — giving full loyalty to a company quietly planning a layoff, a reorg, a budget cut"
+            },
+            {
+              "type": "crystallize",
+              "text": "Over-employment isn't reckless. It's the same hedge companies have been running on employees for decades, finally running in reverse."
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "SHORT 3",
+          "sublabel": "The actual rules OEs follow",
+          "endTime": "0:58",
+          "items": [
+            {
+              "type": "pull",
+              "text": "Over-employed people aren't winging it. They run a system."
+            },
+            {
+              "type": "p",
+              "text": "Talk about Rule 1 — never schedule both companies at the same time, calendar blocking is everything"
+            },
+            {
+              "type": "p",
+              "text": "Talk about Rule 2 — never cross-contaminate: separate emails, separate Slacks, separate devices if possible"
+            },
+            {
+              "type": "p",
+              "text": "Talk about Rule 3 — async communication is the moat; the people who last are the ones who never have to be on two standups at 9am"
+            },
+            {
+              "type": "crystallize",
+              "text": "The goal isn't to work twice as hard. It's to be replaceable at neither job, while being essential at both."
+            }
+          ],
+          "shotList": []
+        }
+      ]
+    },
+    {
+      "id": "twitter",
+      "label": "Twitter",
+      "hero": {
+        "eyebrow": "Twitter / X",
+        "title": "Thread — <em>Over-Employment</em>"
+      },
+      "sections": [
+        {
+          "label": "TWEET 1",
+          "sublabel": "Hook — stops the scroll without needing the video",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "Some people hold two full-time remote jobs simultaneously without either employer knowing.\n\nThey call it over-employment.\n\nIt's more common than you think — and the math is hard to argue with."
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "TWEET 2",
+          "sublabel": "The four-step playbook",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "The playbook:\n\n— Land two remote jobs (ideally some time zone overlap)\n— Keep both calendars separate, zero double-booking\n— Never let either employer see the other on your LinkedIn\n— Collect two salaries. Indefinitely."
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "TWEET 3",
+          "sublabel": "The money math — specificity drives engagement",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "If you earn $90k at job one and $85k at job two, that's $175k before a single promotion.\n\nMost people spend a decade trying to get one job to pay that."
+            },
+            {
+              "type": "p",
+              "text": "Framing note: the point is that doubling salary is faster horizontally than vertically for most knowledge workers"
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "TWEET 4",
+          "sublabel": "Why remote work made this possible",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "This wasn't possible at scale before 2020.\n\nRemote work removed the one thing that made dual employment unworkable: physical presence.\n\nYou can't be in two offices. You can absolutely be on two Zooms."
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "TWEET 5",
+          "sublabel": "The actual risk — not what most people assume",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "The risk isn't jail. There's no law against holding two jobs.\n\nThe real risk:\n— Firing for cause if discovered\n— Clawback clauses in your offer letter\n— Non-compete violations in certain states\n\nRead your contracts. That's the whole game."
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "TWEET 6",
+          "sublabel": "How people actually get caught",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "How people get caught:\n\n— Scheduling conflicts they can't explain\n— Same email or device for both jobs\n— Bragging about it online (yes, really)\n— Document metadata that reveals a second company\n\nIt's an operations problem, not a moral one."
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "TWEET 7",
+          "sublabel": "The uncomfortable reframe",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "Companies don't pay you based on hours. They pay you based on output + leverage.\n\nIf you're delivering the work, the employer got what they paid for.\n\nThe moral outrage only flows one direction — usually from people who've never been laid off without warning."
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "TWEET 8",
+          "sublabel": "Who this actually works for",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "This works best for:\n\n— Software engineers\n— Project managers\n— Designers and analysts\n— Anyone whose output is async and measurable\n\nIt does not work if your job requires physical presence or live calls all day."
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "TWEET 9",
+          "sublabel": "The honest tradeoff",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "What you give up: career progression, visibility, mentorship, work that compounds over time.\n\nWhat you get: financial runway, optionality, the ability to quit either job without panic.\n\nIt's a trade. Know which side you're on."
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "TWEET 10",
+          "sublabel": "CTA — drives to the YouTube video",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "Full over-employment breakdown on YouTube — contracts to watch for, how people structure their days, and whether it's actually worth it.\n\nLink in first reply."
+            },
+            {
+              "type": "p",
+              "text": "First reply: [YouTube link]"
+            }
+          ],
+          "shotList": []
+        }
+      ]
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "hero": {
+        "eyebrow": "TikTok",
+        "title": "Over-Employment — <em>Cut</em>"
+      },
+      "sections": [
+        {
+          "label": "CUT 1",
+          "sublabel": "Confession opener — two jobs, neither knew",
+          "endTime": "0:50",
+          "items": [
+            {
+              "type": "pull",
+              "text": "I was getting paid by two different companies — at the same time — and neither of them knew."
+            },
+            {
+              "type": "p",
+              "text": "Talk about the physical setup: two laptops, two Slack workspaces, two paychecks hitting the same account every two weeks"
+            },
+            {
+              "type": "p",
+              "text": "Talk about what it actually did to the finances — not abstract, be specific: debt gone, savings stacked, the feeling of finally being ahead"
+            },
+            {
+              "type": "crystallize",
+              "text": "This isn't a hustle. This is an exploit."
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "CUT 2",
+          "sublabel": "The loyalty reframe — why people do this",
+          "endTime": "0:55",
+          "items": [
+            {
+              "type": "pull",
+              "text": "Your employer would hire two people to do your job without thinking twice. So why are you giving them loyalty they never bought?"
+            },
+            {
+              "type": "p",
+              "text": "Talk about who's actually doing OE — not gig workers, not desperate people — salaried engineers and PMs already making $120k–$200k"
+            },
+            {
+              "type": "p",
+              "text": "Talk about what OE actually changes: student loans cleared in a year, down payment saved in months, financial independence timeline cut in half"
+            },
+            {
+              "type": "crystallize",
+              "text": "If your employer hired two people to do your job, they wouldn't think twice. Neither should you."
+            }
+          ],
+          "shotList": []
+        }
+      ]
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "hero": {
+        "eyebrow": "Instagram",
+        "title": "Over-Employment — <em>Reel</em>"
+      },
+      "sections": [
+        {
+          "label": "CUT 1",
+          "sublabel": "Polished confession — tight version for Reels",
+          "endTime": "0:30",
+          "items": [
+            {
+              "type": "pull",
+              "text": "I held two full-time remote jobs at the same time. Both paid full salary. Neither company knew."
+            },
+            {
+              "type": "p",
+              "text": "Talk about the setup briefly — two laptops, two Slack accounts, two direct deposits — keep it tight, let the visual carry it"
+            },
+            {
+              "type": "crystallize",
+              "text": "This isn't a hustle. This is an exploit."
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "CUT 2",
+          "sublabel": "The loyalty reframe — clean version for Reels",
+          "endTime": "0:28",
+          "items": [
+            {
+              "type": "pull",
+              "text": "The people doing this aren't desperate. They're done waiting for a raise that never comes."
+            },
+            {
+              "type": "p",
+              "text": "Talk about what OE actually unlocks: financial independence timelines cut in half, real numbers ($150k + $130k = $280k gross)"
+            },
+            {
+              "type": "crystallize",
+              "text": "If your employer hired two people to do your job, they wouldn't think twice. Neither should you."
+            }
+          ],
+          "shotList": []
+        }
+      ]
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "hero": {
+        "eyebrow": "LinkedIn",
+        "title": "Over-Employment — <em>Post</em>"
+      },
+      "sections": [
+        {
+          "label": "POST",
+          "sublabel": "Loyalty asymmetry as the entry point — for remote workers who've never heard of OE",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "Companies lay off without warning. They hire contractors to avoid headcount. They restructure the moment it's convenient. But they still expect you to give 100% to one employer — and feel guilty if you don't."
+            },
+            {
+              "type": "p",
+              "text": "There's a subset of remote workers who noticed this asymmetry and decided to act on it. They're called over-employed, and they hold two full-time jobs simultaneously. Same hours in the day. Two salaries. Neither employer knows."
+            },
+            {
+              "type": "p",
+              "text": "It works because most knowledge-work jobs only need 4–6 hours of real output per day. The rest is availability theater — being online, responding promptly, showing face in meetings. When you're remote, that theater is easy to split across two stages."
+            },
+            {
+              "type": "crystallize",
+              "text": "You're not being asked to be loyal. You're being asked to believe in loyalty while the other party quietly reserves the right not to be."
+            },
+            {
+              "type": "p",
+              "text": "This isn't for everyone. If you have a role you're genuinely building toward, a team that depends on your full presence — it's probably not worth it. But if you're at a company that treats you as replaceable and you have a specific financial goal you want to hit in the next 3–5 years, it's worth understanding how this works. Full breakdown in the video — link in first comment."
+            }
+          ],
+          "shotList": []
+        }
+      ]
+    }
+  ]
+}
