@@ -899,7 +899,8 @@
   .transcript-time { flex-shrink: 0; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--accent-dim); font-variant-numeric: tabular-nums; width: 44px; }
   .transcript-text { font-size: 15px; font-weight: 300; color: var(--text); line-height: 1.5; flex: 1; }
   .transcript-clips { display: flex; flex-wrap: wrap; gap: 3px; flex-shrink: 0; margin-left: auto; padding-left: 8px; }
-  .clip-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.05em; padding: 2px 6px; border-radius: 3px; color: var(--badge-color); border: 1px solid color-mix(in srgb, var(--badge-color) 55%, transparent); background: color-mix(in srgb, var(--badge-color) 12%, transparent); white-space: nowrap; cursor: default; line-height: 1.6; }
+  .clip-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.05em; padding: 2px 6px; border-radius: 3px; color: var(--badge-color); border: 1px solid color-mix(in srgb, var(--badge-color) 55%, transparent); background: color-mix(in srgb, var(--badge-color) 12%, transparent); white-space: nowrap; cursor: pointer; line-height: 1.6; }
+  .clip-badge:hover { background: color-mix(in srgb, var(--badge-color) 24%, transparent); }
   .transcript-cue.has-clip { background: rgba(255,255,255,0.015); }
 
   /* ACTUAL TRANSCRIPT VIEW TOGGLE — lives in #vbar, shown only on recorded tab */

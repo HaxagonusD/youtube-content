@@ -249,13 +249,16 @@
       const matched = clips.filter(cl =>
         cl.ranges.some(r => cueSec >= r.start && cueSec < r.end)
       );
+      const platformTabMap = { shorts: 'youtube-shorts', tiktok: 'tiktok', instagram: 'instagram', twitter: 'twitter', linkedin: 'linkedin' };
       const badgesHtml = matched.length ? `
         <div class="transcript-clips">
-          ${matched.map(cl => `
-            <span class="clip-badge" style="--badge-color:${escHtml(cl.color)}"
-              title="${escHtml(cl.label + (cl.sublabel ? ' — ' + cl.sublabel : ''))}"
-            >${escHtml(cl.label)}</span>
-          `).join('')}
+          ${matched.map(cl => {
+            const targetTab = platformTabMap[cl.platform] || cl.platform;
+            return `<span class="clip-badge" style="--badge-color:${escHtml(cl.color)}"
+              data-tab="${escHtml(targetTab)}"
+              title="Go to ${escHtml(cl.label + (cl.sublabel ? ' — ' + cl.sublabel : ''))}"
+            >${escHtml(cl.label)}</span>`;
+          }).join('')}
         </div>
       ` : '';
 
@@ -837,6 +840,11 @@ print("All done.")`;
 
   document.querySelectorAll('.tab').forEach(btn => {
     btn.addEventListener('click', () => setActiveTab(btn.dataset.tab));
+  });
+
+  document.addEventListener('click', e => {
+    const badge = e.target.closest('.clip-badge[data-tab]');
+    if (badge) setActiveTab(badge.dataset.tab);
   });
 
   // ── 13. Version history ───────────────────────────────────────────────────
