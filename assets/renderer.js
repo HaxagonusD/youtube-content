@@ -259,14 +259,23 @@
         </div>
       ` : '';
 
+      let animHtml = '';
+      if (c.anim) {
+        const m = c.anim.match(/^\[(\w+)\]\s*([\s\S]*)/);
+        const type = m ? m[1] : '';
+        const desc = m ? m[2] : c.anim;
+        const badge = type ? `<span class="anim-type-badge anim-type-${escHtml(type.toLowerCase())}">${escHtml(type)}</span>` : '';
+        animHtml = `<div class="transcript-anim-note">${badge}<span class="anim-note-desc">${escHtml(desc)}</span></div>`;
+      }
+
       return `
-        <div class="transcript-cue${matched.length ? ' has-clip' : ''}" data-cue-idx="${idx}">
+        <div class="transcript-cue${matched.length ? ' has-clip' : ''}${c.anim ? ' has-anim' : ''}" data-cue-idx="${idx}">
           <div class="transcript-cue-bar" style="background:${color}"></div>
           <div class="transcript-inner">
             <span class="transcript-time">${escHtml(c.start)}</span>
             <span class="transcript-text">${escHtml(c.text)}</span>
             ${badgesHtml}
-            <input class="transcript-anim-input" type="text" placeholder="animation note…" data-cue-idx="${idx}"${c.anim ? ` data-default-anim="${escHtml(c.anim)}"` : ''}>
+            ${animHtml}
           </div>
         </div>
       `;

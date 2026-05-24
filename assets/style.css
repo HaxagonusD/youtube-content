@@ -940,37 +940,59 @@
     pointer-events: none;
   }
 
-  /* TRANSCRIPT ANIMATION INPUT — hidden by default, shown in animations mode */
-  .transcript-anim-input {
-    display: none;
-    flex-shrink: 0;
-    width: 180px;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #2a2a2a;
-    color: var(--muted);
-    font-family: 'Open Sans', sans-serif;
-    font-size: 11px; font-weight: 300;
-    padding: 3px 4px;
-    outline: none;
-    transition: border-color 0.15s;
-    margin-left: auto;
-  }
-  .transcript-anim-input:focus { border-bottom-color: var(--accent-dim); color: var(--text); }
-  .transcript-anim-input::placeholder { color: #2e2e2e; }
-
-  /* SCRIPT mode — hide badges and anim inputs */
+  /* SCRIPT mode — hide badges */
   body.actual-view-script .transcript-clips { display: none; }
-  body.actual-view-script .transcript-anim-input { display: none; }
 
-  /* SHORT-FORM mode — show badges, hide anim inputs */
+  /* SHORT-FORM mode — show badges */
   body.actual-view-shortform .transcript-clips { display: flex; }
-  body.actual-view-shortform .transcript-anim-input { display: none; }
 
-  /* ANIMATIONS mode — hide badges, show anim inputs */
+  /* ANIMATIONS mode — hide badges, wrap inner for note row, dim unannotated cues */
   body.actual-view-animations .transcript-clips { display: none; }
-  body.actual-view-animations .transcript-anim-input { display: block; }
+  body.actual-view-animations .transcript-inner { flex-wrap: wrap; align-items: flex-start; }
+  body.actual-view-animations .transcript-cue:not(.has-anim) { opacity: 0.22; }
 
   /* Default (no mode class set yet) — mirror SCRIPT mode */
   body:not(.actual-view-script):not(.actual-view-shortform):not(.actual-view-animations) .transcript-clips { display: none; }
-  body:not(.actual-view-script):not(.actual-view-shortform):not(.actual-view-animations) .transcript-anim-input { display: none; }
+
+  /* ANIMATION NOTE CARD */
+  .transcript-anim-note {
+    display: none;
+    flex-basis: 100%;
+    margin-left: 60px;
+    margin-top: 4px;
+    margin-bottom: 6px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.03);
+    border-left: 2px solid rgba(255,255,255,0.07);
+    border-radius: 0 5px 5px 0;
+    align-items: baseline;
+    gap: 10px;
+  }
+  body.actual-view-animations .transcript-anim-note { display: flex; }
+
+  .anim-type-badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    line-height: 2;
+  }
+  .anim-type-text {
+    background: rgba(90, 200, 200, 0.1);
+    color: #5ac8c8;
+    border: 1px solid rgba(90, 200, 200, 0.2);
+  }
+  .anim-type-video {
+    background: rgba(160, 100, 220, 0.1);
+    color: #b07cd8;
+    border: 1px solid rgba(160, 100, 220, 0.2);
+  }
+  .anim-note-desc {
+    font-size: 12.5px;
+    font-weight: 300;
+    line-height: 1.55;
+    color: #a0a0a0;
+  }
