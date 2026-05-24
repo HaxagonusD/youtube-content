@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "\"Just Pay Your Full Tax Bill Bro.\" Nah.",
-    "eyebrow": "Video Script \u2014 Foreign Earned Income Exclusion",
-    "footerNote": "Beat outline \u00b7 bullets to hit, not final VO",
+    "eyebrow": "Video Script — Foreign Earned Income Exclusion",
+    "footerNote": "Beat outline · bullets to hit, not final VO",
     "scriptVersion": "v1",
     "versionLabel": "FEIE tax explainer"
   },
@@ -17,7 +17,7 @@
       "sections": [
         {
           "label": "HOOK",
-          "sublabel": "This is the biggest tax break a W-2 worker can get \u2014 and it requires you to leave",
+          "sublabel": "This is the biggest tax break a W-2 worker can get — and it requires you to leave",
           "endTime": "0:30",
           "items": [
             {
@@ -26,11 +26,11 @@
             },
             {
               "type": "p",
-              "text": "Talk about how this isn't a loophole for rich people or accountants \u2014 it's the single largest tax break available to anyone with a remote job, and the only requirement is that you actually live outside the US."
+              "text": "Talk about how this isn't a loophole for rich people or accountants — it's the single largest tax break available to anyone with a remote job, and the only requirement is that you actually live outside the US."
             },
             {
               "type": "p",
-              "text": "Talk about the number: over $126k of your income excluded from federal taxes entirely. Not deducted \u2014 excluded. Gone from your taxable income. If you're making $100k in the US right now, you could legally owe close to zero federal income tax. The catch is you have to go."
+              "text": "Talk about the number: over $126k of your income excluded from federal taxes entirely. Not deducted — excluded. Gone from your taxable income. If you're making $100k in the US right now, you could legally owe close to zero federal income tax. The catch is you have to go."
             }
           ],
           "shotList": [
@@ -47,17 +47,17 @@
           ]
         },
         {
-          "label": "\u2193",
+          "label": "↓",
           "sublabel": "Micro-hook into WHAT IS THE FEIE",
           "endTime": "",
           "items": [
             {
               "type": "pull",
-              "text": "\"Here's the part they don't put in the headline \u2014 this rule has been in the tax code since 1926. The government just doesn't go out of its way to explain it to you.\""
+              "text": "\"Here's the part they don't put in the headline — this rule has been in the tax code since 1926. The government just doesn't go out of its way to explain it to you.\""
             },
             {
               "type": "p",
-              "text": "Talk about how the FEIE isn't a loophole someone found \u2014 it's been law for nearly a century. The reason most people don't know about it is that nobody who benefits from your ignorance is going to be the one to tell you."
+              "text": "Talk about how the FEIE isn't a loophole someone found — it's been law for nearly a century. The reason most people don't know about it is that nobody who benefits from your ignorance is going to be the one to tell you."
             }
           ],
           "shotList": []
@@ -69,11 +69,11 @@
           "items": [
             {
               "type": "p",
-              "text": "Talk about why the FEIE exists at all: the US is one of only 2 countries out of 170+ that taxes citizens on worldwide income no matter where they live. Move to Dubai as a British citizen \u2014 the UK doesn't care. German moves to Thailand \u2014 Germany isn't coming for them. But an American moves abroad? The IRS still wants its cut. The FEIE is the government's partial concession to that insane system."
+              "text": "Talk about why the FEIE exists at all: the US is one of only 2 countries out of 170+ that taxes citizens on worldwide income no matter where they live. Move to Dubai as a British citizen — the UK doesn't care. German moves to Thailand — Germany isn't coming for them. But an American moves abroad? The IRS still wants its cut. The FEIE is the government's partial concession to that insane system."
             },
             {
               "type": "p",
-              "text": "Talk about what the Foreign Earned Income Exclusion actually is \u2014 the IRS lets Americans living outside the US exclude a set amount of earned income from federal taxes each year."
+              "text": "Talk about what the Foreign Earned Income Exclusion actually is — the IRS lets Americans living outside the US exclude a set amount of earned income from federal taxes each year."
             },
             {
               "type": "p",
@@ -85,7 +85,7 @@
             },
             {
               "type": "p",
-              "text": "Talk about Form 2555 \u2014 the one form that unlocks this, and how straightforward it actually is."
+              "text": "Talk about Form 2555 — the one form that unlocks this, and how straightforward it actually is."
             }
           ],
           "shotList": [
@@ -102,12 +102,12 @@
             {
               "num": 3,
               "type": "GRAPHIC",
-              "desc": "Character: stick figure holding one small paper (Form 2555) next to a towering stack. Labels: \"what you file\" vs \"what people think you file\". Animated \u2014 first frame empty-handed, last frame with paper and stack. First and last frame images done."
+              "desc": "Character: stick figure holding one small paper (Form 2555) next to a towering stack. Labels: \"what you file\" vs \"what people think you file\". Animated — first frame empty-handed, last frame with paper and stack. First and last frame images done."
             }
           ]
         },
         {
-          "label": "\u2193",
+          "label": "↓",
           "sublabel": "Micro-hook into THE MATH",
           "endTime": "",
           "items": [
@@ -117,7 +117,7 @@
             },
             {
               "type": "p",
-              "text": "Talk about how understanding the mechanics is one thing \u2014 seeing the real dollar difference is what makes it concrete. Bridge to the actual numbers."
+              "text": "Talk about how understanding the mechanics is one thing — seeing the real dollar difference is what makes it concrete. Bridge to the actual numbers."
             }
           ],
           "shotList": []
@@ -129,7 +129,7 @@
           "items": [
             {
               "type": "p",
-              "text": "Talk about the real numbers \u2014 if you're making $120k as a remote worker living abroad, you could owe close to zero federal income tax."
+              "text": "Talk about the real numbers — if you're making $120k as a remote worker living abroad, you could owe close to zero federal income tax."
             },
             {
               "type": "pull",
@@ -145,7 +145,7 @@
           ]
         },
         {
-          "label": "\u2193",
+          "label": "↓",
           "sublabel": "Micro-hook into MY SITUATION",
           "endTime": "",
           "items": [
@@ -155,29 +155,29 @@
             },
             {
               "type": "p",
-              "text": "Talk about how the numbers in the graphic are theoretical \u2014 bridge to your own real situation so it's not hypothetical anymore."
+              "text": "Talk about how the numbers in the graphic are theoretical — bridge to your own real situation so it's not hypothetical anymore."
             }
           ],
           "shotList": []
         },
         {
           "label": "MY SITUATION",
-          "sublabel": "Your personal numbers \u2014 the credibility moment",
+          "sublabel": "Your personal numbers — the credibility moment",
           "endTime": "4:00",
           "items": [
             {
               "type": "p",
-              "text": "Talk about your own situation \u2014 how much you actually made, how much you paid in federal taxes, and how much you saved by using the FEIE. Be as specific as you're comfortable with."
+              "text": "Talk about your own situation — how much you actually made, how much you paid in federal taxes, and how much you saved by using the FEIE. Be as specific as you're comfortable with."
             },
             {
               "type": "p",
-              "text": "Talk about how you set it up \u2014 where you're based, how long you've been doing this, what the process actually looked like the first time."
+              "text": "Talk about how you set it up — where you're based, how long you've been doing this, what the process actually looked like the first time."
             }
           ],
           "shotList": []
         },
         {
-          "label": "\u2193",
+          "label": "↓",
           "sublabel": "Micro-hook into STATE TAXES",
           "endTime": "",
           "items": [
@@ -187,7 +187,7 @@
             },
             {
               "type": "p",
-              "text": "Talk about how the federal side is actually the easy part \u2014 tease that there's a state-level caveat that trips people up even after they get the federal piece right."
+              "text": "Talk about how the federal side is actually the easy part — tease that there's a state-level caveat that trips people up even after they get the federal piece right."
             }
           ],
           "shotList": []
@@ -199,7 +199,7 @@
           "items": [
             {
               "type": "p",
-              "text": "Talk about how the FEIE only covers federal taxes \u2014 some states, especially California and New York, will still try to tax you even if you live abroad."
+              "text": "Talk about how the FEIE only covers federal taxes — some states, especially California and New York, will still try to tax you even if you live abroad."
             },
             {
               "type": "crystallize",
@@ -207,7 +207,7 @@
             },
             {
               "type": "p",
-              "text": "Talk about what you actually need to do \u2014 establish domicile in a no-income-tax state (or abroad) before you leave. You can't just move overseas and assume your state forgets you exist."
+              "text": "Talk about what you actually need to do — establish domicile in a no-income-tax state (or abroad) before you leave. You can't just move overseas and assume your state forgets you exist."
             }
           ],
           "shotList": [
@@ -222,10 +222,10 @@
               "desc": "Animated text: \"FEIE = federal\" fades in, then \"state = separate move\" appears below it."
             }
           ],
-          "purpose": "\u2022 File a new W-4 with your employer claiming EXEMPT from federal withholding \u2014 you're telling them to stop taking federal taxes out of your paycheck<br>\u2022 Do the same for state \u2014 update your state withholding form to opt out<br>\u2022 Your employer runs this through their payroll software (ADP, Gusto, Workday) \u2014 they just enter what you give them, they don't review or approve it<br>\u2022 These forms are between you and the IRS \u2014 your employer doesn't see your tax return, doesn't know what exclusions you're claiming<br>\u2022 As long as you actually qualify for FEIE you're doing nothing illegal \u2014 your employer won't get stung because you're claiming your own legal exemption<br>\u2022 The employer's only job is to process what you submit \u2014 once you give them the updated W-4, it's on you"
+          "purpose": "• File a new W-4 with your employer claiming EXEMPT from federal withholding — you're telling them to stop taking federal taxes out of your paycheck<br>• Do the same for state — update your state withholding form to opt out<br>• Your employer runs this through their payroll software (ADP, Gusto, Workday) — they just enter what you give them, they don't review or approve it<br>• These forms are between you and the IRS — your employer doesn't see your tax return, doesn't know what exclusions you're claiming<br>• As long as you actually qualify for FEIE you're doing nothing illegal — your employer won't get stung because you're claiming your own legal exemption<br>• The employer's only job is to process what you submit — once you give them the updated W-4, it's on you"
         },
         {
-          "label": "\u2193",
+          "label": "↓",
           "sublabel": "Micro-hook into WHERE TO BASE YOURSELF",
           "endTime": "",
           "items": [
@@ -235,19 +235,19 @@
             },
             {
               "type": "p",
-              "text": "Talk about how knowing the law is only half of it \u2014 the other half is choosing where to base yourself in a way that doesn't accidentally create new tax obligations in another country."
+              "text": "Talk about how knowing the law is only half of it — the other half is choosing where to base yourself in a way that doesn't accidentally create new tax obligations in another country."
             }
           ],
           "shotList": []
         },
         {
           "label": "WHERE TO BASE YOURSELF",
-          "sublabel": "Two strategies \u2014 pick one",
+          "sublabel": "Two strategies — pick one",
           "endTime": "5:30",
           "items": [
             {
               "type": "p",
-              "text": "Talk about the two real strategies for where to live abroad. Option one: base yourself in a territorial tax country \u2014 a country that only taxes income earned inside its borders. If you're getting paid by a US company, they don't care. UAE and Dubai are the most popular example. Paraguay is another. You live there, you pay nothing locally on your foreign income, and you're out of the IRS with the FEIE. Clean setup."
+              "text": "Talk about the two real strategies for where to live abroad. Option one: base yourself in a territorial tax country — a country that only taxes income earned inside its borders. If you're getting paid by a US company, they don't care. UAE and Dubai are the most popular example. Paraguay is another. You live there, you pay nothing locally on your foreign income, and you're out of the IRS with the FEIE. Clean setup."
             },
             {
               "type": "crystallize",
@@ -255,11 +255,11 @@
             },
             {
               "type": "p",
-              "text": "Talk about option two: the rotation strategy. If you don't want to commit to one country, or if that country has rules about becoming a tax resident after a certain number of days, you rotate. Stay in each country under the threshold that triggers tax residency \u2014 typically 90 to 183 days depending on the country."
+              "text": "Talk about option two: the rotation strategy. If you don't want to commit to one country, or if that country has rules about becoming a tax resident after a certain number of days, you rotate. Stay in each country under the threshold that triggers tax residency — typically 90 to 183 days depending on the country."
             },
             {
               "type": "p",
-              "text": "Talk about your own rotation \u2014 Colombia, Dominican Republic, Mexico, and Peru. Three to four months in each. You're never in one country long enough to become a tax resident, you still hit 330 days outside the US for the FEIE physical presence test, and you're not locked into anywhere."
+              "text": "Talk about your own rotation — Colombia, Dominican Republic, Mexico, and Peru. Three to four months in each. You're never in one country long enough to become a tax resident, you still hit 330 days outside the US for the FEIE physical presence test, and you're not locked into anywhere."
             },
             {
               "type": "pull",
@@ -270,7 +270,7 @@
             {
               "num": 1,
               "type": "GRAPHIC",
-              "desc": "Animated text: two paths appear. Path 1: \"TERRITORIAL \u2192 UAE \u2192 PARAGUAY \u2192 done\". Path 2: \"ROTATION \u2192 90 days \u2192 move \u2192 90 days \u2192 move\"."
+              "desc": "Animated text: two paths appear. Path 1: \"TERRITORIAL → UAE → PARAGUAY → done\". Path 2: \"ROTATION → 90 days → move → 90 days → move\"."
             },
             {
               "num": 2,
@@ -280,17 +280,17 @@
           ]
         },
         {
-          "label": "\u2193",
+          "label": "↓",
           "sublabel": "Micro-hook into WHO THIS IS FOR",
           "endTime": "",
           "items": [
             {
               "type": "pull",
-              "text": "\"Now \u2014 who does any of this actually apply to? Probably more people than you think.\""
+              "text": "\"Now — who does any of this actually apply to? Probably more people than you think.\""
             },
             {
               "type": "p",
-              "text": "Talk about how at this point the viewer might be wondering if this is really for them \u2014 address that directly before they talk themselves out of it."
+              "text": "Talk about how at this point the viewer might be wondering if this is really for them — address that directly before they talk themselves out of it."
             }
           ],
           "shotList": []
@@ -302,7 +302,7 @@
           "items": [
             {
               "type": "p",
-              "text": "Talk about who this applies to \u2014 remote employees, freelancers, contractors, anyone whose work doesn't require a physical US presence."
+              "text": "Talk about who this applies to — remote employees, freelancers, contractors, anyone whose work doesn't require a physical US presence."
             },
             {
               "type": "crystallize",
@@ -310,7 +310,7 @@
             },
             {
               "type": "p",
-              "text": "Talk about what you need to actually qualify \u2014 this isn't just travel a lot. You need to establish real life abroad."
+              "text": "Talk about what you need to actually qualify — this isn't just travel a lot. You need to establish real life abroad."
             }
           ],
           "shotList": [
@@ -322,17 +322,17 @@
           ]
         },
         {
-          "label": "\u2193",
+          "label": "↓",
           "sublabel": "Micro-hook into CLOSE",
           "endTime": "",
           "items": [
             {
               "type": "pull",
-              "text": "\"If that's you \u2014 here's the actual next move.\""
+              "text": "\"If that's you — here's the actual next move.\""
             },
             {
               "type": "p",
-              "text": "Talk about landing the plane \u2014 practical next steps for someone who just realized this applies to them and wants to know where to start."
+              "text": "Talk about landing the plane — practical next steps for someone who just realized this applies to them and wants to know where to start."
             }
           ],
           "shotList": []
@@ -344,7 +344,7 @@
           "items": [
             {
               "type": "p",
-              "text": "Talk about how you wish someone had told you this earlier \u2014 how long you spent working remotely before you figured this out."
+              "text": "Talk about how you wish someone had told you this earlier — how long you spent working remotely before you figured this out."
             },
             {
               "type": "pull",
@@ -352,15 +352,15 @@
             },
             {
               "type": "p",
-              "text": "Talk about what to do next \u2014 find a tax professional who specializes in expat taxes, and look into the countries that make the physical presence test easiest to hit."
+              "text": "Talk about what to do next — find a tax professional who specializes in expat taxes, and look into the countries that make the physical presence test easiest to hit."
             }
           ],
-          "purpose": "Depends on where you are in the process:<br>\u2022 Maybe you still need to find a remote job \u2014 that's the prerequisite, nothing else moves until you have income that travels with you<br>\u2022 Maybe you have the job but haven't figured out where to go \u2014 research territorial tax countries (UAE, Paraguay) vs the rotation strategy (Colombia, DR, Mexico, Peru)<br>\u2022 Or maybe you're already abroad and just need to tell HR to stop withholding \u2014 update your W-4 to EXEMPT and you're done",
+          "purpose": "Depends on where you are in the process:<br>• Maybe you still need to find a remote job — that's the prerequisite, nothing else moves until you have income that travels with you<br>• Maybe you have the job but haven't figured out where to go — research territorial tax countries (UAE, Paraguay) vs the rotation strategy (Colombia, DR, Mexico, Peru)<br>• Or maybe you're already abroad and just need to tell HR to stop withholding — update your W-4 to EXEMPT and you're done",
           "shotList": [
             {
               "num": 1,
               "type": "GRAPHIC",
-              "desc": "Animated text: three steps appear one at a time. \"1. Remote job\" \u2192 \"2. Pick a country\" \u2192 \"3. Update your W-4\". Final frame holds all three."
+              "desc": "Animated text: three steps appear one at a time. \"1. Remote job\" → \"2. Pick a country\" → \"3. Update your W-4\". Final frame holds all three."
             }
           ]
         }
@@ -371,20 +371,106 @@
       "label": "Shorts",
       "hero": {
         "eyebrow": "YouTube Shorts",
-        "title": "FEIE \u2014 <em>Short Cuts</em>"
+        "title": "FEIE — <em>Short Cuts</em>"
       },
       "sections": [
         {
           "label": "SHORT 1",
-          "sublabel": "TBD",
-          "endTime": "0:60",
+          "sublabel": "The Tax Trap — ~52s · STRONG",
+          "endTime": "0:52",
           "items": [
             {
+              "type": "pull",
+              "text": "Hook (0–3s): “If you work remotely and live in the US, you are legally overpaying your taxes.”"
+            },
+            {
               "type": "p",
-              "text": "TBD \u2014 pull from main script once locked."
+              "text": "The US is one of only 2 countries that taxes citizens on worldwide income. 170+ countries don’t do this. We do."
+            },
+            {
+              "type": "p",
+              "text": "There’s a law that fixes this. Form 2555. It’s been in the tax code since 1926."
+            },
+            {
+              "type": "p",
+              "text": "It’s called the Foreign Earned Income Exclusion. Live outside the US for 330 days — exclude $126k of income from federal taxes. Entirely."
+            },
+            {
+              "type": "pull",
+              "text": "Not deducted. Excluded."
+            },
+            {
+              "type": "p",
+              "text": "Same job. Same income. You just have to not live there."
+            },
+            {
+              "type": "p",
+              "text": "CTA: Full video — link in bio."
             }
           ],
-          "shotList": []
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "TALK",
+              "desc": "Direct to camera — hook delivery",
+              "note": "Confident, slightly fast. No filler."
+            },
+            {
+              "num": 2,
+              "shotType": "B-ROLL",
+              "desc": "Text graphic: $126,500 excluded / 0 federal tax",
+              "note": "Hold 2–3 seconds"
+            },
+            {
+              "num": 3,
+              "shotType": "TALK",
+              "desc": "CTA direct to camera"
+            }
+          ]
+        },
+        {
+          "label": "SHORT 2",
+          "sublabel": "Who Qualifies — ~38s · MEDIUM",
+          "endTime": "0:38",
+          "items": [
+            {
+              "type": "pull",
+              "text": "Hook (0–3s): “You don’t need a new job. You don’t need to quit. You just need a laptop and 330 days outside the US.”"
+            },
+            {
+              "type": "p",
+              "text": "Remote employees, freelancers, contractors — anyone whose work doesn’t require you to be in a specific location."
+            },
+            {
+              "type": "crystallize",
+              "text": "If you can do your job on a laptop, there’s no financial reason to pay full US taxes."
+            },
+            {
+              "type": "p",
+              "text": "The Foreign Earned Income Exclusion exists for exactly this situation. Most people who qualify have never heard of it."
+            },
+            {
+              "type": "p",
+              "text": "CTA: Check the full video. I break down the math and where I actually base myself."
+            }
+          ],
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "TALK",
+              "desc": "Direct to camera — hook and qualifier list"
+            },
+            {
+              "num": 2,
+              "shotType": "TALK",
+              "desc": "Crystallize delivery — pause before for emphasis"
+            },
+            {
+              "num": 3,
+              "shotType": "TALK",
+              "desc": "CTA"
+            }
+          ]
         }
       ]
     },
@@ -393,17 +479,125 @@
       "label": "Twitter",
       "hero": {
         "eyebrow": "Twitter / X",
-        "title": "Thread \u2014 <em>FEIE</em>"
+        "title": "Posts &amp; Thread — <em>FEIE</em>"
       },
       "sections": [
         {
+          "label": "SINGLE TWEET 1",
+          "sublabel": "Hook stat — high engagement opener",
+          "endTime": "",
+          "items": [
+            {
+              "type": "pull",
+              "text": "If you work remotely and you live in the US, you are legally overpaying your taxes."
+            },
+            {
+              "type": "p",
+              "text": "The Foreign Earned Income Exclusion lets Americans living abroad exclude over $126,000 of income from federal taxes entirely. Not deducted — excluded."
+            },
+            {
+              "type": "p",
+              "text": "It’s been in the tax code since 1926. The government just doesn’t explain it to you."
+            },
+            {
+              "type": "p",
+              "text": "Thread on how it works ↓"
+            }
+          ],
+          "shotList": []
+        },
+        {
           "label": "THREAD",
-          "sublabel": "TBD",
+          "sublabel": "5-tweet breakdown of the FEIE",
           "endTime": "",
           "items": [
             {
               "type": "p",
-              "text": "TBD \u2014 adapt from main script once locked."
+              "text": "1/ The US is one of only 2 countries out of 170+ that taxes citizens on worldwide income, no matter where they live."
+            },
+            {
+              "type": "p",
+              "text": "Most countries only tax income earned within their borders. The US follows you everywhere."
+            },
+            {
+              "type": "p",
+              "text": "So what do you do about it?"
+            },
+            {
+              "type": "pull",
+              "text": "2/ The Foreign Earned Income Exclusion (FEIE) — Form 2555."
+            },
+            {
+              "type": "p",
+              "text": "If you establish real life outside the US, you can exclude over $126k of earned income from federal taxes entirely."
+            },
+            {
+              "type": "p",
+              "text": "You don’t renounce citizenship. You don’t hide money. You just live somewhere else and file a form."
+            },
+            {
+              "type": "p",
+              "text": "3/ Two ways to qualify:\n\n• Bona Fide Residence Test: actually live in another country as a resident\n• Physical Presence Test: spend 330 out of 365 days outside the US\n\nMost digital nomads use the physical presence test."
+            },
+            {
+              "type": "p",
+              "text": "4/ The piece most people miss: the FEIE only covers federal taxes.\n\nStates like California and New York will still try to collect — even after you leave.\n\nYou need to establish domicile in a no-tax state (or abroad) before you go."
+            },
+            {
+              "type": "pull",
+              "text": "5/ The FEIE gets you out of the IRS. Getting out of your state is a separate move."
+            },
+            {
+              "type": "p",
+              "text": "If you do your job on a laptop, there’s no financial reason to pay full US taxes."
+            },
+            {
+              "type": "p",
+              "text": "Full breakdown in the video → [link in bio]"
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "SINGLE TWEET 2",
+          "sublabel": "Math hook — concrete numbers",
+          "endTime": "",
+          "items": [
+            {
+              "type": "p",
+              "text": "Making $120k remotely and living in the US? You’re probably paying $25k–$35k in federal taxes."
+            },
+            {
+              "type": "pull",
+              "text": "Making $120k remotely and living abroad? You could legally owe close to zero."
+            },
+            {
+              "type": "p",
+              "text": "Same income. Same job. Different zip code."
+            },
+            {
+              "type": "p",
+              "text": "It’s called the FEIE. It’s been law since 1926."
+            }
+          ],
+          "shotList": []
+        },
+        {
+          "label": "IMAGE QUOTE",
+          "sublabel": "Pull quote card for visual tweet",
+          "endTime": "",
+          "items": [
+            {
+              "type": "crystallize",
+              "text": "“The system isn’t set up to tell you about the rules that work in your favor.”"
+            },
+            {
+              "type": "p",
+              "text": "Caption: Been in the tax code since 1926. Most remote workers have never heard of it. That’s the point."
+            },
+            {
+              "type": "p",
+              "text": "Visual: Dark card, white text, clean sans-serif. Logo bottom-right."
             }
           ],
           "shotList": []
@@ -415,20 +609,151 @@
       "label": "TikTok",
       "hero": {
         "eyebrow": "TikTok",
-        "title": "FEIE \u2014 <em>Cut</em>"
+        "title": "FEIE — <em>Cuts</em>"
       },
       "sections": [
         {
-          "label": "CUT",
-          "sublabel": "TBD",
-          "endTime": "0:60",
+          "label": "CUT 1",
+          "sublabel": "The Tax Trap — ~55s · POST FIRST",
+          "endTime": "0:55",
           "items": [
             {
+              "type": "pull",
+              "text": "Hook: “If you work remotely and live in the US, you’re paying more in taxes than you legally have to.”"
+            },
+            {
               "type": "p",
-              "text": "TBD \u2014 pull from main script once locked."
+              "text": "The US taxes citizens on worldwide income. One of only two countries that does this. 170+ don’t."
+            },
+            {
+              "type": "p",
+              "text": "The fix has been in the tax code since 1926 and most people have never heard of it. It’s called the FEIE — Foreign Earned Income Exclusion."
+            },
+            {
+              "type": "pull",
+              "text": "Over $126,000 of your income, excluded from federal taxes. Not deducted — gone from the equation entirely."
+            },
+            {
+              "type": "p",
+              "text": "One form. Form 2555. Live abroad 330 days a year and you qualify."
+            },
+            {
+              "type": "p",
+              "text": "Same job, same income. Just a different address."
+            },
+            {
+              "type": "p",
+              "text": "Caption: The government doesn’t advertise this. #remotework #taxes #feie #digitalnomad #taxstrategy"
             }
           ],
-          "shotList": []
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "TALK",
+              "desc": "Straight-to-camera hook — fast, punchy"
+            },
+            {
+              "num": 2,
+              "shotType": "B-ROLL",
+              "desc": "Text card: $126,500 excluded / $0 federal",
+              "note": "Pause for impact"
+            },
+            {
+              "num": 3,
+              "shotType": "TALK",
+              "desc": "Wrap + no CTA needed — TikTok algorithm does the work"
+            }
+          ]
+        },
+        {
+          "label": "CUT 2",
+          "sublabel": "Eritrea Hook — ~50s",
+          "endTime": "0:50",
+          "items": [
+            {
+              "type": "pull",
+              "text": "Hook: “There are only two countries in the world that tax their citizens on income earned anywhere on earth.”"
+            },
+            {
+              "type": "p",
+              "text": "One is Eritrea."
+            },
+            {
+              "type": "p",
+              "text": "The other is the United States of America."
+            },
+            {
+              "type": "p",
+              "text": "And if you work remotely, that means the IRS follows you wherever you go — unless you use a rule that’s been sitting in the tax code since 1926."
+            },
+            {
+              "type": "pull",
+              "text": "The Foreign Earned Income Exclusion. $126,500 excluded from federal income taxes. One form."
+            },
+            {
+              "type": "p",
+              "text": "I live abroad 330+ days a year. I haven’t paid federal income tax in years. It’s legal. It’s documented. It’s Form 2555."
+            },
+            {
+              "type": "p",
+              "text": "Caption: Nobody talks about this. #feie #taxes #remotework #expat"
+            }
+          ],
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "TALK",
+              "desc": "Eritrea hook — slow delivery for emphasis"
+            },
+            {
+              "num": 2,
+              "shotType": "TALK",
+              "desc": "FEIE reveal — fast pivot"
+            }
+          ]
+        },
+        {
+          "label": "CUT 3",
+          "sublabel": "330-Day Rule — ~45s",
+          "endTime": "0:45",
+          "items": [
+            {
+              "type": "pull",
+              "text": "Hook: “330 days outside the US in a 12-month period. That’s the number.”"
+            },
+            {
+              "type": "p",
+              "text": "Hit that, and you qualify for the Physical Presence Test under the FEIE. You can exclude $126,500 of earned income from federal taxes."
+            },
+            {
+              "type": "p",
+              "text": "You don’t need to move to any specific country. You don’t need a visa. You don’t need to renounce anything."
+            },
+            {
+              "type": "crystallize",
+              "text": "330 days. One form. That’s the whole thing."
+            },
+            {
+              "type": "p",
+              "text": "I rotate between Colombia, Mexico, Dominican Republic, and Peru. Three to four months each. Never hit 183 days in one country."
+            },
+            {
+              "type": "p",
+              "text": "Caption: Most digital nomads miss this. #330dayrule #feie #digitalnomad #remotework #taxes"
+            }
+          ],
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "TALK",
+              "desc": "330-day hook — number first, explanation second"
+            },
+            {
+              "num": 2,
+              "shotType": "TALK",
+              "desc": "Personal rotation — specific countries, sounds real"
+            }
+          ]
         }
       ]
     },
@@ -436,21 +761,126 @@
       "id": "instagram",
       "label": "Instagram",
       "hero": {
-        "eyebrow": "Instagram",
-        "title": "FEIE \u2014 <em>Reel</em>"
+        "eyebrow": "Instagram Reels",
+        "title": "FEIE — <em>Reels</em>"
       },
       "sections": [
         {
-          "label": "REEL",
-          "sublabel": "TBD",
+          "label": "REEL 1",
+          "sublabel": "Exclusion vs Deduction — ~28s · POST FIRST",
+          "endTime": "0:28",
+          "items": [
+            {
+              "type": "pull",
+              "text": "Hook: “There’s a difference between a tax deduction and a tax exclusion. Most people have only ever heard of deductions.”"
+            },
+            {
+              "type": "p",
+              "text": "Deduction: reduces taxable income. You still pay taxes on what’s left."
+            },
+            {
+              "type": "pull",
+              "text": "Exclusion: that income doesn’t exist for tax purposes. It’s gone."
+            },
+            {
+              "type": "p",
+              "text": "The FEIE is an exclusion. $126,500 of earned income excluded from federal taxes entirely if you live abroad."
+            },
+            {
+              "type": "p",
+              "text": "One form. Form 2555. That’s it."
+            },
+            {
+              "type": "p",
+              "text": "Caption: The single biggest tax break most remote workers have never heard of. #feie #remotework #taxes #digitalnomad 🗝️ link in bio for full video"
+            }
+          ],
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "TALK",
+              "desc": "Fast-cut talking head, 9:16"
+            },
+            {
+              "num": 2,
+              "shotType": "TEXT",
+              "desc": "Deduction vs Exclusion side-by-side graphic"
+            }
+          ]
+        },
+        {
+          "label": "REEL 2",
+          "sublabel": "Eritrea Hook — ~30s",
           "endTime": "0:30",
           "items": [
             {
+              "type": "pull",
+              "text": "Hook: “Only two countries in the world tax their citizens on income earned anywhere. Eritrea — and the US.”"
+            },
+            {
               "type": "p",
-              "text": "TBD \u2014 pull from main script once locked."
+              "text": "If you work remotely and live abroad, there’s a rule that protects you from this. It’s been in the tax code since 1926."
+            },
+            {
+              "type": "p",
+              "text": "Foreign Earned Income Exclusion. $126,500 excluded. Form 2555."
+            },
+            {
+              "type": "p",
+              "text": "Caption: They don’t teach this in school. #feie #expattaxes #remotework #taxes #digitalnomad"
             }
           ],
-          "shotList": []
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "TALK",
+              "desc": "Eritrea hook — dramatic pause after naming both countries"
+            },
+            {
+              "num": 2,
+              "shotType": "TALK",
+              "desc": "FEIE reveal — quick"
+            }
+          ]
+        },
+        {
+          "label": "REEL 3",
+          "sublabel": "330-Day Rule — ~25s",
+          "endTime": "0:25",
+          "items": [
+            {
+              "type": "pull",
+              "text": "Hook: “330 days outside the US. That’s the number that changes your tax bill.”"
+            },
+            {
+              "type": "p",
+              "text": "Qualify for the Physical Presence Test under the FEIE and you can exclude $126,500 from federal taxes."
+            },
+            {
+              "type": "p",
+              "text": "No specific country required. No visa. No renouncing anything."
+            },
+            {
+              "type": "crystallize",
+              "text": "Just 330 days and a form."
+            },
+            {
+              "type": "p",
+              "text": "Caption: The rule remote workers need to know. Full breakdown → link in bio #feie #330dayrule #digitalnomad #taxes"
+            }
+          ],
+          "shotList": [
+            {
+              "num": 1,
+              "shotType": "TALK",
+              "desc": "Hook to camera, punchy"
+            },
+            {
+              "num": 2,
+              "shotType": "TEXT",
+              "desc": "330 / 365 days graphic overlay"
+            }
+          ]
         }
       ]
     },
@@ -459,17 +889,45 @@
       "label": "LinkedIn",
       "hero": {
         "eyebrow": "LinkedIn",
-        "title": "FEIE \u2014 <em>Post</em>"
+        "title": "FEIE — <em>Post</em>"
       },
       "sections": [
         {
           "label": "POST",
-          "sublabel": "TBD",
+          "sublabel": "Remote work tax strategy — professional angle",
           "endTime": "",
           "items": [
             {
+              "type": "pull",
+              "text": "Most remote workers don’t know they’re overpaying their taxes. Not because they’re doing anything wrong — because nobody told them about a law that’s been on the books since 1926."
+            },
+            {
               "type": "p",
-              "text": "TBD \u2014 adapt from main script once locked."
+              "text": "It’s called the Foreign Earned Income Exclusion (FEIE). If you’re a US citizen working remotely and you establish life abroad, you can exclude over $126,500 of earned income from federal taxes entirely. Not deducted — excluded."
+            },
+            {
+              "type": "p",
+              "text": "The context that makes this make sense: the US is one of only two countries in the world (the other is Eritrea) that taxes citizens on worldwide income, regardless of where they live or earn it."
+            },
+            {
+              "type": "p",
+              "text": "The FEIE exists specifically to offset this. You qualify through:\n\n• Bona Fide Residence Test — you genuinely live abroad\n• Physical Presence Test — 330+ days outside the US in a 12-month period"
+            },
+            {
+              "type": "p",
+              "text": "One caveat most people miss: the FEIE only covers federal taxes. States like California and New York will still try to collect after you leave. You need to establish domicile in a no-income-tax state before relocating — or that state tax bill follows you."
+            },
+            {
+              "type": "crystallize",
+              "text": "The FEIE gets you out of the IRS. Getting out of your state is a separate move."
+            },
+            {
+              "type": "p",
+              "text": "I’ve been doing this for years. The paperwork is Form 2555. The tax professional you need is one who specializes in expat taxes. The system isn’t set up to explain this to you — which is exactly why I made a video about it."
+            },
+            {
+              "type": "p",
+              "text": "Full breakdown in the video (link in comments). If you’re working remotely and this applies to your situation, the earlier you set this up properly, the more you keep."
             }
           ],
           "shotList": []
