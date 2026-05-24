@@ -266,7 +266,7 @@
             <span class="transcript-time">${escHtml(c.start)}</span>
             <span class="transcript-text">${escHtml(c.text)}</span>
             ${badgesHtml}
-            <input class="transcript-anim-input" type="text" placeholder="animation note…" data-cue-idx="${idx}">
+            <input class="transcript-anim-input" type="text" placeholder="animation note…" data-cue-idx="${idx}"${c.anim ? ` data-default-anim="${escHtml(c.anim)}"` : ''}>
           </div>
         </div>
       `;
@@ -982,7 +982,12 @@ print("All done.")`;
     panel.querySelectorAll('.transcript-anim-input').forEach(inp => {
       const idx = inp.dataset.cueIdx;
       const stored = localStorage.getItem(`actual-anim:${slug}:${idx}`);
-      if (stored) inp.value = stored;
+      if (stored) {
+        inp.value = stored;
+      } else {
+        const def = inp.dataset.defaultAnim;
+        if (def) inp.value = def;
+      }
       inp.addEventListener('input', () => {
         try { localStorage.setItem(`actual-anim:${slug}:${idx}`, inp.value); } catch (e) {}
       });
