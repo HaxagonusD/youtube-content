@@ -1,0 +1,823 @@
+{
+  "meta": {
+    "title": "Just Pay Your Taxes Bro",
+    "eyebrow": "FEIE \u00b7 Tax Strategy",
+    "footerNote": "just-pay-your-taxes"
+  },
+  "tabs": [
+    {
+      "id": "actual-script",
+      "label": "Actual",
+      "hero": {
+        "eyebrow": "TRANSCRIPT",
+        "title": "What Was Actually Said"
+      },
+      "cues": [
+        {
+          "start": "0:00",
+          "text": "Okay, so I'm going to tell you how to avoid taxes, legally, of course."
+        },
+        {
+          "start": "0:03",
+          "text": "So if you work a remote job in the US, you're paying more in taxes than you legally have to."
+        },
+        {
+          "start": "0:07",
+          "text": "This isn't some loophole for rich people."
+        },
+        {
+          "start": "0:09",
+          "text": "This is the biggest tax break for the common man."
+        },
+        {
+          "start": "0:12",
+          "text": "If you work a remote job, if you make less than $126,000 in the year 2026,"
+        },
+        {
+          "start": "0:17",
+          "text": "you could owe zero in federal taxes."
+        },
+        {
+          "start": "0:19",
+          "text": "This is something that the government doesn't tell you has no incentive to."
+        },
+        {
+          "start": "0:22",
+          "text": "But this law has been around since 100 years ago, 1926."
+        },
+        {
+          "start": "0:26",
+          "text": "Okay, so what am I talking about?"
+        },
+        {
+          "start": "0:27",
+          "text": "I'm talking about foreign earned income tax exclusion."
+        },
+        {
+          "start": "0:30",
+          "text": "And you might be thinking, wait, but this is foreign earned and I work in the US."
+        },
+        {
+          "start": "0:34",
+          "text": "No, listen to me."
+        },
+        {
+          "start": "0:35",
+          "text": "This is how it's going to apply to you."
+        },
+        {
+          "start": "0:37",
+          "text": "Watch."
+        },
+        {
+          "start": "0:37",
+          "text": "So what is it?"
+        },
+        {
+          "start": "0:38",
+          "text": "Why does it exist?"
+        },
+        {
+          "start": "0:39",
+          "text": "The US is one of the only two countries in the entire world that taxes its citizens no"
+        },
+        {
+          "start": "0:44",
+          "text": "matter where they make their money."
+        },
+        {
+          "start": "0:46",
+          "text": "Out of 170 plus countries, the US is one of two."
+        },
+        {
+          "start": "0:49",
+          "text": "Think about that."
+        },
+        {
+          "start": "0:50",
+          "text": "If a UK citizen goes to Dubai, they're not getting taxed."
+        },
+        {
+          "start": "0:54",
+          "text": "If a German goes to Thailand, they're not getting taxed."
+        },
+        {
+          "start": "0:56",
+          "text": "But God forbid an American goes abroad, the IRS still wants this cut."
+        },
+        {
+          "start": "1:00",
+          "text": "So what it actually is, it lets Americans who are living outside the US set aside taxes"
+        },
+        {
+          "start": "1:06",
+          "text": "that they don't have to pay if they make less than a certain amount."
+        },
+        {
+          "start": "1:09",
+          "text": "And to qualify, you basically have to be a tax resident of another country or you have"
+        },
+        {
+          "start": "1:13",
+          "text": "to be physically present outside the US for more than 330 days."
+        },
+        {
+          "start": "1:16",
+          "text": "So you don't renounce citizenship or you don't hide money or anything like that."
+        },
+        {
+          "start": "1:20",
+          "text": "You just live somewhere else and then you file a form."
+        },
+        {
+          "start": "1:23",
+          "text": "And it's one form."
+        },
+        {
+          "start": "1:24",
+          "text": "It's form 2555."
+        },
+        {
+          "start": "1:26",
+          "text": "People think that you have to a mountain of paperwork."
+        },
+        {
+          "start": "1:28",
+          "text": "This is one form and I'll explain it."
+        },
+        {
+          "start": "1:29",
+          "text": "So that's basically what it is."
+        },
+        {
+          "start": "1:31",
+          "text": "If you live outside the US and you make money outside the US, you don't have to pay money"
+        },
+        {
+          "start": "1:35",
+          "text": "on, you don't have to pay taxes on the first one hundred and twenty thousand dollars."
+        },
+        {
+          "start": "1:40",
+          "text": "But then you might be thinking, how does that apply to me?"
+        },
+        {
+          "start": "1:41",
+          "text": "I'm in the US, I'm an American citizen and I make my money in the US."
+        },
+        {
+          "start": "1:45",
+          "text": "Well, here's the thing."
+        },
+        {
+          "start": "1:46",
+          "text": "If you just leave the US or you had plans of already leaving the US, you can take advantage"
+        },
+        {
+          "start": "1:51",
+          "text": "of it. So let's say you make your money in the US and you're a remote employee."
+        },
+        {
+          "start": "1:56",
+          "text": "And you make less than one hundred and twenty thousand dollars a year."
+        },
+        {
+          "start": "1:59",
+          "text": "You don't have to pay taxes federally on the first one hundred twenty thousand dollars."
+        },
+        {
+          "start": "2:03",
+          "text": "So then the goal is to leave the US or if you're already outside the US and making money"
+        },
+        {
+          "start": "2:08",
+          "text": "inside the US through the Internet, then you're late."
+        },
+        {
+          "start": "2:10",
+          "text": "It's great. You've done everything you need to do."
+        },
+        {
+          "start": "2:12",
+          "text": "OK, so that's what it is."
+        },
+        {
+          "start": "2:13",
+          "text": "But then you might be thinking, isn't it foreign earned?"
+        },
+        {
+          "start": "2:15",
+          "text": "I can't even qualify for that because I'm making money inside the US."
+        },
+        {
+          "start": "2:19",
+          "text": "Well, this is where the physical presence test comes in."
+        },
+        {
+          "start": "2:21",
+          "text": "And don't worry, I'll explain."
+        },
+        {
+          "start": "2:23",
+          "text": "So here's the math. OK, so let's just do a little bit of calculating."
+        },
+        {
+          "start": "2:26",
+          "text": "What are the federal taxes on one hundred and twenty six thousand dollars?"
+        },
+        {
+          "start": "2:30",
+          "text": "OK, so for 2025, the federal income tax is on one hundred and twenty six thousand dollars."
+        },
+        {
+          "start": "2:37",
+          "text": "And it's twenty thousand nine hundred and forty six."
+        },
+        {
+          "start": "2:39",
+          "text": "So you don't owe those taxes for that year if you just live outside the US."
+        },
+        {
+          "start": "2:44",
+          "text": "That's basically thirty thousand dollars extra in your pocket."
+        },
+        {
+          "start": "2:47",
+          "text": "And the way that it works is that even let's say you make double that."
+        },
+        {
+          "start": "2:49",
+          "text": "Let's say you make two hundred and forty thousand."
+        },
+        {
+          "start": "2:51",
+          "text": "You're still saving thirty thousand dollars that year because it excludes the first"
+        },
+        {
+          "start": "2:56",
+          "text": "one hundred twenty thousand."
+        },
+        {
+          "start": "2:57",
+          "text": "So it's essentially like you're making one hundred twenty thousand that year."
+        },
+        {
+          "start": "3:00",
+          "text": "And that taxed is only thirty thousand."
+        },
+        {
+          "start": "3:02",
+          "text": "OK, so those numbers are theoretical, right?"
+        },
+        {
+          "start": "3:04",
+          "text": "But here's how it worked for me, because I actually used it."
+        },
+        {
+          "start": "3:06",
+          "text": "So I made two hundred and so I made two hundred and eighty thousand dollars in 2025."
+        },
+        {
+          "start": "3:13",
+          "text": "And the first one hundred and twenty thousand dollars were excluded."
+        },
+        {
+          "start": "3:15",
+          "text": "So I was only taxed on the whatever was remaining."
+        },
+        {
+          "start": "3:19",
+          "text": "And so what's that one hundred sixty thousand dollars?"
+        },
+        {
+          "start": "3:22",
+          "text": "But the point is that I didn't pay thirty thousand dollars extra in taxes."
+        },
+        {
+          "start": "3:27",
+          "text": "And all you really have to do is tell your employer that you're exempt from federal"
+        },
+        {
+          "start": "3:31",
+          "text": "taxes and you don't pay those taxes."
+        },
+        {
+          "start": "3:33",
+          "text": "And then at the end of the year, you just say, oh, I'm taking the federal earned"
+        },
+        {
+          "start": "3:37",
+          "text": "income tax exclusion and they just say, OK, and then you just don't pay any taxes."
+        },
+        {
+          "start": "3:41",
+          "text": "Right. Your employer doesn't know about doesn't have to know about what you're"
+        },
+        {
+          "start": "3:45",
+          "text": "eligible for or you're including or excluding in your taxes."
+        },
+        {
+          "start": "3:49",
+          "text": "Their only job is to like you file a form and you say that you're exempt from taxes"
+        },
+        {
+          "start": "3:54",
+          "text": "and they have to file it and that's it."
+        },
+        {
+          "start": "3:56",
+          "text": "So there's something on their end that they have to worry about."
+        },
+        {
+          "start": "3:58",
+          "text": "Actually, let's say you use something like ADP, that software for for your job."
+        },
+        {
+          "start": "4:03",
+          "text": "They use that software."
+        },
+        {
+          "start": "4:04",
+          "text": "Then your employer literally can't look at that account."
+        },
+        {
+          "start": "4:07",
+          "text": "They can't see any information that they have on you that or that you have in there."
+        },
+        {
+          "start": "4:11",
+          "text": "So they can't really look at that account to say, oh, is he like exempt or not"
+        },
+        {
+          "start": "4:15",
+          "text": "exempt and stuff like that."
+        },
+        {
+          "start": "4:16",
+          "text": "So, yeah, the federal side is the easy part."
+        },
+        {
+          "start": "4:19",
+          "text": "Right. Now you have to worry about state taxes."
+        },
+        {
+          "start": "4:21",
+          "text": "And this is the part that people miss."
+        },
+        {
+          "start": "4:24",
+          "text": "And you probably should handle this before you leave."
+        },
+        {
+          "start": "4:26",
+          "text": "And every state is different. There's 50 of them."
+        },
+        {
+          "start": "4:28",
+          "text": "They're all different. Let's take New York, for example."
+        },
+        {
+          "start": "4:30",
+          "text": "They honored the foreign earned income tax exclusion."
+        },
+        {
+          "start": "4:33",
+          "text": "So you just say federal income, foreign earned income tax exclusion."
+        },
+        {
+          "start": "4:36",
+          "text": "I was outside the US here. I can prove it."
+        },
+        {
+          "start": "4:38",
+          "text": "They honor that. You don't have to pay New York tax."
+        },
+        {
+          "start": "4:41",
+          "text": "But let's take, for example, a state like New Jersey for them."
+        },
+        {
+          "start": "4:44",
+          "text": "They don't honor that."
+        },
+        {
+          "start": "4:45",
+          "text": "So you have to do something else for that."
+        },
+        {
+          "start": "4:47",
+          "text": "For that, you have to say that you weren't a resident of the state."
+        },
+        {
+          "start": "4:50",
+          "text": "You're not a New Jersey resident."
+        },
+        {
+          "start": "4:52",
+          "text": "So there's no point in paying taxes to Jersey."
+        },
+        {
+          "start": "4:54",
+          "text": "And that's how you get around taxes for those states."
+        },
+        {
+          "start": "4:56",
+          "text": "So, yeah, when you file these forms, these forms are just between you and the IRS."
+        },
+        {
+          "start": "5:00",
+          "text": "The employer has no way of seeing into this and seeing whatever you're doing with the IRS."
+        },
+        {
+          "start": "5:05",
+          "text": "As long as you qualify for the foreign earned income tax exclusion,"
+        },
+        {
+          "start": "5:08",
+          "text": "you're doing nothing illegal. This is perfectly normal."
+        },
+        {
+          "start": "5:10",
+          "text": "Your employer's only role is to take those W-4 forms"
+        },
+        {
+          "start": "5:15",
+          "text": "that say that you're exempt and file them and send them to the IRS."
+        },
+        {
+          "start": "5:18",
+          "text": "That's all they need to do. OK, so those are the rules."
+        },
+        {
+          "start": "5:20",
+          "text": "You have a remote job that allows you to go outside the US."
+        },
+        {
+          "start": "5:24",
+          "text": "You're making money remote."
+        },
+        {
+          "start": "5:25",
+          "text": "You file the form saying that you're exempt and you don't owe these taxes"
+        },
+        {
+          "start": "5:29",
+          "text": "so they don't get taken out of your paycheck."
+        },
+        {
+          "start": "5:31",
+          "text": "Now, the question is, where do you go?"
+        },
+        {
+          "start": "5:32",
+          "text": "OK, so there's two strategies for this."
+        },
+        {
+          "start": "5:34",
+          "text": "You can go to a different country where you don't have to pay taxes"
+        },
+        {
+          "start": "5:37",
+          "text": "because their laws are different."
+        },
+        {
+          "start": "5:39",
+          "text": "Let's give two examples here."
+        },
+        {
+          "start": "5:40",
+          "text": "If you go to Dubai, they don't have any taxes."
+        },
+        {
+          "start": "5:42",
+          "text": "So you don't pay taxes."
+        },
+        {
+          "start": "5:44",
+          "text": "Or you go somewhere like Paraguay, where if you make taxes,"
+        },
+        {
+          "start": "5:47",
+          "text": "but the source is foreign earned, like from the US, you don't pay taxes on that."
+        },
+        {
+          "start": "5:52",
+          "text": "Or if you don't want to go to those countries,"
+        },
+        {
+          "start": "5:54",
+          "text": "you can go to any country that allows you to not be a tax resident"
+        },
+        {
+          "start": "5:59",
+          "text": "within a certain time period."
+        },
+        {
+          "start": "6:00",
+          "text": "So let me give you some example."
+        },
+        {
+          "start": "6:01",
+          "text": "Colombia, where I am now, if you're not a tax resident,"
+        },
+        {
+          "start": "6:04",
+          "text": "if you don't stay for if you stay less than 180 days in a year."
+        },
+        {
+          "start": "6:09",
+          "text": "So I can stay in Colombia for less than 180 days."
+        },
+        {
+          "start": "6:12",
+          "text": "And I'm not a tax resident, so they don't want their cut out of my income."
+        },
+        {
+          "start": "6:15",
+          "text": "And it's the same thing for a lot of Latin American countries like Mexico,"
+        },
+        {
+          "start": "6:19",
+          "text": "Guatemala, Dominican Republic, Peru."
+        },
+        {
+          "start": "6:21",
+          "text": "And that's mostly where I stay."
+        },
+        {
+          "start": "6:23",
+          "text": "So three to four months, I just bounce around those countries"
+        },
+        {
+          "start": "6:26",
+          "text": "and I don't pay taxes to any of them."
+        },
+        {
+          "start": "6:28",
+          "text": "And I don't pay taxes in the US because I'm outside the US for more than 330 days."
+        },
+        {
+          "start": "6:32",
+          "text": "OK, so here's the thing about foreign earned income tax exclusion."
+        },
+        {
+          "start": "6:36",
+          "text": "People think that the income has to be foreign earned, as in, let's say,"
+        },
+        {
+          "start": "6:40",
+          "text": "you're a US citizen and the country is, let's say, in Great Britain, in England."
+        },
+        {
+          "start": "6:45",
+          "text": "You make money from there or like you make money from a country"
+        },
+        {
+          "start": "6:47",
+          "text": "and from a company in Mexico."
+        },
+        {
+          "start": "6:49",
+          "text": "Well, no, actually, the test or what determines whether or not you qualify"
+        },
+        {
+          "start": "6:55",
+          "text": "for this exemption is whether or not you're outside of the country,"
+        },
+        {
+          "start": "6:59",
+          "text": "the US, for more than 330 days out of the year."
+        },
+        {
+          "start": "7:03",
+          "text": "It says nothing about where the money came from."
+        },
+        {
+          "start": "7:05",
+          "text": "It doesn't matter if the money came from the US."
+        },
+        {
+          "start": "7:08",
+          "text": "If you were outside the country when you made the money and that year,"
+        },
+        {
+          "start": "7:12",
+          "text": "any 12 month period, you were outside the United States for 330 days."
+        },
+        {
+          "start": "7:18",
+          "text": "You do not owe taxes for the first one hundred and twenty thousand dollars"
+        },
+        {
+          "start": "7:21",
+          "text": "that you make federally."
+        },
+        {
+          "start": "7:23",
+          "text": "So that's how most people can qualify for the foreign earned income tax"
+        },
+        {
+          "start": "7:27",
+          "text": "exclusion if they leave the US and they make money from a US company"
+        },
+        {
+          "start": "7:31",
+          "text": "while being outside the US."
+        },
+        {
+          "start": "7:33",
+          "text": "So here's the thing."
+        },
+        {
+          "start": "7:33",
+          "text": "You might be thinking that this doesn't apply to you,"
+        },
+        {
+          "start": "7:36",
+          "text": "but this does apply to you if you have a remote job."
+        },
+        {
+          "start": "7:38",
+          "text": "And let's say you have plans of leaving the country or I'm encouraging you"
+        },
+        {
+          "start": "7:42",
+          "text": "to leave the country since you get other benefits being outside the country,"
+        },
+        {
+          "start": "7:45",
+          "text": "like nicer weather, it's cheaper and stuff like that, friendlier people."
+        },
+        {
+          "start": "7:49",
+          "text": "You get to travel if that's what you're into."
+        },
+        {
+          "start": "7:51",
+          "text": "But you also get to pay no taxes because if you make money"
+        },
+        {
+          "start": "7:54",
+          "text": "as a remote worker for a US company and you're outside the US"
+        },
+        {
+          "start": "7:58",
+          "text": "for more than 330 days out of the year, you don't know taxes"
+        },
+        {
+          "start": "8:01",
+          "text": "for the first one hundred and twenty thousand dollars that you make."
+        },
+        {
+          "start": "8:04",
+          "text": "And for a lot of people, that's basically that basically means"
+        },
+        {
+          "start": "8:06",
+          "text": "that they don't own any taxes."
+        },
+        {
+          "start": "8:07",
+          "text": "So a lot of people in the US think that they don't qualify,"
+        },
+        {
+          "start": "8:09",
+          "text": "but more people actually qualify than meets the eye,"
+        },
+        {
+          "start": "8:13",
+          "text": "because all you have to do is be outside the US for more than 330 days."
+        },
+        {
+          "start": "8:16",
+          "text": "So, yeah, I wish somebody told me earlier about this,"
+        },
+        {
+          "start": "8:19",
+          "text": "but like this system isn't set up to tell you that these are the things"
+        },
+        {
+          "start": "8:23",
+          "text": "that you can take advantage of."
+        },
+        {
+          "start": "8:24",
+          "text": "For example, they don't want people leaving the US,"
+        },
+        {
+          "start": "8:26",
+          "text": "so they don't really advertise this."
+        },
+        {
+          "start": "8:28",
+          "text": "So, yeah, if this is you and you want to take advantage of this,"
+        },
+        {
+          "start": "8:30",
+          "text": "if you're thinking about leaving the US or you already left,"
+        },
+        {
+          "start": "8:34",
+          "text": "here's what to do next."
+        },
+        {
+          "start": "8:35",
+          "text": "It depends on where you are in the process."
+        },
+        {
+          "start": "8:37",
+          "text": "If you don't have a remote job, I highly encourage you to get a remote job,"
+        },
+        {
+          "start": "8:40",
+          "text": "something that you can do on your laptop."
+        },
+        {
+          "start": "8:43",
+          "text": "Once you have that, just go into the HR software"
+        },
+        {
+          "start": "8:47",
+          "text": "that does the taxes for your company and then just file a W-4 form"
+        },
+        {
+          "start": "8:50",
+          "text": "that says that you're exempt for federal and state taxes."
+        },
+        {
+          "start": "8:53",
+          "text": "And then also, once you've done that, plan where you're going to move."
+        },
+        {
+          "start": "8:57",
+          "text": "What's going to be your strategy?"
+        },
+        {
+          "start": "8:58",
+          "text": "Are you moving to Dubai, Paraguay?"
+        },
+        {
+          "start": "8:59",
+          "text": "A no-tax country?"
+        },
+        {
+          "start": "9:01",
+          "text": "Or are you going to be hopping around and what's that going to look like for you?"
+        },
+        {
+          "start": "9:04",
+          "text": "Are you going to stay in hotels, Airbnb?"
+        },
+        {
+          "start": "9:05",
+          "text": "What countries? What are you going to do?"
+        },
+        {
+          "start": "9:07",
+          "text": "What's the work set up for you?"
+        },
+        {
+          "start": "9:08",
+          "text": "Or maybe you're already abroad and you literally just have to go"
+        },
+        {
+          "start": "9:11",
+          "text": "into TurboTax and say that you qualify for this exemption."
+        },
+        {
+          "start": "9:14",
+          "text": "And that's it. That's what it is."
+        },
+        {
+          "start": "9:15",
+          "text": "That's the federal earned income tax exclusion."
+        },
+        {
+          "start": "9:18",
+          "text": "And more people can take advantage of it than you think."
+        },
+        {
+          "start": "9:21",
+          "text": "If you have any questions, you can leave them in the comments below."
+        },
+        {
+          "start": "9:24",
+          "text": "I should have some links down below to talk about how you can reach me."
+        },
+        {
+          "start": "9:27",
+          "text": "If you have any more questions"
+        },
+        {
+          "start": "9:28",
+          "text": "and if you have any trouble setting this up, you can talk to me"
+        },
+        {
+          "start": "9:31",
+          "text": "through those channels and I hope you offer for good luck."
+        }
+      ]
+    }
+  ]
+}

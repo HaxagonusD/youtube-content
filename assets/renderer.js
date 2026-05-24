@@ -114,6 +114,10 @@
       return buildTodoPanel(tab);
     }
 
+    if (tab.id === 'actual-script') {
+      return buildTranscriptPanel(tab);
+    }
+
     // Social tabs (shorts, twitter, tiktok, instagram, linkedin)
     const summaryHtml = tab.summary ? buildSummary(tab.summary) : '';
     const postsHtml = (tab.posts || []).map(p => buildPost(p, tab.id)).join('');
@@ -196,6 +200,44 @@
     return `
       <div class="container">
         <div class="todo-panel">${groupsHtml}</div>
+      </div>
+    `;
+  }
+
+  // ── 5c. Transcript panel builder ─────────────────────────────────────────
+  function buildTranscriptPanel(tab) {
+    const cues = tab.cues || [];
+    const legend = tab.legend || [];
+
+    const colorMap = {};
+    legend.forEach(l => { colorMap[l.id] = l.color; });
+
+    const legendHtml = legend.map(l => `
+      <div class="transcript-legend-item">
+        <div class="transcript-legend-dot" style="background:${escHtml(l.color)}"></div>
+        ${escHtml(l.label)}
+      </div>
+    `).join('');
+
+    const cuesHtml = cues.map(c => {
+      const color = colorMap[c.section] || '#444';
+      return `
+        <div class="transcript-cue">
+          <div class="transcript-cue-bar" style="background:${color}"></div>
+          <div class="transcript-inner">
+            <span class="transcript-time">${escHtml(c.start)}</span>
+            <span class="transcript-text">${escHtml(c.text)}</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    return `
+      <div class="container">
+        <div class="transcript-list">
+          <div class="transcript-legend">${legendHtml}</div>
+          ${cuesHtml}
+        </div>
       </div>
     `;
   }

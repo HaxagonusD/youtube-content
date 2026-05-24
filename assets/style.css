@@ -882,3 +882,15 @@
     transition: border-color 0.15s, color 0.15s;
   }
   .anim-copy-btn:hover { border-color: var(--accent-dim); color: var(--accent); }
+
+  /* ACTUAL SCRIPT (TRANSCRIPT) TAB */
+  .transcript-list { padding: 48px 0 120px; }
+  .transcript-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .transcript-legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .transcript-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .transcript-cue { display: flex; gap: 0; align-items: stretch; border-bottom: 1px solid var(--border); }
+  .transcript-cue:first-of-type { border-top: 1px solid var(--border); }
+  .transcript-cue-bar { width: 3px; flex-shrink: 0; border-radius: 2px; margin: 6px 16px 6px 0; }
+  .transcript-inner { display: flex; gap: 20px; align-items: baseline; padding: 12px 0; flex: 1; }
+  .transcript-time { flex-shrink: 0; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--accent-dim); font-variant-numeric: tabular-nums; width: 44px; padding-top: 2px; }
+  .transcript-text { font-size: 16px; font-weight: 300; color: var(--text); line-height: 1.6; }
