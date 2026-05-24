@@ -966,7 +966,7 @@
           "start": "0:00",
           "text": "Okay, so I'm going to tell you how to avoid taxes, legally, of course.",
           "section": "hook",
-          "anim": "[TEXT] \"AVOID TAXES\" slams in large, bold. Then \"(legally)\" fades in smaller beneath it. High contrast, nothing else on screen."
+          "anim": "[VIDEO] \"AVOID TAXES\" slams in large, bold. Then \"(legally)\" fades in smaller beneath it. High contrast, nothing else on screen."
         },
         {
           "start": "0:03",
@@ -987,13 +987,13 @@
           "start": "0:12",
           "text": "If you work a remote job, if you make less than $126,000 in the year 2026,",
           "section": "hook",
-          "anim": "[TEXT] \"$126,000\" slams in center frame, bold white. Then \"= $0 federal taxes\" animates in below it, underline sweeping left to right."
+          "anim": "[VIDEO] \"$126,000\" slams in center frame, bold white. Then \"= $0 federal taxes\" animates in below it, underline sweeping left to right."
         },
         {
           "start": "0:17",
           "text": "you could owe zero in federal taxes.",
           "section": "hook",
-          "anim": "[TEXT] Animated counter: tax owed ticks down from $20,946 → $0. Pause on $0 with a green checkmark."
+          "anim": "[VIDEO] Animated counter: tax owed ticks down from $20,946 → $0. Pause on $0 with a green checkmark."
         },
         {
           "start": "0:19",
@@ -1004,7 +1004,7 @@
           "start": "0:22",
           "text": "But this law has been around since 100 years ago, 1926.",
           "section": "hook",
-          "anim": "[TEXT] Timeline bar animates from 1926 to 2026. Label \"100 YEARS\" pops in above the bar. Minimal, single line."
+          "anim": "[VIDEO] Timeline bar animates from 1926 to 2026. Label \"100 YEARS\" pops in above the bar. Minimal, single line."
         },
         {
           "start": "0:26",
@@ -1061,7 +1061,7 @@
           "start": "0:46",
           "text": "Out of 170 plus countries, the US is one of two.",
           "section": "what",
-          "anim": "[TEXT] \"170+ countries\" fades in. Then all but 2 dots grey out, leaving US and Eritrea highlighted. \"Only 2 tax citizens abroad\" label slides in."
+          "anim": "[VIDEO] \"170+ countries\" fades in. Then all but 2 dots grey out, leaving US and Eritrea highlighted. \"Only 2 tax citizens abroad\" label slides in."
         },
         {
           "start": "0:49",
@@ -1072,7 +1072,7 @@
           "start": "0:50",
           "text": "If a UK citizen goes to Dubai, they're not getting taxed.",
           "section": "what",
-          "anim": "[TEXT] Split screen animates in: left side \"🇬🇧 UK in Dubai\" with green checkmark (no tax), right side \"🇺🇸 American abroad\" with IRS icon (still taxed). Labels fade in one by one."
+          "anim": "[VIDEO] Split screen animates in: left side \"🇬🇧 UK in Dubai\" with green checkmark (no tax), right side \"🇺🇸 American abroad\" with IRS icon (still taxed). Labels fade in one by one."
         },
         {
           "start": "0:54",
@@ -1098,13 +1098,13 @@
           "start": "1:09",
           "text": "And to qualify, you basically have to be a tax resident of another country or you have",
           "section": "what",
-          "anim": "[TEXT] Two bullet points animate in sequentially: \"1. Tax resident of another country\" then \"2. Outside the US for 330+ days\". Clean list, bold numbers."
+          "anim": "[VIDEO] Two bullet points animate in sequentially: \"1. Tax resident of another country\" then \"2. Outside the US for 330+ days\". Clean list, bold numbers."
         },
         {
           "start": "1:13",
           "text": "to be physically present outside the US for more than 330 days.",
           "section": "what",
-          "anim": "[TEXT] Calendar grid fills in day by day. Counter in corner: \"0 days... 330 days ✓\". Stops on 330 with checkmark."
+          "anim": "[VIDEO] Calendar grid fills in day by day. Counter in corner: \"0 days... 330 days ✓\". Stops on 330 with checkmark."
         },
         {
           "start": "1:16",
@@ -1126,7 +1126,7 @@
           "start": "1:24",
           "text": "It's form 2555.",
           "section": "what",
-          "anim": "[TEXT] \"Form 2555\" types itself out character by character on screen, then a bold underline sweeps beneath it. Nothing else."
+          "anim": "[VIDEO] \"Form 2555\" types itself out character by character on screen, then a bold underline sweeps beneath it. Nothing else."
         },
         {
           "start": "1:26",
@@ -1147,7 +1147,7 @@
           "start": "1:31",
           "text": "If you live outside the US and you make money outside the US, you don't have to pay money",
           "section": "what",
-          "anim": "[TEXT] Dollar sign icon with a red X appears. Label: \"First $120,000 — EXCLUDED\" in bold. Amount grows visually like a progress bar filling up to $120k."
+          "anim": "[VIDEO] Dollar sign icon with a red X appears. Label: \"First $120,000 — EXCLUDED\" in bold. Amount grows visually like a progress bar filling up to $120k."
         },
         {
           "start": "1:35",
@@ -1233,7 +1233,7 @@
           "start": "2:23",
           "text": "So here's the math. OK, so let's just do a little bit of calculating.",
           "section": "what",
-          "anim": "[TEXT] Header \"THE MATH\" slams in. Then line by line: \"Income: $126,000\" → \"Tax bracket applied\" → \"Federal taxes owed: $20,946\". Each line pauses before the next."
+          "anim": "[VIDEO] Header \"THE MATH\" slams in. Then line by line: \"Income: $126,000\" → \"Tax bracket applied\" → \"Federal taxes owed: $20,946\". Each line pauses before the next."
         },
         {
           "start": "2:26",
@@ -1249,7 +1249,7 @@
           "start": "2:37",
           "text": "And it's twenty thousand nine hundred and forty six.",
           "section": "math",
-          "anim": "[TEXT] Animated counter ticks up: $0 → $20,946. Pauses on the final number. Large, bold, centered."
+          "anim": "[VIDEO] Animated counter ticks up: $0 → $20,946. Pauses on the final number. Large, bold, centered."
         },
         {
           "start": "2:39",
@@ -1260,13 +1260,13 @@
           "start": "2:44",
           "text": "That's basically thirty thousand dollars extra in your pocket.",
           "section": "math",
-          "anim": "[TEXT] \"$30,000\" slams in with a dollar sign animating in from the left. Label beneath: \"STAYS IN YOUR POCKET\" with a pocket icon. Bold, punchy."
+          "anim": "[VIDEO] \"$30,000\" slams in with a dollar sign animating in from the left. Label beneath: \"STAYS IN YOUR POCKET\" with a pocket icon. Bold, punchy."
         },
         {
           "start": "2:47",
           "text": "And the way that it works is that even let's say you make double that.",
           "section": "math",
-          "anim": "[TEXT] Two-column comparison animates in: \"Income: $240k\" on left, \"Still saves: $30k\" on right. Arrow pointing to \"First $120k excluded\" label below both columns."
+          "anim": "[VIDEO] Two-column comparison animates in: \"Income: $240k\" on left, \"Still saves: $30k\" on right. Arrow pointing to \"First $120k excluded\" label below both columns."
         },
         {
           "start": "2:49",
@@ -1307,13 +1307,13 @@
           "start": "3:06",
           "text": "So I made two hundred and so I made two hundred and eighty thousand dollars in 2025.",
           "section": "personal",
-          "anim": "[TEXT] \"$280,000\" animates in large and bold with label \"Julian's 2025 income\". Clean, personal, high contrast."
+          "anim": "[VIDEO] \"$280,000\" animates in large and bold with label \"Julian's 2025 income\". Clean, personal, high contrast."
         },
         {
           "start": "3:13",
           "text": "And the first one hundred and twenty thousand dollars were excluded.",
           "section": "personal",
-          "anim": "[TEXT] Income bar of $280k renders. First $120k segment highlights in green with label \"EXCLUDED\". Remaining $160k stays in white with label \"taxed on this\"."
+          "anim": "[VIDEO] Income bar of $280k renders. First $120k segment highlights in green with label \"EXCLUDED\". Remaining $160k stays in white with label \"taxed on this\"."
         },
         {
           "start": "3:15",
@@ -1334,7 +1334,7 @@
           "start": "3:27",
           "text": "And all you really have to do is tell your employer that you're exempt from federal",
           "section": "personal",
-          "anim": "[TEXT] Mockup of a W-4 form header animates in. Field labeled \"Exempt\" gets circled. Label: \"One checkbox. Done.\" fades in below."
+          "anim": "[VIDEO] Mockup of a W-4 form header animates in. Field labeled \"Exempt\" gets circled. Label: \"One checkbox. Done.\" fades in below."
         },
         {
           "start": "3:31",
@@ -1385,7 +1385,7 @@
           "start": "4:03",
           "text": "They use that software.",
           "section": "personal",
-          "anim": "[TEXT] ADP logo (or generic HR software UI) fades in. Then a lock icon appears over it with label \"Employer can't see your account\". Simple, visual."
+          "anim": "[VIDEO] ADP logo (or generic HR software UI) fades in. Then a lock icon appears over it with label \"Employer can't see your account\". Simple, visual."
         },
         {
           "start": "4:04",
@@ -1416,7 +1416,7 @@
           "start": "4:19",
           "text": "Right. Now you have to worry about state taxes.",
           "section": "state",
-          "anim": "[TEXT] Map of US appears. States light up one by one. Label: \"50 states. 50 different rules.\" fades in below the map."
+          "anim": "[VIDEO] Map of US appears. States light up one by one. Label: \"50 states. 50 different rules.\" fades in below the map."
         },
         {
           "start": "4:21",
@@ -1437,7 +1437,7 @@
           "start": "4:28",
           "text": "They're all different. Let's take New York, for example.",
           "section": "state",
-          "anim": "[TEXT] Side-by-side state comparison: \"New York\" column with green checkmark and \"Honors FEIE ✓\", \"New Jersey\" column with red X and \"Does NOT honor FEIE\". Labels animate in left then right."
+          "anim": "[VIDEO] Side-by-side state comparison: \"New York\" column with green checkmark and \"Honors FEIE ✓\", \"New Jersey\" column with red X and \"Does NOT honor FEIE\". Labels animate in left then right."
         },
         {
           "start": "4:30",
@@ -1533,7 +1533,7 @@
           "start": "5:20",
           "text": "You have a remote job that allows you to go outside the US.",
           "section": "state",
-          "anim": "[TEXT] Three-step summary animates in sequentially: \"1. Remote job\" → \"2. Leave the US\" → \"3. File Form 2555 — keep your money\". Each step pops in with a short pause."
+          "anim": "[VIDEO] Three-step summary animates in sequentially: \"1. Remote job\" → \"2. Leave the US\" → \"3. File Form 2555 — keep your money\". Each step pops in with a short pause."
         },
         {
           "start": "5:24",
@@ -1564,7 +1564,7 @@
           "start": "5:34",
           "text": "You can go to a different country where you don't have to pay taxes",
           "section": "where",
-          "anim": "[TEXT] Two strategy cards animate in side by side: \"STRATEGY 1: Territorial\" (Dubai/Paraguay icons) vs \"STRATEGY 2: Rotation\" (map with hopping arrows). Bold header on each."
+          "anim": "[VIDEO] Two strategy cards animate in side by side: \"STRATEGY 1: Territorial\" (Dubai/Paraguay icons) vs \"STRATEGY 2: Rotation\" (map with hopping arrows). Bold header on each."
         },
         {
           "start": "5:37",
@@ -1641,7 +1641,7 @@
           "start": "6:15",
           "text": "And it's the same thing for a lot of Latin American countries like Mexico,",
           "section": "where",
-          "anim": "[TEXT] Country list pops in one by one: Mexico → Guatemala → Dominican Republic → Peru. Each with a green checkmark and \"<180 days = no tax\" label."
+          "anim": "[VIDEO] Country list pops in one by one: Mexico → Guatemala → Dominican Republic → Peru. Each with a green checkmark and \"<180 days = no tax\" label."
         },
         {
           "start": "6:19",
@@ -1713,7 +1713,7 @@
           "start": "7:03",
           "text": "It says nothing about where the money came from.",
           "section": "where",
-          "anim": "[TEXT] Two lines animate in: \"Where the money came from: IRRELEVANT\" (crossed out). \"Where YOU were: MATTERS\" (bold, underlined). Clean contrast."
+          "anim": "[VIDEO] Two lines animate in: \"Where the money came from: IRRELEVANT\" (crossed out). \"Where YOU were: MATTERS\" (bold, underlined). Clean contrast."
         },
         {
           "start": "7:05",
@@ -1879,7 +1879,7 @@
           "start": "8:35",
           "text": "It depends on where you are in the process.",
           "section": "close",
-          "anim": "[TEXT] \"STEP 1\" header animates in. Beneath it: \"Get a remote job you can do from a laptop.\" Bold step number, clean body text."
+          "anim": "[VIDEO] \"STEP 1\" header animates in. Beneath it: \"Get a remote job you can do from a laptop.\" Bold step number, clean body text."
         },
         {
           "start": "8:37",
@@ -1895,7 +1895,7 @@
           "start": "8:43",
           "text": "Once you have that, just go into the HR software",
           "section": "close",
-          "anim": "[TEXT] \"STEP 2\" header animates in. Beneath it: \"File W-4 — check EXEMPT for federal and state taxes.\" Step 2 slides in from the right."
+          "anim": "[VIDEO] \"STEP 2\" header animates in. Beneath it: \"File W-4 — check EXEMPT for federal and state taxes.\" Step 2 slides in from the right."
         },
         {
           "start": "8:47",
@@ -1911,7 +1911,7 @@
           "start": "8:53",
           "text": "And then also, once you've done that, plan where you're going to move.",
           "section": "close",
-          "anim": "[TEXT] \"STEP 3\" header animates in. Two sub-options pop in: \"Option A: Territorial (Dubai, Paraguay)\" and \"Option B: Rotation (3–4 months per country)\". Clean branching layout."
+          "anim": "[VIDEO] \"STEP 3\" header animates in. Two sub-options pop in: \"Option A: Territorial (Dubai, Paraguay)\" and \"Option B: Rotation (3–4 months per country)\". Clean branching layout."
         },
         {
           "start": "8:57",

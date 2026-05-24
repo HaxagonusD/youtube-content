@@ -976,11 +976,6 @@
     text-transform: uppercase;
     line-height: 2;
   }
-  .anim-type-text {
-    background: rgba(90, 200, 200, 0.1);
-    color: #5ac8c8;
-    border: 1px solid rgba(90, 200, 200, 0.2);
-  }
   .anim-type-video {
     background: rgba(160, 100, 220, 0.1);
     color: #b07cd8;
