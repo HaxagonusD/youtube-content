@@ -902,15 +902,10 @@
   .clip-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.05em; padding: 2px 6px; border-radius: 3px; color: var(--badge-color); border: 1px solid color-mix(in srgb, var(--badge-color) 55%, transparent); background: color-mix(in srgb, var(--badge-color) 12%, transparent); white-space: nowrap; cursor: default; line-height: 1.6; }
   .transcript-cue.has-clip { background: rgba(255,255,255,0.015); }
 
-  /* ACTUAL TRANSCRIPT VIEW BAR */
-  #actual-view-bar {
-    display: none;
-    position: sticky; bottom: 52px; left: 0; right: 0; z-index: 295;
-    background: #0a0a0a; border-top: 1px solid #252525;
-    align-items: center; justify-content: center;
-    padding: 0 24px; height: 52px;
-  }
-  body[data-tab="actual-script"] #actual-view-bar { display: flex; }
+  /* ACTUAL TRANSCRIPT VIEW TOGGLE — lives in #vbar, shown only on recorded tab */
+  #actual-view-toggle { display: none; }
+  body[data-tab="actual-script"] #actual-view-toggle { display: flex; }
+  body[data-tab="actual-script"] #view-toggle { display: none; }
 
   #actual-view-toggle {
     position: relative;

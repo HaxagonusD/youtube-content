@@ -61,6 +61,12 @@
           <button class="vtab" data-view="anim">Anim</button>
           <div id="vtab-indicator"></div>
         </div>
+        <div id="actual-view-toggle">
+          <button class="actual-vtab" data-aview="script">Script</button>
+          <button class="actual-vtab" data-aview="shortform">Short-form</button>
+          <button class="actual-vtab" data-aview="animations">Animations</button>
+          <div id="actual-vtab-indicator"></div>
+        </div>
         <button class="vbtn" id="btn-import-script" title="Copy DaVinci import script to clipboard">Import Script</button>
         <button class="vbtn" id="btn-history">History</button>
         <button class="vbtn" id="btn-fullscreen" title="Toggle fullscreen">⛶</button>
@@ -272,14 +278,6 @@
           <div class="transcript-legend">${legendHtml}</div>
           ${clipsLegendHtml}
           <div class="transcript-cues" id="transcript-cues">${cuesHtml}</div>
-        </div>
-      </div>
-      <div id="actual-view-bar">
-        <div id="actual-view-toggle">
-          <button class="actual-vtab" data-aview="script">Script</button>
-          <button class="actual-vtab" data-aview="shortform">Short-form</button>
-          <button class="actual-vtab" data-aview="animations">Animations</button>
-          <div id="actual-vtab-indicator"></div>
         </div>
       </div>
     `;

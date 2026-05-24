@@ -952,7 +952,7 @@
     },
     {
       "id": "actual-script",
-      "label": "Actual",
+      "label": "Recorded",
       "hero": {
         "eyebrow": "TRANSCRIPT",
         "title": "What Was Actually Said"
