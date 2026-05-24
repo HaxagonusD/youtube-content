@@ -237,7 +237,7 @@
       </div>
     ` : '';
 
-    const cuesHtml = cues.map(c => {
+    const cuesHtml = cues.map((c, idx) => {
       const color   = colorMap[c.section] || '#444';
       const cueSec  = toSec(c.start);
       const matched = clips.filter(cl =>
@@ -254,12 +254,13 @@
       ` : '';
 
       return `
-        <div class="transcript-cue${matched.length ? ' has-clip' : ''}">
+        <div class="transcript-cue${matched.length ? ' has-clip' : ''}" data-cue-idx="${idx}">
           <div class="transcript-cue-bar" style="background:${color}"></div>
           <div class="transcript-inner">
             <span class="transcript-time">${escHtml(c.start)}</span>
             <span class="transcript-text">${escHtml(c.text)}</span>
             ${badgesHtml}
+            <input class="transcript-anim-input" type="text" placeholder="animation note…" data-cue-idx="${idx}">
           </div>
         </div>
       `;
@@ -270,7 +271,15 @@
         <div class="transcript-list">
           <div class="transcript-legend">${legendHtml}</div>
           ${clipsLegendHtml}
-          ${cuesHtml}
+          <div class="transcript-cues" id="transcript-cues">${cuesHtml}</div>
+        </div>
+      </div>
+      <div id="actual-view-bar">
+        <div id="actual-view-toggle">
+          <button class="actual-vtab" data-aview="script">Script</button>
+          <button class="actual-vtab" data-aview="shortform">Short-form</button>
+          <button class="actual-vtab" data-aview="animations">Animations</button>
+          <div id="actual-vtab-indicator"></div>
         </div>
       </div>
     `;
@@ -806,6 +815,9 @@ print("All done.")`;
         indicator.style.width = btnRect.width + 'px';
       }
     }
+    if (tab === 'actual-script') {
+      requestAnimationFrame(_positionActualIndicator);
+    }
     if (save) {
       try { window.storage.set('active_tab', tab); } catch (e) {}
     }
@@ -957,6 +969,71 @@ print("All done.")`;
     });
   }
 
+  // ── 13c. Transcript view switching (Script / Short-form / Animations) ────
+  // Module-level ref so setActiveTab can call it after tab switch
+  let _positionActualIndicator = () => {};
+
+  function initTranscriptViews() {
+    const panel = document.querySelector('.tab-content[data-tab="actual-script"]');
+    if (!panel) return;
+
+    // Derive slug from URL for localStorage keys
+    const slug = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean).slice(-1)[0] || 'script';
+
+    // Restore saved animation notes
+    panel.querySelectorAll('.transcript-anim-input').forEach(inp => {
+      const idx = inp.dataset.cueIdx;
+      const stored = localStorage.getItem(`actual-anim:${slug}:${idx}`);
+      if (stored) inp.value = stored;
+      inp.addEventListener('input', () => {
+        try { localStorage.setItem(`actual-anim:${slug}:${idx}`, inp.value); } catch (e) {}
+      });
+    });
+
+    // Restore saved view or default to 'script'
+    let aview = 'script';
+    try { const s = localStorage.getItem(`actual-view:${slug}`); if (s) aview = s; } catch (e) {}
+
+    function positionActualIndicator(v) {
+      const indicator = document.getElementById('actual-vtab-indicator');
+      const activeBtn = document.querySelector(`.actual-vtab[data-aview="${v}"]`);
+      const parent = document.getElementById('actual-view-toggle');
+      if (activeBtn && indicator && parent) {
+        const parentRect = parent.getBoundingClientRect();
+        const btnRect = activeBtn.getBoundingClientRect();
+        indicator.style.left = (btnRect.left - parentRect.left - 3) + 'px';
+        indicator.style.width = btnRect.width + 'px';
+      }
+    }
+    // Expose so setActiveTab can reposition on tab switch
+    _positionActualIndicator = () => positionActualIndicator(aview);
+
+    function setActualView(v, save = true) {
+      aview = v;
+      document.querySelectorAll('.actual-vtab').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.aview === v);
+      });
+      positionActualIndicator(v);
+
+      // Apply body class so CSS can do the heavy lifting
+      document.body.classList.remove('actual-view-script', 'actual-view-shortform', 'actual-view-animations');
+      document.body.classList.add(`actual-view-${v}`);
+
+      if (save) {
+        try { localStorage.setItem(`actual-view:${slug}`, v); } catch (e) {}
+      }
+    }
+
+    document.querySelectorAll('.actual-vtab').forEach(btn => {
+      btn.addEventListener('click', () => setActualView(btn.dataset.aview));
+    });
+
+    // Set initial view (rough pass, then corrected after fonts load)
+    setActualView(aview, false);
+    // Re-position indicator after fonts settle
+    document.fonts.ready.then(() => positionActualIndicator(aview));
+  }
+
   // ── 14. Alt+pointer — highlight on hover, save on click ──────────────────
   (() => {
     let altDown = false;
@@ -1026,6 +1103,7 @@ print("All done.")`;
   injectMusicCues();
   initTodos();
   initAnimAnnotations();
+  initTranscriptViews();
   loadMode(); // rough pass so indicator appears immediately
 
   await document.fonts.ready;
