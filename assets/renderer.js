@@ -701,7 +701,10 @@
   });
 
   // ── 11b. Import script ────────────────────────────────────────────────────
-  const DAVINCI_IMPORT_SCRIPT = `local BASE = "/Users/julianquezada/Desktop/VIDEOS/Auto AI Applier"
+  function buildDaVinciScript(m) {
+    const base = m.importScript?.base || '/Users/julianquezada/Desktop/VIDEOS/Auto AI Applier';
+    const bin  = m.importScript?.bin  || 'Auto AI Applier';
+    return `local BASE = "${base}"
 
 local BINS = {
     "Raw Footage",
@@ -741,7 +744,7 @@ end
 
 local mediaPool   = resolve:GetProjectManager():GetCurrentProject():GetMediaPool()
 local rootFolder  = mediaPool:GetRootFolder()
-local projectBin  = getOrCreateBin(mediaPool, rootFolder, "Auto AI Applier")
+local projectBin  = getOrCreateBin(mediaPool, rootFolder, "${bin}")
 
 for _, binName in ipairs(BINS) do
     local folderPath = BASE .. "/" .. binName
@@ -773,14 +776,14 @@ for _, binName in ipairs(BINS) do
     end
 end
 
--- Return focus to Raw Footage bin after all imports
 local rawFootageBin = getOrCreateBin(mediaPool, projectBin, "Raw Footage")
 mediaPool:SetCurrentFolder(rawFootageBin)
 
 print("All done.")`;
+  }
 
   document.getElementById('btn-import-script').addEventListener('click', () => {
-    navigator.clipboard.writeText(DAVINCI_IMPORT_SCRIPT).then(() => showToast('Import script copied!'));
+    navigator.clipboard.writeText(buildDaVinciScript(meta)).then(() => showToast('Import script copied!'));
   });
 
   // ── 12. Tab switching ─────────────────────────────────────────────────────

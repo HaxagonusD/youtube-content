@@ -4,7 +4,11 @@
     "eyebrow": "Video Script — Full Draft",
     "scriptVersion": "v12",
     "versionLabel": "Shorts plan drafted",
-    "footerNote": "Script Draft · Fill in [X], [Y], [Z] before filming"
+    "footerNote": "Script Draft · Fill in [X], [Y], [Z] before filming",
+    "importScript": {
+      "base": "/Users/julianquezada/Desktop/VIDEOS/Auto AI Applier",
+      "bin": "Auto AI Applier"
+    }
   },
   "tabs": [
     {

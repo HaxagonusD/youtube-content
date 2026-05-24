@@ -4,7 +4,11 @@
     "eyebrow": "Video Script — Foreign Earned Income Exclusion",
     "footerNote": "Beat outline · bullets to hit, not final VO",
     "scriptVersion": "v1",
-    "versionLabel": "FEIE tax explainer"
+    "versionLabel": "FEIE tax explainer",
+    "importScript": {
+      "base": "/Users/julianquezada/Desktop/Videos/Just pay your taxes bro",
+      "bin": "Just pay your taxes bro"
+    }
   },
   "tabs": [
     {

@@ -2,7 +2,11 @@
   "meta": {
     "title": "Just Pay Your Taxes Bro",
     "eyebrow": "FEIE · Tax Strategy",
-    "footerNote": "just-pay-your-taxes"
+    "footerNote": "just-pay-your-taxes",
+    "importScript": {
+      "base": "/Users/julianquezada/Desktop/Videos/Just pay your taxes bro",
+      "bin": "Just pay your taxes bro"
+    }
   },
   "tabs": [
     {
