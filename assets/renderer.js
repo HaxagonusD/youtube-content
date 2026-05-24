@@ -206,11 +206,17 @@
 
   // ── 5c. Transcript panel builder ─────────────────────────────────────────
   function buildTranscriptPanel(tab) {
-    const cues = tab.cues || [];
+    const cues   = tab.cues   || [];
     const legend = tab.legend || [];
+    const clips  = tab.clips  || [];
 
     const colorMap = {};
     legend.forEach(l => { colorMap[l.id] = l.color; });
+
+    function toSec(t) {
+      const p = String(t).split(':').map(Number);
+      return p.length === 3 ? p[0]*3600 + p[1]*60 + p[2] : p[0]*60 + (p[1]||0);
+    }
 
     const legendHtml = legend.map(l => `
       <div class="transcript-legend-item">
@@ -219,14 +225,41 @@
       </div>
     `).join('');
 
+    const clipsLegendHtml = clips.length ? `
+      <div class="clips-legend-label">Repurposed as</div>
+      <div class="transcript-legend clips-legend">
+        ${clips.map(cl => `
+          <div class="transcript-legend-item">
+            <div class="transcript-legend-dot" style="background:${escHtml(cl.color)}"></div>
+            <span class="clip-legend-name">${escHtml(cl.label)}</span>${cl.sublabel ? `<span class="clip-legend-sub"> — ${escHtml(cl.sublabel)}</span>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    ` : '';
+
     const cuesHtml = cues.map(c => {
-      const color = colorMap[c.section] || '#444';
+      const color   = colorMap[c.section] || '#444';
+      const cueSec  = toSec(c.start);
+      const matched = clips.filter(cl =>
+        cl.ranges.some(r => cueSec >= r.start && cueSec < r.end)
+      );
+      const badgesHtml = matched.length ? `
+        <div class="transcript-clips">
+          ${matched.map(cl => `
+            <span class="clip-badge" style="--badge-color:${escHtml(cl.color)}"
+              title="${escHtml(cl.label + (cl.sublabel ? ' — ' + cl.sublabel : ''))}"
+            >${escHtml(cl.label)}</span>
+          `).join('')}
+        </div>
+      ` : '';
+
       return `
-        <div class="transcript-cue">
+        <div class="transcript-cue${matched.length ? ' has-clip' : ''}">
           <div class="transcript-cue-bar" style="background:${color}"></div>
           <div class="transcript-inner">
             <span class="transcript-time">${escHtml(c.start)}</span>
             <span class="transcript-text">${escHtml(c.text)}</span>
+            ${badgesHtml}
           </div>
         </div>
       `;
@@ -236,6 +269,7 @@
       <div class="container">
         <div class="transcript-list">
           <div class="transcript-legend">${legendHtml}</div>
+          ${clipsLegendHtml}
           ${cuesHtml}
         </div>
       </div>

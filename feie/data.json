@@ -2005,6 +2005,180 @@
           "label": "CLOSE",
           "color": "#888888"
         }
+      ],
+      "clips": [
+        {
+          "id": "short-01",
+          "label": "Short 01",
+          "sublabel": "Tax Trap",
+          "platform": "shorts",
+          "color": "#6b9bd1",
+          "ranges": [
+            {
+              "start": 0,
+              "end": 53
+            }
+          ]
+        },
+        {
+          "id": "short-02",
+          "label": "Short 02",
+          "sublabel": "Who Qualifies",
+          "platform": "shorts",
+          "color": "#6b9bd1",
+          "ranges": [
+            {
+              "start": 453,
+              "end": 493
+            }
+          ]
+        },
+        {
+          "id": "tt-01",
+          "label": "TikTok 01",
+          "sublabel": "Tax Trap",
+          "platform": "tiktok",
+          "color": "#a07cd4",
+          "ranges": [
+            {
+              "start": 0,
+              "end": 55
+            }
+          ]
+        },
+        {
+          "id": "tt-02",
+          "label": "TikTok 02",
+          "sublabel": "Eritrea Hook",
+          "platform": "tiktok",
+          "color": "#a07cd4",
+          "ranges": [
+            {
+              "start": 39,
+              "end": 89
+            }
+          ]
+        },
+        {
+          "id": "tt-03",
+          "label": "TikTok 03",
+          "sublabel": "330-Day Rule",
+          "platform": "tiktok",
+          "color": "#a07cd4",
+          "ranges": [
+            {
+              "start": 69,
+              "end": 95
+            },
+            {
+              "start": 361,
+              "end": 393
+            }
+          ]
+        },
+        {
+          "id": "ig-01",
+          "label": "IG Reel 01",
+          "sublabel": "Exclusion vs Deduction",
+          "platform": "instagram",
+          "color": "#c4748a",
+          "ranges": [
+            {
+              "start": 60,
+              "end": 89
+            }
+          ]
+        },
+        {
+          "id": "ig-02",
+          "label": "IG Reel 02",
+          "sublabel": "Eritrea Hook",
+          "platform": "instagram",
+          "color": "#c4748a",
+          "ranges": [
+            {
+              "start": 39,
+              "end": 70
+            }
+          ]
+        },
+        {
+          "id": "ig-03",
+          "label": "IG Reel 03",
+          "sublabel": "330-Day Rule",
+          "platform": "instagram",
+          "color": "#c4748a",
+          "ranges": [
+            {
+              "start": 69,
+              "end": 94
+            }
+          ]
+        },
+        {
+          "id": "tw-02",
+          "label": "Tweet 02",
+          "sublabel": "Hook Stat",
+          "platform": "twitter",
+          "color": "#4aa8c8",
+          "ranges": [
+            {
+              "start": 0,
+              "end": 27
+            }
+          ]
+        },
+        {
+          "id": "tw-03",
+          "label": "Tweet 03",
+          "sublabel": "The Math",
+          "platform": "twitter",
+          "color": "#4aa8c8",
+          "ranges": [
+            {
+              "start": 150,
+              "end": 185
+            }
+          ]
+        },
+        {
+          "id": "tw-04",
+          "label": "Tweet 04",
+          "sublabel": "Image Quote",
+          "platform": "twitter",
+          "color": "#4aa8c8",
+          "ranges": [
+            {
+              "start": 499,
+              "end": 509
+            }
+          ]
+        },
+        {
+          "id": "li-01",
+          "label": "LinkedIn",
+          "sublabel": "Full Post",
+          "platform": "linkedin",
+          "color": "#7ab0c8",
+          "ranges": [
+            {
+              "start": 0,
+              "end": 27
+            },
+            {
+              "start": 39,
+              "end": 95
+            },
+            {
+              "start": 259,
+              "end": 332
+            },
+            {
+              "start": 499,
+              "end": 509
+            }
+          ]
+        }
       ]
     }
   ]

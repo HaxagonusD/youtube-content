@@ -888,9 +888,16 @@
   .transcript-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
   .transcript-legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
   .transcript-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .clips-legend-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); opacity: 0.6; margin-bottom: 10px; margin-top: 28px; }
+  .clips-legend { margin-bottom: 36px; }
+  .clip-legend-name { font-weight: 700; }
+  .clip-legend-sub { font-weight: 400; opacity: 0.75; text-transform: none; letter-spacing: 0; }
   .transcript-cue { display: flex; gap: 0; align-items: stretch; border-bottom: 1px solid var(--border); }
   .transcript-cue:first-of-type { border-top: 1px solid var(--border); }
   .transcript-cue-bar { width: 3px; flex-shrink: 0; border-radius: 2px; margin: 6px 16px 6px 0; }
-  .transcript-inner { display: flex; gap: 20px; align-items: baseline; padding: 12px 0; flex: 1; }
-  .transcript-time { flex-shrink: 0; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--accent-dim); font-variant-numeric: tabular-nums; width: 44px; padding-top: 2px; }
-  .transcript-text { font-size: 16px; font-weight: 300; color: var(--text); line-height: 1.6; }
+  .transcript-inner { display: flex; gap: 16px; align-items: center; padding: 10px 0; flex: 1; }
+  .transcript-time { flex-shrink: 0; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--accent-dim); font-variant-numeric: tabular-nums; width: 44px; }
+  .transcript-text { font-size: 15px; font-weight: 300; color: var(--text); line-height: 1.5; flex: 1; }
+  .transcript-clips { display: flex; flex-wrap: wrap; gap: 3px; flex-shrink: 0; margin-left: auto; padding-left: 8px; }
+  .clip-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.05em; padding: 2px 6px; border-radius: 3px; color: var(--badge-color); border: 1px solid color-mix(in srgb, var(--badge-color) 55%, transparent); background: color-mix(in srgb, var(--badge-color) 12%, transparent); white-space: nowrap; cursor: default; line-height: 1.6; }
+  .transcript-cue.has-clip { background: rgba(255,255,255,0.015); }
