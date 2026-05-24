@@ -266,6 +266,8 @@
         const desc = m ? m[2] : c.anim;
         const badge = type ? `<span class="anim-type-badge anim-type-${escHtml(type.toLowerCase())}">${escHtml(type)}</span>` : '';
         animHtml = `<div class="transcript-anim-note">${badge}<span class="anim-note-desc">${escHtml(desc)}</span></div>`;
+      } else {
+        animHtml = `<div class="transcript-anim-note"></div>`;
       }
 
       return `
